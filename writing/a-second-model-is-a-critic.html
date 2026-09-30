@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A second model is a critic, not a verifier – Ugur Tuna</title>
+  <meta name="description" content="Asking one model to review another can improve a draft. It cannot tell you the draft is true. How to use a second model well, and how to verify against sources instead.">
+  <meta name="author" content="Ugur Tuna">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://dsugurtuna.github.io/writing/a-second-model-is-a-critic.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Ugur Tuna">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="A second model is a critic, not a verifier">
+  <meta property="og:description" content="Asking one model to review another can improve a draft. It cannot tell you the draft is true.">
+  <meta property="og:url" content="https://dsugurtuna.github.io/writing/a-second-model-is-a-critic.html">
+  <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ugur Tuna. I build AI systems, and the controls that make them safe to use.">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="12"/><path d="M13 18v17a8.5 8.5 0 0 0 17 0V18M36 18h18M45 18v29" fill="none" stroke-width="6"/></svg>
+        Ugur Tuna
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="./">Writing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="wrap">
+      <header class="essay-head">
+        <p class="eyebrow"><a href="./">Writing</a></p>
+        <h1>A second model is a critic, not a verifier</h1>
+        <p class="dek">Asking one model to review another can improve a draft. It cannot tell you the draft is true.</p>
+        <p class="byline">Ugur Tuna · 4 minute read</p>
+      </header>
+
+      <div class="prose">
+        <p>A common pattern in AI workflows goes like this. One model writes a draft. A second model reviews it. If the reviewer raises no concerns, the output is marked as checked.</p>
+        <p>The first half of that pattern is useful. The second half is a mistake. A second model is a good critic and a poor verifier. Knowing the difference decides whether your checks mean anything.</p>
+
+        <h2>What a critic is good for</h2>
+        <p>Critique-then-revise can improve drafts. Give a reviewing model the draft, the brief and explicit criteria, and ask it to list problems. It will often find real ones: a claim with no citation, a caveat that went missing, a section that contradicts another, an instruction that was ignored, a conclusion that goes further than the evidence. Feed those points back, revise, and the next draft is often clearer and better organised.</p>
+        <p>This is the work of an editor. Editors make writing better. Nobody treats an editor’s approval as proof that the facts are right.</p>
+        <p>Critique works best when it is specific. “Review this” invites vague praise. “List every sentence that makes a factual claim without a citation” produces something you can act on, and something you can check.</p>
+
+        <h2>Why agreement is not verification</h2>
+        <p>When a second model agrees with the first, it is tempting to read that as independent confirmation. It rarely is.</p>
+        <p>Models share blind spots. They are trained on overlapping data, with similar methods, and they can make the same mistakes on the same inputs. If both have learned the same wrong fact, they will agree about it. If a claim is fluent and plausible, a reviewing model will tend to find it plausible too. The errors that matter most are the ones that look right, and those are the errors a similar model is least likely to catch.</p>
+        <p>The review set-up adds its own bias. A reviewer that reads the draft first is anchored to it. It is judging someone else’s framing, not working the problem from the sources. Agreement under those conditions tells you the draft is persuasive. It does not tell you it is correct.</p>
+        <p>The OWASP Top 10 for LLM Applications 2025 names misinformation as a risk, and among its mitigations recommends cross-checking output against trusted external sources, with human oversight for critical or sensitive information. Note what that says. Check against sources, not against another opinion.</p>
+
+        <h2>If you want a second opinion, make it independent</h2>
+        <p>There is a better way to use a second model. Ask it the original question, with the same sources, without showing it the first draft. Then compare the two answers.</p>
+        <p>Now disagreement is informative. Where two independent answers differ, there is something to look at: an ambiguous source, a hard judgement, or an error in one of them. That tells a reviewer where to spend their time.</p>
+        <p>Agreement between independent answers is still not proof. Shared blind spots do not disappear because the prompts are separate. Different model families and different prompts help. They do not remove the need to check.</p>
+        <p>The same logic applies to people. A reviewer who is handed a polished draft and asked “is this OK?” is being asked to agree. A reviewer who is asked “what do the sources say about this question?” is being asked to think. The second request takes longer, and it is more likely to catch errors.</p>
+
+        <h2>Verify against the sources</h2>
+        <p>Verification means tracing each claim to evidence. In a summary of evidence, every material claim should point to a specific passage. Checking then has a clear shape: does the passage exist, and does it say what the claim says?</p>
+        <p>Some of this is mechanical, and code does it better than any model. Quotations can be matched exactly against the source text. Citations can be resolved. Numbers can be compared. These checks are cheap, repeatable and not fooled by fluent writing.</p>
+        <p>Other parts need judgement, such as whether a paraphrase is fair or whether an omission matters. A model can help here as a triage tool, pointing a person towards the claims most likely to be wrong. The comparison that counts is still against the source, not against a second model’s view.</p>
+
+        <h2>A person decides</h2>
+        <p>Someone has to own the output. The AI Playbook for the UK Government sets out ten principles, and one of them is about meaningful human control: people being able to oversee AI and step in at the right points. For AI-assisted analysis, one of those points is before anyone relies on the result.</p>
+        <p>For that control to mean something, the person needs to see what was checked and what was not. A green tick that means “a second model said it was fine” hides exactly what they need to know. It is better to show which claims were matched to sources, which were flagged, where independent answers disagreed, and what remains unverified.</p>
+
+        <h2>A practical pattern</h2>
+        <ol>
+          <li>Draft with citations to specific source passages.</li>
+          <li>Critique against explicit criteria, then revise.</li>
+          <li>Run deterministic checks on quotations, citations and numbers.</li>
+          <li>For higher-stakes questions, get an independent answer and compare.</li>
+          <li>A person reviews the flagged claims and a sample of the unflagged ones.</li>
+          <li>Record what was verified, what was not, and who decided.</li>
+        </ol>
+        <p>Use the second model for what it is good at. Let it make the draft better. Do not let it tell you the draft is true.</p>
+      </div>
+
+      <div class="essay-foot">
+        <section class="sources" aria-labelledby="sources-title">
+          <h2 id="sources-title">Sources</h2>
+          <ol>
+            <li>OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2025/LLM09_Misinformation.md">LLM09:2025 Misinformation</a>, OWASP Top 10 for LLM Applications 2025. See “Cross-Verification and Human Oversight” under prevention and mitigation.</li>
+            <li><a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government">AI Playbook for the UK Government</a>, GOV.UK. See the principle on meaningful human control.</li>
+          </ol>
+          <p>Views are my own. Where I refer to public guidance, this is my reading of it: unofficial; not government guidance.</p>
+        </section>
+
+        <section class="related" aria-labelledby="related-title">
+          <h2 id="related-title">Related project</h2>
+          <p><strong>evidence-synthesis-eval</strong> checks AI summaries of evidence against their sources. It combines deterministic scorers with model-graded ones, so not every result rests on a model’s judgement.</p>
+          <p class="repo-link"><a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval on GitHub</a></p>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="disclaimer">Personal site. Views are my own. Not affiliated with or endorsed by any employer.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/dsugurtuna">GitHub</a></li>
+        <li><a href="https://ugurtuna.com">ugurtuna.com</a></li>
+        <li><a href="https://github.com/dsugurtuna/dsugurtuna.github.io">Source for this site</a></li>
+      </ul>
+      <p>© 2026 Ugur Tuna. Code under the MIT licence. Words all rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

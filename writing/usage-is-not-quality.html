@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Usage is not quality: what to measure when you roll out AI – Ugur Tuna</title>
+  <meta name="description" content="Adoption figures show who clicked. They do not show whether the work got better, or what it cost to check. What to measure instead when you roll out AI.">
+  <meta name="author" content="Ugur Tuna">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://dsugurtuna.github.io/writing/usage-is-not-quality.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Ugur Tuna">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Usage is not quality: what to measure when you roll out AI">
+  <meta property="og:description" content="Adoption figures show who clicked. They do not show whether the work got better, or what it cost to check.">
+  <meta property="og:url" content="https://dsugurtuna.github.io/writing/usage-is-not-quality.html">
+  <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ugur Tuna. I build AI systems, and the controls that make them safe to use.">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="12"/><path d="M13 18v17a8.5 8.5 0 0 0 17 0V18M36 18h18M45 18v29" fill="none" stroke-width="6"/></svg>
+        Ugur Tuna
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="./">Writing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="wrap">
+      <header class="essay-head">
+        <p class="eyebrow"><a href="./">Writing</a></p>
+        <h1>Usage is not quality: what to measure when you roll out AI</h1>
+        <p class="dek">Adoption figures show who clicked. They do not show whether the work got better, or what it cost to check.</p>
+        <p class="byline">Ugur Tuna · 5 minute read</p>
+      </header>
+
+      <div class="prose">
+        <p>When an organisation rolls out an AI tool, the first numbers to arrive are usage numbers. Active users. Prompts per week. Teams onboarded. They are easy to collect, they tend to go up, and they fit neatly on a slide.</p>
+        <p>They answer a real question: are people trying the tool? They do not answer the question that matters: is the work better, and at what total cost? Those are different questions, and they need different measures.</p>
+
+        <h2>What usage can and cannot tell you</h2>
+        <p>Usage measures behaviour, not outcomes. High usage might mean the tool is valuable. It might also mean novelty, encouragement from above, or people using it for tasks where it is weak. Low usage might mean the tool is poor. It might also mean it sits in the wrong place in the workflow, or that the people who would benefit most have not been shown how to use it.</p>
+        <p>You cannot tell which from the count alone. So treat usage as a measure of exposure, not success. It tells you how many outputs are being produced, and so how many need to be right. Rising usage with no view of quality is rising risk, not rising value.</p>
+
+        <h2>Define good before you measure</h2>
+        <p>Start with the task, not the tool. Before you look at any AI output, write down what a good result looks like for this piece of work, in terms someone else could check.</p>
+        <p>For a summary of evidence, that might be three things. Faithfulness: does every statement match what the sources say? Coverage: does it include the points a careful reader would expect? Misstatements: does it assert anything the sources do not support? For a drafted letter, it might be accurate facts, the right tone and no missing content that the letter is required to contain.</p>
+        <p>Then build a small test set that looks like the real work. Use realistic inputs, with reference answers or marking criteria agreed by people who know the task. Keep it fixed, so you can run it again when the model, the prompt or the workflow changes. Some criteria can be checked by code, such as whether a quoted passage really appears in the source. Others need a person. Say which is which.</p>
+        <p>The OWASP Top 10 for LLM Applications 2025 lists misinformation as a risk in its own right, and describes a related problem: overreliance, where people trust output without checking it. Measuring quality directly is how you find out whether that risk is real in your setting, rather than assuming it away.</p>
+
+        <h2>Count all the effort</h2>
+        <p>Speed of generation is not time saved. A draft that appears in seconds but takes an hour to verify may cost more than writing it by hand.</p>
+        <p>Measure the total human effort for each output that is accepted. That includes writing the prompt, reading the draft, checking it against sources, correcting it, and any rework when an error is found later. Record checking time as part of the task, not as overhead.</p>
+        <p>Two traps are common. The first is timing only the generation step, which makes every tool look fast. The second is treating skipped checks as savings. If people stop checking because the output looks fluent, you have not saved effort. You have moved it into risk that nobody is measuring.</p>
+
+        <h2>Baselines are not test results</h2>
+        <p>Two kinds of number often get mixed up.</p>
+        <p>A baseline describes how the work performs today, without the tool: how long it takes, how often it needs correcting, and what errors reach the people who rely on it. Without a baseline, “better” has nothing to be better than.</p>
+        <p>A test result describes how the AI-assisted version performs on a defined set of tasks, under conditions you control. It is useful and repeatable. It is not the same as performance in live use, where inputs are messier and people behave differently.</p>
+        <p>Be clear about which one you have. A good test result on a curated set does not prove a benefit in live use. A self-reported time saving from a pilot group, with no baseline to compare against, proves very little. Neither is worthless. Both need to be labelled for what they are.</p>
+
+        <h2>Report small samples honestly</h2>
+        <p>Early evaluations are small. That is fine. Pretending otherwise is not.</p>
+        <p>Report counts, not just percentages. Writing “seven of ten summaries had no misstatements” tells the reader how much weight the result can bear. Writing “70%” hides it. Show the failures, with examples, because they are often more informative than the average. If you give a rate, give a sense of how uncertain it is. With a handful of cases the uncertainty will be wide, and saying so is a sign of rigour, not weakness.</p>
+        <p>Say what you did not test: task types, user groups, document lengths, languages. A reader should be able to see where the evidence stops.</p>
+        <p>Match the effort to the stakes. HM Treasury’s Magenta Book, the central government guidance on evaluation, argues that evaluation should be proportionate to the risk, scale and profile of what is being evaluated. A low-risk drafting aid does not need a trial. A tool whose output feeds into advice or decisions needs more than a satisfaction survey.</p>
+
+        <h2>A short checklist</h2>
+        <p>Before you report on an AI roll-out, check that you can answer these questions.</p>
+        <ol>
+          <li>What does a good output look like for this task, and who agreed that?</li>
+          <li>What is the baseline without the tool?</li>
+          <li>How good are the outputs against a fixed test set, and what failed?</li>
+          <li>What is the total human effort for each accepted output, including checking and correction?</li>
+          <li>How many cases is each number based on, and what was not tested?</li>
+          <li>Is the depth of evaluation proportionate to the risk?</li>
+        </ol>
+        <p>If you can answer these, usage figures become useful context. If you cannot, usage figures are the only story you have, and it is not the one you need.</p>
+      </div>
+
+      <div class="essay-foot">
+        <section class="sources" aria-labelledby="sources-title">
+          <h2 id="sources-title">Sources</h2>
+          <ol>
+            <li>OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2025/LLM09_Misinformation.md">LLM09:2025 Misinformation</a>, OWASP Top 10 for LLM Applications 2025.</li>
+            <li>HM Treasury, <a href="https://www.gov.uk/government/publications/the-magenta-book">The Magenta Book: central government guidance on evaluation</a>.</li>
+          </ol>
+          <p>Views are my own. Where I refer to public guidance, this is my reading of it: unofficial; not government guidance.</p>
+        </section>
+
+        <section class="related" aria-labelledby="related-title">
+          <h2 id="related-title">Related project</h2>
+          <p><strong>evidence-synthesis-eval</strong> applies these ideas to one task: AI summaries of evidence. It scores faithfulness, coverage and misstatements, and records the human effort needed to check each summary. It is built on Inspect from the UK AI Security Institute.</p>
+          <p class="repo-link"><a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval on GitHub</a></p>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="disclaimer">Personal site. Views are my own. Not affiliated with or endorsed by any employer.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/dsugurtuna">GitHub</a></li>
+        <li><a href="https://ugurtuna.com">ugurtuna.com</a></li>
+        <li><a href="https://github.com/dsugurtuna/dsugurtuna.github.io">Source for this site</a></li>
+      </ul>
+      <p>© 2026 Ugur Tuna. Code under the MIT licence. Words all rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

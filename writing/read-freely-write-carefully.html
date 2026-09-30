@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Read freely, write carefully: controls for AI agents that act – Ugur Tuna</title>
+  <meta name="description" content="An agent that reads can mislead you. An agent that writes or sends can do something you cannot take back. Practical controls for AI agents that act.">
+  <meta name="author" content="Ugur Tuna">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://dsugurtuna.github.io/writing/read-freely-write-carefully.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Ugur Tuna">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Read freely, write carefully: controls for AI agents that act">
+  <meta property="og:description" content="An agent that reads can mislead you. An agent that writes or sends can do something you cannot take back.">
+  <meta property="og:url" content="https://dsugurtuna.github.io/writing/read-freely-write-carefully.html">
+  <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ugur Tuna. I build AI systems, and the controls that make them safe to use.">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="12"/><path d="M13 18v17a8.5 8.5 0 0 0 17 0V18M36 18h18M45 18v29" fill="none" stroke-width="6"/></svg>
+        Ugur Tuna
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="./">Writing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="wrap">
+      <header class="essay-head">
+        <p class="eyebrow"><a href="./">Writing</a></p>
+        <h1>Read freely, write carefully: controls for AI agents that act</h1>
+        <p class="dek">An agent that reads can mislead you. An agent that writes or sends can do something you cannot take back. The controls should reflect the difference.</p>
+        <p class="byline">Ugur Tuna · 5 minute read</p>
+      </header>
+
+      <div class="prose">
+        <p>Most early uses of AI are reading tasks. Summarise this. Search that. Draft a reply. When the model is wrong, the harm is a wrong answer, and there is a chance that a person catches it before it goes anywhere.</p>
+        <p>Agents change that. An agent calls tools. It updates records, raises tickets and sends messages. A mistake is no longer a bad paragraph. It is an action.</p>
+        <p>The OWASP Top 10 for LLM Applications 2025 calls this risk Excessive Agency: damaging actions taken in response to unexpected, ambiguous or manipulated output from a model. It traces the root causes to excessive functionality, excessive permissions and excessive autonomy. The 2026 edition keeps it on the list and moves it higher. The controls below are one practical response.</p>
+
+        <h2>Permission to build is not permission to deploy</h2>
+        <p>Several separate decisions hide inside the question “can we use an agent for this?”</p>
+        <p>Connecting a data source is one decision. Granting the agent access to a system is another. Sharing the tool with colleagues is a third. Letting it act without a person in the loop is a fourth. Each carries different risks, and each may need a different owner to agree to it.</p>
+        <p>A prototype that works well on a test inbox is evidence that the idea can work. It is not approval to run it on a shared mailbox. Record each decision on its own, so that nobody mistakes one for another.</p>
+
+        <h2>Read freely, write carefully</h2>
+        <p>Classify every tool the agent can call by its effect.</p>
+        <ul>
+          <li><strong>Read:</strong> no side effects. Search, fetch, summarise.</li>
+          <li><strong>Write:</strong> changes something inside your own systems. Update a record, create a draft.</li>
+          <li><strong>Send:</strong> reaches outside. Email, publish, notify, pay.</li>
+          <li><strong>Irreversible:</strong> anything you cannot cleanly undo.</li>
+        </ul>
+        <p>Reads can be broadly allowed. Writes need limits. Sends and irreversible actions need the strongest controls. That is the rule in the title.</p>
+        <p>Keep the list of callable actions explicit. If an action is not on the allow-list, the agent cannot call it. Give each tool the narrowest function and the narrowest permissions it needs. OWASP’s mitigations for Excessive Agency make the same points, and add one that is easy to miss: enforce authorisation in the downstream system, rather than relying on the model to decide whether an action is allowed.</p>
+
+        <h2>Three modes: allow, draft, approve</h2>
+        <p>Give each type of action a mode.</p>
+        <ul>
+          <li><strong>Allow:</strong> the action runs directly. Suitable for reads and low-risk writes.</li>
+          <li><strong>Draft:</strong> the agent prepares the action, and nothing happens until a person takes it forward themselves.</li>
+          <li><strong>Approve:</strong> the agent proposes a specific action, and a named person approves exactly that action before it runs.</li>
+        </ul>
+        <p>Approval has to be of the real thing. Show the approver the actual recipients, the actual content and the actual values, not the agent’s summary of them. Approving a summary means approving the agent’s description of what it will do, which may not match what it does.</p>
+
+        <h2>Re-validate at execution time</h2>
+        <p>Time passes between proposal and execution. In that gap, things change. A distribution list is edited. A record is updated by someone else. A permission is withdrawn. The kill switch is pulled.</p>
+        <p>So check again at the moment of execution. Is this action still on the allow-list? Is it still within limits? Is the payload exactly what was approved? Comparing a hash of the approved payload with a hash of what is about to run answers the last question cheaply. If anything differs, stop and ask again.</p>
+
+        <h2>Make every action idempotent</h2>
+        <p>Agents retry. Networks fail. A timeout does not mean the action did not happen. Without care, a retry sends the same message twice.</p>
+        <p>Give each action a stable idempotency key, derived from what it does and why. The component that executes actions records every key it has completed. A second request with the same key does nothing. That turns “did it send or not?” from a guess into a lookup.</p>
+
+        <h2>Keep an audit trail you can trust</h2>
+        <p>Record what was proposed, by which agent and in response to what input; who approved it and when; what actually ran; and what came back. Include the inputs that influenced the action. If a document contained instructions that steered the agent, you will want to find it later.</p>
+        <p>Make the log append-only, and chain each entry to the hash of the one before. That makes it tamper-evident: an edit or a deletion breaks the chain and can be detected. It is not tamper-proof, so keep a copy of the latest hash somewhere the agent cannot write to.</p>
+
+        <h2>Have a kill switch, and test it</h2>
+        <p>There should be one control that stops all write and send actions at once. The component that executes actions should check it before every action, rather than the agent being asked to respect it. Reads can continue, so people can still see what was happening.</p>
+        <p>A kill switch that has never been used is a hope, not a control. Test it on a schedule. Pair it with rate limits. OWASP notes that rate limiting will not prevent Excessive Agency, but it can limit the damage and give monitoring time to catch up.</p>
+
+        <h2>Before any of this</h2>
+        <p>Ask whether you need an agent at all. Many processes improve more from cleaner data, a better template or ordinary automation than from a model that decides what to do next. Fix the data first. Add an agent when the remaining problem really needs judgement, and give it only the reach the task requires.</p>
+        <p>The AI Playbook for the UK Government includes a principle about meaningful human control. It is easier to promise than to build. Controls like these are part of what it looks like in code.</p>
+      </div>
+
+      <div class="essay-foot">
+        <section class="sources" aria-labelledby="sources-title">
+          <h2 id="sources-title">Sources</h2>
+          <ol>
+            <li>OWASP GenAI Security Project, <a href="https://genai.owasp.org/llmrisk/llm062025-excessive-agency/">LLM06:2025 Excessive Agency</a>, OWASP Top 10 for LLM Applications 2025. The <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2025/LLM06_ExcessiveAgency.md">source text</a> is on GitHub.</li>
+            <li>OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026/final">OWASP Top 10 for LLM Applications 2026</a>, where Excessive Agency is LLM03.</li>
+            <li><a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government">AI Playbook for the UK Government</a>, GOV.UK. See the principle on meaningful human control.</li>
+          </ol>
+          <p>Views are my own. Where I refer to public guidance, this is my reading of it: unofficial; not government guidance.</p>
+        </section>
+
+        <section class="related" aria-labelledby="related-title">
+          <h2 id="related-title">Related project</h2>
+          <p><strong>agent-guardrails</strong> is a small Python library for these controls: allow-listed actions, draft and approve modes, execution-time re-validation, idempotency keys, a hash-chained audit log and a kill switch.</p>
+          <p class="repo-link"><a href="https://github.com/dsugurtuna/agent-guardrails">agent-guardrails on GitHub</a></p>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="disclaimer">Personal site. Views are my own. Not affiliated with or endorsed by any employer.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/dsugurtuna">GitHub</a></li>
+        <li><a href="https://ugurtuna.com">ugurtuna.com</a></li>
+        <li><a href="https://github.com/dsugurtuna/dsugurtuna.github.io">Source for this site</a></li>
+      </ul>
+      <p>© 2026 Ugur Tuna. Code under the MIT licence. Words all rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
