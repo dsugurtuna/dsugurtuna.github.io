@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects – Ugur Tuna</title>
+  <meta name="description" content="Everything I build in public, grouped by purpose: AI evaluation, agent guardrails and assurance, clinical genomics and biobank data tooling, a clinical AI platform and applied machine learning.">
+  <meta name="author" content="Ugur Tuna">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://dsugurtuna.github.io/projects.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ugur Tuna">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Projects – Ugur Tuna">
+  <meta property="og:description" content="AI evaluation, agent guardrails and assurance, clinical genomics and biobank data tooling, and applied machine learning. Every project links to its code on GitHub.">
+  <meta property="og:url" content="https://dsugurtuna.github.io/projects.html">
+  <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ugur Tuna. I build AI systems, and the controls that make them safe to use.">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="12"/><path d="M13 18v17a8.5 8.5 0 0 0 17 0V18M36 18h18M45 18v29" fill="none" stroke-width="6"/></svg>
+        Ugur Tuna
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="./">Home</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="writing/">Writing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="page-head wrap">
+      <p class="eyebrow">Projects</p>
+      <h1>Everything I build in public, grouped by what it is for.</h1>
+      <p class="lede">From AI evaluation and agent controls to clinical genomics data tooling and applied machine learning. Every link goes to the code on GitHub.</p>
+    </header>
+
+    <section class="section" aria-labelledby="open-title">
+      <div class="wrap section-grid">
+        <div class="section-head">
+          <h2 id="open-title">Building in the open</h2>
+          <p>Three connected projects, one question: how do you get real value from AI without losing control of it?</p>
+        </div>
+        <ul class="repos">
+          <li>
+            <h3 class="repo-name"><a href="https://github.com/dsugurtuna/agent-guardrails">agent-guardrails</a></h3>
+            <p class="repo-question"><span class="stage">Act safely.</span> How do you let an AI agent act without it sending the wrong thing, twice, to the wrong people?</p>
+            <p class="repo-desc">Controls for AI agents that write or send: allow-listed actions, draft and approve modes, execution-time re-validation, idempotency, a tamper-evident audit log and a kill switch.</p>
+            <ul class="tags" aria-label="Tags">
+              <li>Python</li>
+              <li>SQLite</li>
+              <li>Audit log</li>
+              <li>Claude tool use</li>
+            </ul>
+          </li>
+          <li>
+            <h3 class="repo-name"><a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval</a></h3>
+            <p class="repo-question"><span class="stage">Measure quality.</span> Does an AI summary of the evidence say what the sources say? What did it miss, and what did checking it cost?</p>
+            <p class="repo-desc">Evaluation harness for AI-assisted evidence synthesis: faithfulness, coverage, misstatements and human checking effort. Built on Inspect from the UK AI Security Institute.</p>
+            <ul class="tags" aria-label="Tags">
+              <li>Python</li>
+              <li>Inspect</li>
+              <li>Model-graded scorers</li>
+              <li>Deterministic scorers</li>
+            </ul>
+          </li>
+          <li>
+            <h3 class="repo-name"><a href="https://github.com/dsugurtuna/ai-assurance-kit">ai-assurance-kit</a></h3>
+            <p class="repo-question"><span class="stage">Assure and decide.</span> How can a team do proportionate AI assurance in an afternoon rather than a quarter?</p>
+            <p class="repo-desc">Turns an AI use case into a validated, reviewable record and a one-page card, with checks drawn from public UK guidance and a NIST AI RMF crosswalk.</p>
+            <ul class="tags" aria-label="Tags">
+              <li>Python</li>
+              <li>Pydantic</li>
+              <li>JSON Schema</li>
+              <li>Jinja2</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="genomics-title">
+      <div class="wrap section-grid">
+        <div class="section-head">
+          <h2 id="genomics-title">Clinical genomics and biobank data</h2>
+        </div>
+        <div>
+          <p class="group-intro">Sanitised, generalised versions of tooling from my NIHR BioResource work, rebuilt as tested Python packages. Synthetic data only.</p>
+
+          <div class="area">
+            <h3>HLA and genotyping</h3>
+            <ul class="repos">
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/hla-pipeline-manager">hla-pipeline-manager</a></h4>
+                <p class="repo-desc">Orchestrates HLA imputation at 50,000+ sample scale: batch execution, verification, safe deployment, clinical reports.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>HLA imputation</li>
+                  <li>Batch orchestration</li>
+                  <li>Clinical reports</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/hla-imputation-analyst">hla-imputation-analyst</a></h4>
+                <p class="repo-desc">Quality control and forensic analysis of HLA imputation outputs.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>HLA imputation</li>
+                  <li>Quality control</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/hla-variant-investigator">hla-variant-investigator</a></h4>
+                <p class="repo-desc">Carrier identification, dosage auditing and imputation quality checks for HLA datasets.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>HLA</li>
+                  <li>Carrier identification</li>
+                  <li>Dosage audit</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/apoe-genotyping-toolkit">apoe-genotyping-toolkit</a></h4>
+                <p class="repo-desc">APOE genotype calling, trial feasibility estimates and stratified recall lists.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>APOE</li>
+                  <li>Genotype calling</li>
+                  <li>Recall lists</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="area">
+            <h3>Data preparation and QC</h3>
+            <ul class="repos">
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/gwas-data-preparation">gwas-data-preparation</a></h4>
+                <p class="repo-desc">Multi-batch genotype merging, standard QC filters and strand resolution for GWAS.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>GWAS</li>
+                  <li>Genotype QC</li>
+                  <li>Strand resolution</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/genomic-qc-toolkit">genomic-qc-toolkit</a></h4>
+                <p class="repo-desc">Sample and variant QC for WGS, WES and array data, with cross-platform concordance.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>WGS</li>
+                  <li>WES</li>
+                  <li>Arrays</li>
+                  <li>Concordance</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/vcf-plink-converter">vcf-plink-converter</a></h4>
+                <p class="repo-desc">Validated VCF and PLINK conversion wrapping PLINK and BCFtools.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>VCF</li>
+                  <li>PLINK</li>
+                  <li>BCFtools</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/ld-linkage-mapper">ld-linkage-mapper</a></h4>
+                <p class="repo-desc">Finds linkage-disequilibrium proxies when a target variant is not on the array.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>Linkage disequilibrium</li>
+                  <li>Proxy variants</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/snp-feasibility-checker">snp-feasibility-checker</a></h4>
+                <p class="repo-desc">Checks SNP coverage across arrays and estimates recall-study yield.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>SNP arrays</li>
+                  <li>Coverage</li>
+                  <li>Recall feasibility</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="area">
+            <h3>Cohorts and recall</h3>
+            <ul class="repos">
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/biobank-variant-explorer">biobank-variant-explorer</a></h4>
+                <p class="repo-desc">Audits variant presence across genotyping arrays by scanning PLINK files.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>Variant audit</li>
+                  <li>Genotyping arrays</li>
+                  <li>PLINK</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/clinical-cohort-selector">clinical-cohort-selector</a></h4>
+                <p class="repo-desc">Genotype-stratified, demographically balanced cohort selection for recall studies.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>Cohort selection</li>
+                  <li>Stratification</li>
+                  <li>Recall studies</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/recall-study-generator">recall-study-generator</a></h4>
+                <p class="repo-desc">Designs recall-by-genotype studies with eligibility filtering and protocol generation.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>Recall-by-genotype</li>
+                  <li>Eligibility</li>
+                  <li>Study design</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="area">
+            <h3>Governance and secure delivery</h3>
+            <ul class="repos">
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/genomic-cohort-delivery-pipeline">genomic-cohort-delivery-pipeline</a></h4>
+                <p class="repo-desc">Assembles, corrects and delivers multi-batch genomic cohorts.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>Cohort delivery</li>
+                  <li>Multi-batch</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/biobank-data-release-manager">biobank-data-release-manager</a></h4>
+                <p class="repo-desc">Controlled data releases with VCF extraction and sample concordance checks.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>Data release</li>
+                  <li>VCF</li>
+                  <li>Concordance</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/secure-genomic-transfer">secure-genomic-transfer</a></h4>
+                <p class="repo-desc">GPG-encrypted transfer with SHA-256 manifests and an audit trail.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>GPG</li>
+                  <li>SHA-256</li>
+                  <li>Audit trail</li>
+                </ul>
+              </li>
+              <li>
+                <h4 class="repo-name"><a href="https://github.com/dsugurtuna/biobank-sar-toolkit">biobank-sar-toolkit</a></h4>
+                <p class="repo-desc">GDPR subject access requests: participant discovery, ID mapping and reporting.</p>
+                <ul class="tags" aria-label="Tags">
+                  <li>GDPR</li>
+                  <li>Subject access requests</li>
+                  <li>ID mapping</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="platform-title">
+      <div class="wrap section-grid">
+        <div class="section-head">
+          <h2 id="platform-title">Clinical AI platform</h2>
+        </div>
+        <ul class="repos">
+          <li>
+            <h3 class="repo-name"><a href="https://github.com/dsugurtuna/gut-reaction-platform">gut-reaction-platform</a></h3>
+            <p class="repo-desc">Reference architecture for an inflammatory bowel disease research platform: rule-based clinical NLP phenotyping, a PII auditor with a mocked model call, data harmonisation services and a dashboard, with Kubernetes and Terraform definitions.</p>
+            <ul class="tags" aria-label="Tags">
+              <li>Clinical NLP</li>
+              <li>OMOP</li>
+              <li>React</li>
+              <li>Kubernetes</li>
+              <li>Terraform</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ml-title">
+      <div class="wrap section-grid">
+        <div class="section-head">
+          <h2 id="ml-title">Applied machine learning</h2>
+        </div>
+        <ul class="repos">
+          <li>
+            <h3 class="repo-name"><a href="https://github.com/dsugurtuna/fraud-detection-system">fraud-detection-system</a></h3>
+            <p class="repo-desc">Value-weighted fraud detection with CatBoost, isotonic calibration and expected-value ranking.</p>
+            <ul class="tags" aria-label="Tags">
+              <li>CatBoost</li>
+              <li>Calibration</li>
+              <li>Expected value</li>
+            </ul>
+          </li>
+          <li>
+            <h3 class="repo-name"><a href="https://github.com/dsugurtuna/retail-demand-forecasting-at-scale">retail-demand-forecasting-at-scale</a></h3>
+            <p class="repo-desc">Demand forecasting pipeline with gradient boosting, feature engineering and backtesting.</p>
+            <ul class="tags" aria-label="Tags">
+              <li>Forecasting</li>
+              <li>Gradient boosting</li>
+              <li>Backtesting</li>
+            </ul>
+          </li>
+          <li>
+            <h3 class="repo-name"><a href="https://github.com/dsugurtuna/british-invoice-digitization">british-invoice-digitization</a></h3>
+            <p class="repo-desc">Computer vision for invoice field extraction with YOLOv5 and a FastAPI service.</p>
+            <ul class="tags" aria-label="Tags">
+              <li>Computer vision</li>
+              <li>YOLOv5</li>
+              <li>FastAPI</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="standards-title">
+      <div class="wrap section-grid">
+        <div class="section-head">
+          <h2 id="standards-title">Standards across these repositories</h2>
+        </div>
+        <ul class="standards">
+          <li>Each project is a tested Python package with continuous integration, and a <code>docs/WHY.md</code> that explains its design decisions.</li>
+          <li>Original shell scripts sit in <code>legacy/</code> beside the rewrites, to show how ad-hoc tooling became maintainable software.</li>
+          <li>No real participant data, credentials or proprietary information. Synthetic data only.</li>
+          <li>I build with AI coding assistants and say so: commits written with Claude carry a co-author line. I review, test and own everything that is merged.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="disclaimer">Personal site. Views are my own. Not affiliated with or endorsed by any employer.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/dsugurtuna">GitHub</a></li>
+        <li><a href="https://ugurtuna.com">ugurtuna.com</a></li>
+        <li><a href="https://github.com/dsugurtuna/dsugurtuna.github.io">Source for this site</a></li>
+      </ul>
+      <p>© 2026 Ugur Tuna. Code under the MIT licence. Words all rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
