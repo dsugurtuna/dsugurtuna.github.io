@@ -49,13 +49,13 @@
         <p class="eyebrow"><a href="./">Writing</a></p>
         <h1>Read freely, write carefully: controls for AI agents that act</h1>
         <p class="dek">An agent that reads can mislead you. An agent that writes or sends can do something you cannot take back. The controls should reflect the difference.</p>
-        <p class="byline">Ugur Tuna · 5 minute read</p>
+        <p class="byline">Ugur Tuna · 6 minute read</p>
       </header>
 
       <div class="prose">
         <p>Most early uses of AI are reading tasks. Summarise this. Search that. Draft a reply. When the model is wrong, the harm is a wrong answer, and there is a chance that a person catches it before it goes anywhere.</p>
         <p>Agents change that. An agent calls tools. It updates records, raises tickets and sends messages. A mistake is no longer a bad paragraph. It is an action.</p>
-        <p>The OWASP Top 10 for LLM Applications 2025 calls this risk Excessive Agency: damaging actions taken in response to unexpected, ambiguous or manipulated output from a model. It traces the root causes to excessive functionality, excessive permissions and excessive autonomy. The 2026 edition keeps it on the list and moves it higher. The controls below are one practical response.</p>
+        <p>The OWASP Top 10 for LLM Applications calls this risk Excessive Agency. It describes a vulnerability that lets a system take damaging actions in response to unexpected, ambiguous or manipulated output from a model. The usual root causes are excessive functionality, excessive permissions and excessive autonomy. In the current 2026 edition it is LLM03, up from LLM06 in 2025. The controls below are one practical response.</p>
 
         <h2>Permission to build is not permission to deploy</h2>
         <p>Several separate decisions hide inside the question “can we use an agent for this?”</p>
@@ -70,53 +70,56 @@
           <li><strong>Send:</strong> reaches outside. Email, publish, notify, pay.</li>
           <li><strong>Irreversible:</strong> anything you cannot cleanly undo.</li>
         </ul>
-        <p>Reads can be broadly allowed. Writes need limits. Sends and irreversible actions need the strongest controls. That is the rule in the title.</p>
-        <p>Keep the list of callable actions explicit. If an action is not on the allow-list, the agent cannot call it. Give each tool the narrowest function and the narrowest permissions it needs. OWASP’s mitigations for Excessive Agency make the same points, and add one that is easy to miss: enforce authorisation in the downstream system, rather than relying on the model to decide whether an action is allowed.</p>
+        <p>Reads can be broadly allowed, but not blindly. A read can put sensitive data in front of the model, and a later send can carry it out. Writes need limits. Sends and irreversible actions need the strongest controls. That is the rule in the title.</p>
+        <p>Keep the list of callable actions explicit. If an action is not on the allow-list, the agent cannot call it. Give each tool the narrowest function and the narrowest permissions it needs. OWASP’s mitigations for Excessive Agency make the same points. They add one that is easy to miss: enforce authorisation in code, outside the model, rather than letting the model decide whether an action is allowed. The 2026 entry also describes graduated enforcement. Low-consequence or easily reversible actions can be approved automatically, and high-consequence or irreversible ones go to a person.</p>
 
-        <h2>Three modes: allow, draft, approve</h2>
+        <h2>Four modes: allow, draft, approve, block</h2>
         <p>Give each type of action a mode.</p>
         <ul>
           <li><strong>Allow:</strong> the action runs directly. Suitable for reads and low-risk writes.</li>
           <li><strong>Draft:</strong> the agent prepares the action, and nothing happens until a person takes it forward themselves.</li>
           <li><strong>Approve:</strong> the agent proposes a specific action, and a named person approves exactly that action before it runs.</li>
+          <li><strong>Block:</strong> the action never runs. This is the default for anything not on the allow-list.</li>
         </ul>
         <p>Approval has to be of the real thing. Show the approver the actual recipients, the actual content and the actual values, not the agent’s summary of them. Approving a summary means approving the agent’s description of what it will do, which may not match what it does.</p>
+        <p>Where a draft is enough, prefer it to approval. A draft gives a tired reviewer nothing to wave through.</p>
 
         <h2>Re-validate at execution time</h2>
         <p>Time passes between proposal and execution. In that gap, things change. A distribution list is edited. A record is updated by someone else. A permission is withdrawn. The kill switch is pulled.</p>
-        <p>So check again at the moment of execution. Is this action still on the allow-list? Is it still within limits? Is the payload exactly what was approved? Comparing a hash of the approved payload with a hash of what is about to run answers the last question cheaply. If anything differs, stop and ask again.</p>
+        <p>So check again at the moment of execution. The action must still be allowed and within limits. The approval must not have expired, and the kill switch must be off. The payload must be exactly what was approved. Comparing a hash of the approved payload with a hash of what is about to run checks that cheaply. If any check fails, the action does not run.</p>
 
-        <h2>Make every action idempotent</h2>
+        <h2>Make retries safe</h2>
         <p>Agents retry. Networks fail. A timeout does not mean the action did not happen. Without care, a retry sends the same message twice.</p>
-        <p>Give each action a stable idempotency key, derived from what it does and why. The component that executes actions records every key it has completed. A second request with the same key does nothing. That turns “did it send or not?” from a guess into a lookup.</p>
+        <p>Give each action a key derived from the tool and its arguments. Normalise the arguments first, so that trivial differences such as spacing or the order of recipients do not count. Record the key before the action runs. A second request with the same key, within a set window, is refused as a duplicate. That turns “has this already gone?” from a guess into a lookup.</p>
+        <p>Failures are the hard case. If a call timed out, the message may or may not have gone. Refusing every retry turns a passing network fault into a permanent refusal. Allowing retries risks a duplicate. Choose deliberately, and write the choice down.</p>
 
         <h2>Keep an audit trail you can trust</h2>
-        <p>Record what was proposed, by which agent and in response to what input; who approved it and when; what actually ran; and what came back. Include the inputs that influenced the action. If a document contained instructions that steered the agent, you will want to find it later.</p>
-        <p>Make the log append-only, and chain each entry to the hash of the one before. That makes it tamper-evident: an edit or a deletion breaks the chain and can be detected. It is not tamper-proof, so keep a copy of the latest hash somewhere the agent cannot write to.</p>
+        <p>Record what was proposed, and by which agent. Record who approved it and when, what actually ran, and what came back. Include the inputs that influenced the action: if a document contained instructions that steered the agent, you will want to find it later. Leave secrets out.</p>
+        <p>Make the log append-only, and chain each entry to the hash of the one before. An edit, an insertion, a reordering or a deletion from the middle then breaks the chain, and a check can find it. Two things do not break it: cutting off the newest entries, and rewriting the whole file with new hashes. So keep a copy of the latest hash somewhere the agent cannot write to. The log is then tamper-evident. It is not tamper-proof.</p>
 
         <h2>Have a kill switch, and test it</h2>
-        <p>There should be one control that stops all write and send actions at once. The component that executes actions should check it before every action, rather than the agent being asked to respect it. Reads can continue, so people can still see what was happening.</p>
-        <p>A kill switch that has never been used is a hope, not a control. Test it on a schedule. Pair it with rate limits. OWASP notes that rate limiting will not prevent Excessive Agency, but it can limit the damage and give monitoring time to catch up.</p>
+        <p>There should be one control that stops every action at once, including actions a person has already approved. The component that executes actions should check it before every action, rather than asking the agent to respect it. Keep approved actions in the queue while it is on, so they can be reviewed rather than lost. A switch in code stops only what passes through it, so in a real incident revoke the agent’s credentials as well.</p>
+        <p>A kill switch that has never been used is a hope, not a control. Test it on a schedule. Pair it with rate limits and spending budgets. OWASP lists rate limits and circuit breakers among the measures that will not prevent Excessive Agency but can limit the damage.</p>
 
         <h2>Before any of this</h2>
         <p>Ask whether you need an agent at all. Many processes improve more from cleaner data, a better template or ordinary automation than from a model that decides what to do next. Fix the data first. Add an agent when the remaining problem really needs judgement, and give it only the reach the task requires.</p>
-        <p>The AI Playbook for the UK Government includes a principle about meaningful human control. It is easier to promise than to build. Controls like these are part of what it looks like in code.</p>
+        <p>One of the ten principles in the AI Playbook for the UK Government is that you have “meaningful human control at the right stages”. That is easier to write than to build. Controls like these are part of what it looks like in code.</p>
       </div>
 
       <div class="essay-foot">
         <section class="sources" aria-labelledby="sources-title">
           <h2 id="sources-title">Sources</h2>
           <ol>
-            <li>OWASP GenAI Security Project, <a href="https://genai.owasp.org/llmrisk/llm062025-excessive-agency/">LLM06:2025 Excessive Agency</a>, OWASP Top 10 for LLM Applications 2025. The <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2025/LLM06_ExcessiveAgency.md">source text</a> is on GitHub.</li>
-            <li>OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026/final">OWASP Top 10 for LLM Applications 2026</a>, where Excessive Agency is LLM03.</li>
-            <li><a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government">AI Playbook for the UK Government</a>, GOV.UK. See the principle on meaningful human control.</li>
+            <li>OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM03_ExcessiveAgency.md">LLM03:2026 Excessive Agency</a>, OWASP Top 10 for LLM Applications 2026 (source text on GitHub). See “Complete mediation” and “Rate limiting” under prevention and mitigation.</li>
+            <li>OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2025/LLM06_ExcessiveAgency.md">LLM06:2025 Excessive Agency</a>, OWASP Top 10 for LLM Applications 2025 (source text on GitHub).</li>
+            <li><a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government">AI Playbook for the UK Government</a>, GOV.UK. See principle 4, “You have meaningful human control at the right stages”.</li>
           </ol>
           <p>Views are my own. Where I refer to public guidance, this is my reading of it: unofficial; not government guidance.</p>
         </section>
 
         <section class="related" aria-labelledby="related-title">
           <h2 id="related-title">Related project</h2>
-          <p><strong>agent-guardrails</strong> is a small Python library for these controls: allow-listed actions, draft and approve modes, execution-time re-validation, idempotency keys, a hash-chained audit log and a kill switch.</p>
+          <p><strong>agent-guardrails</strong> is a small Python library that puts these controls between an agent and its tools. Tools are blocked unless the policy lists them, and each listed tool gets a mode: allow, draft, approve or block. It adds recipient allow-lists, rate limits and budgets, re-validation of approved actions at execution time, de-duplication of retries, a hash-chained audit log and a kill switch. It limits what a manipulated agent can do. It does not stop prompt injection, and it guards only the calls that go through it.</p>
           <p class="repo-link"><a href="https://github.com/dsugurtuna/agent-guardrails">agent-guardrails on GitHub</a></p>
         </section>
       </div>
