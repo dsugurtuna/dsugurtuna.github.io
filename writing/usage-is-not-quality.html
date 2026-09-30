@@ -57,31 +57,31 @@
         <p>They answer a real question: are people trying the tool? They do not answer the question that matters: is the work better, and at what total cost? Those are different questions, and they need different measures.</p>
 
         <h2>What usage can and cannot tell you</h2>
-        <p>Usage measures behaviour, not outcomes. High usage might mean the tool is valuable. It might also mean novelty, encouragement from above, or people using it for tasks where it is weak. Low usage might mean the tool is poor. It might also mean it sits in the wrong place in the workflow, or that the people who would benefit most have not been shown how to use it.</p>
+        <p>Usage measures behaviour, not outcomes. High usage might mean the tool is valuable. It might also mean novelty, encouragement from above, or people using it for tasks where it is weak. Low usage might mean the tool is poor. It might also mean the tool sits in the wrong place in the workflow. Or the people who would gain most have not been shown how to use it.</p>
         <p>You cannot tell which from the count alone. So treat usage as a measure of exposure, not success. It tells you how many outputs are being produced, and so how many need to be right. Rising usage with no view of quality is rising risk, not rising value.</p>
 
         <h2>Define good before you measure</h2>
-        <p>Start with the task, not the tool. Before you look at any AI output, write down what a good result looks like for this piece of work, in terms someone else could check.</p>
-        <p>For a summary of evidence, that might be three things. Faithfulness: does every statement match what the sources say? Coverage: does it include the points a careful reader would expect? Misstatements: does it assert anything the sources do not support? For a drafted letter, it might be accurate facts, the right tone and no missing content that the letter is required to contain.</p>
-        <p>Then build a small test set that looks like the real work. Use realistic inputs, with reference answers or marking criteria agreed by people who know the task. Keep it fixed, so you can run it again when the model, the prompt or the workflow changes. Some criteria can be checked by code, such as whether a quoted passage really appears in the source. Others need a person. Say which is which.</p>
-        <p>The OWASP Top 10 for LLM Applications 2025 lists misinformation as a risk in its own right, and describes a related problem: overreliance, where people trust output without checking it. Measuring quality directly is how you find out whether that risk is real in your setting, rather than assuming it away.</p>
+        <p>Start with the task, not the tool. Before you look at any AI output, write down what a good result looks like for this piece of work. Use terms someone else could check.</p>
+        <p>For a summary of evidence, that might be three things. Faithfulness: does every statement match what the sources say? Coverage: does it include the points a careful reader would expect? Misstatements: does it assert anything the sources do not support? For a drafted letter, it might be accurate facts, the right tone and everything the letter is required to contain.</p>
+        <p>Then build a small test set that looks like the real work. Use realistic inputs, with reference answers or marking criteria agreed by people who know the task. Keep it fixed, so you can run it again when the model, the prompt or the workflow changes. Some criteria can be checked by code, such as whether every citation points to a source that exists. Others need judgement, from a person or from a model grader whose agreement with people you have measured. Say which is which.</p>
+        <p>The OWASP Top 10 for LLM Applications lists misinformation as a risk in its own right. In the current 2026 edition it is LLM07, and its examples include misleading summaries and critical omissions. The entry also names overreliance as a key factor: people often treat fluent, confident output as authoritative. Measuring quality directly is how you find out whether that risk is real in your setting, rather than assuming it away.</p>
 
         <h2>Count all the effort</h2>
         <p>Speed of generation is not time saved. A draft that appears in seconds but takes an hour to verify may cost more than writing it by hand.</p>
-        <p>Measure the total human effort for each output that is accepted. That includes writing the prompt, reading the draft, checking it against sources, correcting it, and any rework when an error is found later. Record checking time as part of the task, not as overhead.</p>
+        <p>Measure the total human effort for each output that is accepted. That includes writing the prompt, reading the draft, checking it against sources, correcting it, and any rework when an error is found later. Record checking time as part of the task, not as overhead. Record it as people work, too. Effort reconstructed from memory at the end of the week is unreliable.</p>
         <p>Two traps are common. The first is timing only the generation step, which makes every tool look fast. The second is treating skipped checks as savings. If people stop checking because the output looks fluent, you have not saved effort. You have moved it into risk that nobody is measuring.</p>
 
         <h2>Baselines are not test results</h2>
         <p>Two kinds of number often get mixed up.</p>
-        <p>A baseline describes how the work performs today, without the tool: how long it takes, how often it needs correcting, and what errors reach the people who rely on it. Without a baseline, “better” has nothing to be better than.</p>
+        <p>A baseline describes how the work performs today, without the tool. It covers how long the work takes, how often it needs correcting, and what errors reach the people who rely on it. Without a baseline, “better” has nothing to be better than.</p>
         <p>A test result describes how the AI-assisted version performs on a defined set of tasks, under conditions you control. It is useful and repeatable. It is not the same as performance in live use, where inputs are messier and people behave differently.</p>
         <p>Be clear about which one you have. A good test result on a curated set does not prove a benefit in live use. A self-reported time saving from a pilot group, with no baseline to compare against, proves very little. Neither is worthless. Both need to be labelled for what they are.</p>
 
         <h2>Report small samples honestly</h2>
         <p>Early evaluations are small. That is fine. Pretending otherwise is not.</p>
-        <p>Report counts, not just percentages. Writing “seven of ten summaries had no misstatements” tells the reader how much weight the result can bear. Writing “70%” hides it. Show the failures, with examples, because they are often more informative than the average. If you give a rate, give a sense of how uncertain it is. With a handful of cases the uncertainty will be wide, and saying so is a sign of rigour, not weakness.</p>
+        <p>Report counts, not just percentages. Writing “seven of ten summaries had no misstatements” tells the reader how much weight the result can bear. Writing “70%” hides it. Show the failures, with examples, because they are often more informative than the average. If you give a rate, give a sense of how uncertain it is. With a handful of cases the uncertainty will be wide. Saying so is rigour, not weakness.</p>
         <p>Say what you did not test: task types, user groups, document lengths, languages. A reader should be able to see where the evidence stops.</p>
-        <p>Match the effort to the stakes. HM Treasury’s Magenta Book, the central government guidance on evaluation, argues that evaluation should be proportionate to the risk, scale and profile of what is being evaluated. A low-risk drafting aid does not need a trial. A tool whose output feeds into advice or decisions needs more than a satisfaction survey.</p>
+        <p>Match the effort to the stakes. A low-risk drafting aid does not need a trial. A tool whose output feeds into advice or decisions needs more than a satisfaction survey. When you need more than a local comparison, start with HM Treasury’s Magenta Book, the central government guidance on evaluation.</p>
 
         <h2>A short checklist</h2>
         <p>Before you report on an AI roll-out, check that you can answer these questions.</p>
@@ -100,15 +100,15 @@
         <section class="sources" aria-labelledby="sources-title">
           <h2 id="sources-title">Sources</h2>
           <ol>
-            <li>OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2025/LLM09_Misinformation.md">LLM09:2025 Misinformation</a>, OWASP Top 10 for LLM Applications 2025.</li>
-            <li>HM Treasury, <a href="https://www.gov.uk/government/publications/the-magenta-book">The Magenta Book: central government guidance on evaluation</a>.</li>
+            <li>OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM07_Misinformation.md">LLM07:2026 Misinformation</a>, OWASP Top 10 for LLM Applications 2026 (source text on GitHub). In the 2025 edition this entry was <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2025/LLM09_Misinformation.md">LLM09:2025 Misinformation</a>.</li>
+            <li>HM Treasury, <a href="https://www.gov.uk/government/publications/the-magenta-book">The Magenta Book</a>, GOV.UK. Central government guidance on evaluation.</li>
           </ol>
           <p>Views are my own. Where I refer to public guidance, this is my reading of it: unofficial; not government guidance.</p>
         </section>
 
         <section class="related" aria-labelledby="related-title">
           <h2 id="related-title">Related project</h2>
-          <p><strong>evidence-synthesis-eval</strong> applies these ideas to one task: AI summaries of evidence. It scores faithfulness, coverage and misstatements, and records the human effort needed to check each summary. It is built on Inspect from the UK AI Security Institute.</p>
+          <p><strong>evidence-synthesis-eval</strong> applies these ideas to one task: AI-written summaries of evidence. It scores faithfulness, coverage and misstatements, and gives reviewers a log for the minutes they spend checking and correcting each summary. Its reports give intervals, not just averages. They state how many questions a comparison rests on, and that it is a local comparison, not a causal study. It is built on Inspect, a framework for language model evaluations created by the UK AI Security Institute.</p>
           <p class="repo-link"><a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval on GitHub</a></p>
         </section>
       </div>
