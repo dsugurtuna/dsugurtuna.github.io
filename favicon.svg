@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>UT</title>
+  <rect width="64" height="64" rx="12" fill="#0d6b5b"/>
+  <path d="M13 18v17a8.5 8.5 0 0 0 17 0V18M36 18h18M45 18v29" fill="none" stroke="#fbfaf7" stroke-width="6"/>
+</svg>

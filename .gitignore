@@ -1,0 +1,8 @@
+# Local tooling and OS files. The site itself has no build output.
+node_modules/
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+__pycache__/
