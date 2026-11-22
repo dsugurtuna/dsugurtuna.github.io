@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cheap models are expensive: frontier AI &amp; human eyes – Ugur Tuna</title>
-  <meta name="description" content="Agent frameworks love small, fast models because the API bill looks tidy. The real cost shows up later in hallucinations, broken chains and hours of human rework.">
+  <title>Cheap models cost more than frontier ones – Ugur Tuna</title>
+  <meta name="description" content="Cutting the API bill with small, fast agent models shifts the real cost onto human hours spent hunting quiet mistakes.">
   <meta name="author" content="Ugur Tuna">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
@@ -15,8 +15,8 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Ugur Tuna">
   <meta property="og:locale" content="en_GB">
-  <meta property="og:title" content="Cheap models are expensive: why frontier intelligence and human eyes win">
-  <meta property="og:description" content="Agent frameworks love small, fast models because the API bill looks tidy. The real cost shows up later in hallucinations, broken chains and hours of human rework.">
+  <meta property="og:title" content="Cheap models cost more than frontier ones">
+  <meta property="og:description" content="Cutting the API bill with small, fast agent models shifts the real cost onto human hours spent hunting quiet mistakes.">
   <meta property="og:url" content="https://dsugurtuna.github.io/writing/cheap-models-are-expensive.html">
   <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -47,49 +47,80 @@
     <article class="wrap essay">
       <header class="essay-head">
         <p class="eyebrow"><a href="./">Writing</a></p>
-        <h1>Cheap models are expensive: why frontier intelligence and human eyes win</h1>
-        <p class="dek">Agent frameworks love small, fast models because the API bill looks tidy. The real cost shows up later in hallucinations, broken chains and hours of human rework.</p>
-        <p class="byline">Ugur Tuna · 7 minute read</p>
+        <h1>Cheap models cost more than frontier ones</h1>
+        <p class="dek">Cutting the API bill with small, fast agent models shifts the real cost onto human hours spent hunting quiet mistakes.</p>
+        <p class="byline">Ugur Tuna · 4 minute read</p>
       </header>
 
       <div class="prose">
-        <p>Sit in on almost any enterprise AI architecture review and watch what happens ten minutes after the demo ends. The workflow works nicely on a frontier model. Then someone pulls up the pricing page, notices the cost per million tokens and asks the most predictable question in corporate software: “Can we swap this for the mini model to save 80% on inference?”</p>
-        <p>On a cloud billing spreadsheet, that swap looks like shrewd engineering. In real operations, it is one of the most expensive false economies you can make.</p>
-        <p>Automation frameworks and agent platforms push cheap, fast models almost by reflex because tokens are visible on a monthly invoice while human rework is buried across everybody’s calendar. Cut the intelligence of the model inside an automated chain, and you do not merely save pennies — you raise hallucination rates, drop quiet constraints and force skilled people to spend hours checking and repairing fluent rubbish. For work that matters, frontier models are not a luxury. They are the floor — paired with attentive human eyes checking that the result actually holds up.</p>
+        <p>In almost every AI project, someone eventually opens the cloud bill and suggests swapping the frontier model for a smaller, faster, cheaper one.</p>
+        <p>On a slide, the saving looks obvious. Token spend drops by eighty per cent. Then the real bill arrives quietly over the next month, hidden inside forty-minute blocks on senior people’s calendars as they hunt down subtle mistakes they never used to see.</p>
+        <p>Agent frameworks default to cheap models because API invoices are counted to the penny while human checking time rarely gets measured at all. Once you price the whole job, cutting model quality on serious work is a false economy.</p>
 
-        <h2>The brutal arithmetic of multi-step agents</h2>
-        <p>Single-turn chat hides how fragile cheap models really are. If a model answers a one-off question wrong once in twenty tries, you shrug and ask again. An autonomous agent does not take one step. It plans, searches, reads, calls tools, extracts figures and drafts a conclusion across ten, thirty or a hundred steps in a row.</p>
-        <p>In a chain, errors multiply. As Khush Patel and colleagues highlight in their January 2026 analysis of agent reliability, if each step succeeds independently with probability <em>1 − p</em>, end-to-end reliability over <em>m</em> steps is <em>(1 − p)<sup>m</sup></em>. Even a model that gets 99% of individual steps right drops to 90.4% success over ten steps and just 36.6% over a hundred. Now step down to a cheaper model that fails 5% of the time per step: over ten steps, end-to-end reliability falls to roughly 60%; over fifty steps, it collapses to under 8%.</p>
-        <p>Nobody running an airline or a hospital would celebrate a 95%-per-step component. Yet AI teams routinely wire 95% models into twenty-step agent loops because the token price looks tiny — and then wonder why the system keeps stalling in pilot and never earns anyone’s trust in production.</p>
+        <h2>Small error rates wreck multi-step chains</h2>
+        <p>A 5% error rate sounds harmless in a casual chat. Inside an automated workflow that plans, searches, reads files and writes output across twenty or fifty steps, errors multiply at every link.</p>
+        <p>Simple probability tells the story. A model that gets 99% of individual steps right finishes a ten-step run cleanly nine times in ten (90.4%). Step down to a cheaper model that gets 95% per step right, and four runs out of ten break before step ten (59.9% survive). Stretch the chain to fifty steps and fewer than one in twelve runs survive intact (7.7%).</p>
 
-        <h2>Cheap models are not just wrong more often — they are blind to it</h2>
-        <p>What makes cheap models truly treacherous is not merely their lower accuracy. It is their confidence when they are wrong.</p>
-        <p>In a landmark ICML 2026 study from Princeton University, Stephan Rabanser, Sayash Kapoor, Arvind Narayanan and colleagues evaluated fifteen models from OpenAI, Anthropic and Google across two years of releases — measuring not just average accuracy, but calibration, robustness, consistency and safety. On structured customer-service agent tasks (τ-bench), the gap between cheap “efficient” models and frontier models was stark. Smaller, faster models were wildly overconfident, with calibration error scores between 0.54 and 0.67 (for Claude 3 Haiku, Claude 3.5 Haiku and GPT-4o mini), compared with 0.07 to 0.11 for frontier models such as Claude Opus 4.5, Claude Opus 4.7 and GPT-5.5.</p>
-        <p>Worse still, when asked to distinguish their own successes from their own failures, those cheap models scored <em>below a coin flip</em> (0.36 to 0.42 AUROC, where 0.50 is pure chance), while top frontier models reached 0.70 to 0.72. And across the whole benchmark, the single most common operational safety failure was financial accuracy — wrong charges and wrong refunds. A model that guesses wrong <em>and</em> sounds certain about it is the hardest kind of failure for a busy team to catch.</p>
+        <figure class="diagram">
+          <svg viewBox="0 0 640 246" role="img" aria-labelledby="diag-cost-title">
+            <title id="diag-cost-title">Multi-step survival curve for 99% versus 95% per-step accuracy alongside total cost including human rework</title>
+            <text class="d-kicker" x="20" y="24">1. SURVIVAL ACROSS MULTI-STEP RUNS</text>
+            <line class="d-axis" x1="52" y1="48" x2="52" y2="188"></line>
+            <line class="d-axis" x1="52" y1="188" x2="292" y2="188"></line>
+            <text class="d-sub" x="18" y="53">100%</text>
+            <text class="d-sub" x="24" y="121">50%</text>
+            <text class="d-sub" x="30" y="191">0%</text>
+            <text class="d-sub" x="48" y="206">1</text>
+            <text class="d-sub" x="92" y="206">10</text>
+            <text class="d-sub" x="160" y="206">25</text>
+            <text class="d-sub" x="252" y="206">50 steps</text>
 
-        <h2>The invisible verification tax</h2>
-        <p>Now follow the money off the API invoice and into the real office. Suppose a frontier model costs thirty pence to produce a careful synthesis of ten regulatory filings, and a cheap agent model costs three pence. That looks like a ten-to-one saving — until a senior analyst or lawyer sits down to check it.</p>
-        <p>If the cheap model hallucinates one threshold, drops a condition halfway through its chain or cites a source that says the opposite, the reviewer cannot simply fix one word. They have to distrust the entire page and re-read the underlying documents line by line. At £100 an hour for skilled staff time, forty minutes of forensic checking costs £67 — wiping out two thousand times the “saving” on tokens.</p>
-        <p>In their February 2026 study <em>From Fluent to Verifiable</em>, Razeen Rasheed and colleagues give a striking example of this verification tax from an independent audit of an autonomous research agent (<em>The AI Scientist</em>). The agent produced a fluent, confident report claiming “improved training efficiency” even though its own experiment had consumed 23% more compute and 18% more wall-clock time. Uncovering that contradiction took human experts hours of manual tracing through raw code and logs — roughly as long as doing the research themselves. They also point to evaluations of deep research agents whose citation accuracy ranged from just 40% to 80%, leaving a fifth to three-fifths of claims unsupported by the very sources listed beside them. When checking costs as much as creating, cheap automation has not saved a single minute.</p>
+            <path class="d-stroke-accent" d="M52 50 L98 61 L168 79 L284 103"></path>
+            <circle class="d-dot-accent" cx="98" cy="61" r="3.5"></circle>
+            <circle class="d-dot-accent" cx="284" cy="103" r="3.5"></circle>
+            <text class="d-num-accent" x="172" y="70">99%/step (61%)</text>
 
-        <h2>Why frontier models are essential — and still not enough on their own</h2>
-        <p>Here is where naive AI evangelists and naive cost-cutters both miss half the truth. Switching to a frontier model cuts hallucinations dramatically, handles long chains without forgetting early rules and earns far higher calibration. It genuinely saves time because you spend your energy refining strong work instead of excavating broken drafts.</p>
-        <p>Yet frontier models alone do not eliminate the need for human eyes. The Princeton ICML 2026 study reveals something deeply humbling: even as raw accuracy climbed steadily over two years, overall agent reliability barely moved on open-ended tasks (inching up at just 0.03 per year on GAIA, versus 0.23 per year in accuracy). And Rasheed and colleagues describe what they call the “parameter capacity paradox”: smaller models stumble early during planning and drop constraints, whereas large frontier models plan far better yet can fail during synthesis with smooth, authoritative hallucinations that look entirely convincing at a glance.</p>
-        <p>That is why the Princeton authors give human checking a name every leader should remember: the <strong>reliability backstop</strong>. AI coding copilots have achieved massive real-world adoption precisely because a human developer reads and accepts each diff before it lands. Remove that human buffer in unattended automation, and the exact same 90%-accurate model turns into public disasters — from an agent deleting a live production database to Air Canada losing a legal tribunal after its chatbot invented a bereavement refund policy. High-reliability organisations in aviation and medicine do not succeed because every part is infallible; as Karl Weick and Kathleen Sutcliffe famously observed, they succeed because errors are caught before they disable the system.</p>
+            <path class="d-stroke-dashed" d="M52 55 L98 104 L168 149 L284 177"></path>
+            <circle class="d-dot-muted" cx="98" cy="104" r="3.5"></circle>
+            <circle class="d-dot-muted" cx="284" cy="177" r="3.5"></circle>
+            <text class="d-sub" x="148" y="170">95%/step (8%)</text>
 
-        <h2>Where cheap models actually belong</h2>
-        <p>Being honest about the counter-argument makes the architecture sharper, not weaker. Small, fast models do have a genuine place in well-engineered systems. They work well for narrow, tightly bounded plumbing whose output can be checked deterministically in code: classifying a support ticket into six fixed buckets, extracting dates into a strict schema, matching formatting rules or running high-volume triage with automatic escalation whenever confidence is thin.</p>
-        <p>The rule of thumb is simple. Use cheap models where a deterministic script can catch every mistake instantly. Use frontier models wherever the task involves open-ended reasoning, synthesis, nuance, external customers or decisions people will act on — and keep human eyes firmly on the final check.</p>
+            <text class="d-kicker-accent" x="332" y="24">2. REAL COST OF ONE ACCEPTED OUTPUT</text>
+            <text class="d-title" x="332" y="62">Frontier model + human eyes</text>
+            <rect class="d-bar-accent" x="332" y="72" width="34" height="28" rx="3"></rect>
+            <rect class="d-card-accent" x="370" y="72" width="76" height="28" rx="3"></rect>
+            <text class="d-sub" x="332" y="116">30p tokens + 5 min focused check</text>
 
-        <h2>Pricing the whole job, not just the token</h2>
-        <p>Before you downgrade a model inside any workflow, run four plain checks:</p>
+            <text class="d-title" x="332" y="150">Cheap model + fixing quiet errors</text>
+            <rect class="d-bar-muted" x="332" y="160" width="8" height="28" rx="2"></rect>
+            <rect class="d-bar-outline" x="344" y="160" width="272" height="28" rx="3"></rect>
+            <text class="d-sub" x="356" y="178">40 min tracing dropped facts &amp; rework</text>
+            <text class="d-sub" x="332" y="204">3p tokens + £65 of senior staff time</text>
+          </svg>
+          <figcaption>Saving pennies on tokens multiplies downstream failures and moves the real bill onto skilled human reviewers.</figcaption>
+        </figure>
+
+        <h2>Cheap models do not know when they are guessing</h2>
+        <p>Lower accuracy would be manageable if a weak model raised its hand when unsure. Instead, small models fail with total confidence.</p>
+        <p>In an ICML 2026 study at Princeton University, Stephan Rabanser, Sayash Kapoor, Arvind Narayanan and colleagues tested fifteen models from OpenAI, Anthropic and Google across two years. On customer-service agent tasks, cheaper “efficient” models such as GPT-4o mini and Claude Haiku showed heavy overconfidence (calibration error of 0.54 to 0.67, compared with 0.07 to 0.11 for frontier models such as Claude Opus 4.7 and GPT-5.5). Worse, when separating their own right answers from their wrong ones, the cheap models scored below a coin flip (0.36 to 0.42 AUROC, where 0.50 is pure guesswork), while frontier models reached 0.70 to 0.72. Across all models tested, the commonest safety failure was financial: charging or refunding the wrong sum.</p>
+
+        <h2>Fluent mistakes wipe out every minute saved</h2>
+        <p>Suppose a frontier call costs thirty pence and a cheap model costs three pence. If the cheap model invents one clause or quietly drops one rule halfway through a report, a reviewer cannot just fix that line. They lose trust in the whole draft and have to check every source by hand. Forty minutes of a senior specialist’s afternoon wipes out two thousand times the saving on tokens.</p>
+        <p>Razeen Rasheed and colleagues highlight a textbook case in <em>From Fluent to Verifiable</em> (February 2026). Auditing an autonomous research agent, evaluators found a polished paper celebrating “improved training efficiency” after an experiment that had actually burned 23% more compute and 18% more wall-clock time. Uncovering the error took human experts hours of digging through code and logs, roughly as long as doing the work from scratch.</p>
+
+        <h2>Frontier intelligence still needs human eyes</h2>
+        <p>Paying for a frontier model cuts hallucinations sharply and saves real time because reviewers start from solid ground rather than rubble. Even so, frontier models are not infallible. Princeton’s two-year benchmark showed raw accuracy climbing fast while open-ended agent reliability barely budged. Large models plan well yet can still write smooth, convincing errors when pulling sources together.</p>
+        <p>That is why the Princeton team call human review the <strong>reliability backstop</strong>. Coding copilots succeeded in daily work because an engineer reads each change before accepting it. Take away human eyes in unattended automation, and the remaining errors turn straight into live incidents.</p>
+
+        <h2>Where small models fit, and how to buy wisely</h2>
+        <p>Small, cheap models earn their keep on narrow plumbing where plain code can check every answer: sorting tickets into fixed tags, extracting dates into strict schemas, or flagging items for a stronger model to inspect.</p>
+        <p>For everything else, keep four rules:</p>
         <ol>
-          <li><strong>Price total human effort, not token spend.</strong> Add the minutes spent reading, verifying and fixing errors into the monthly bill alongside API costs.</li>
-          <li><strong>Test calibration, not just average accuracy.</strong> Look at the worst 10% of outputs and ask how confidently the model lied when it missed.</li>
-          <li><strong>Put your best model on the hardest step.</strong> Never let a cheap model do the synthesis or judgement call that a senior person has to stake their name on.</li>
-          <li><strong>Build checking into the workflow.</strong> Pair frontier output with source links, explicit uncertainty flags and deliberate human review — because trust is earned by what holds up under scrutiny, not by what was cheapest to generate.</li>
+          <li>Price human checking and rework alongside the API bill.</li>
+          <li>Use frontier models wherever reasoning, synthesis or external trust is at stake.</li>
+          <li>Show source links and uncertainty clearly so human reviewers know where to look.</li>
+          <li>Never mistake a cheap invoice for a cheap system.</li>
         </ol>
-        <p>In AI, as in most serious crafts, buying cheap twice costs far more than buying well once. Pay for frontier intelligence where thinking counts, put careful human eyes on what leaves the building, and you will actually get the thing cheap agents only promise: reliable work and real time back.</p>
       </div>
 
       <div class="essay-foot">
@@ -98,14 +129,14 @@
           <ol>
             <li>Stephan Rabanser, Sayash Kapoor, Peter Kirgis, Kangheng Liu, Saiteja Utpala and Arvind Narayanan, <a href="https://arxiv.org/abs/2602.16666">Towards a Science of AI Agent Reliability</a>, Proceedings of ICML 2026 (arXiv:2602.16666).</li>
             <li>Razeen A Rasheed, Somnath Banerjee, Animesh Mukherjee and Rima Hazra, <a href="https://arxiv.org/abs/2602.13855">From Fluent to Verifiable: Claim-Level Auditability for Deep Research Agents</a>, arXiv:2602.13855, 14 February 2026.</li>
-            <li>Khush Patel, Siva Surendira, Jithin George and Shreyas Kapale, <a href="https://arxiv.org/abs/2601.22290">The Six Sigma Agent: Achieving Enterprise-Grade Reliability in LLM Systems Through Consensus-Driven Decomposed Execution</a>, arXiv:2601.22290, 29 January 2026 (for multi-step compound-error arithmetic and high-reliability organisation framing).</li>
+            <li>Khush Patel, Siva Surendira, Jithin George and Shreyas Kapale, <a href="https://arxiv.org/abs/2601.22290">The Six Sigma Agent</a>, arXiv:2601.22290, 29 January 2026 (for multi-step compound-error probability).</li>
           </ol>
-          <p>These arguments are my own; the studies above are cited where their evidence sharpens or illustrates a specific point.</p>
+          <p>These arguments are my own; the studies above are cited where their findings illustrate a specific point.</p>
         </section>
 
         <section class="related" aria-labelledby="related-title">
           <h2 id="related-title">Related reading &amp; project</h2>
-          <p><strong>ai-systems-architecture</strong> includes a tiered model-routing simulator that prices inference alongside human checking and rework, showing the exact point where a cheaper model raises total monthly cost. See also <a href="usage-is-not-quality.html">Usage is not quality</a>.</p>
+          <p><strong>ai-systems-architecture</strong> models monthly total cost across inference, human verification and rework to show the exact point where a cheaper model costs more. See also <a href="usage-is-not-quality.html">Usage is not quality</a>.</p>
           <p class="repo-link"><a href="https://github.com/dsugurtuna/ai-systems-architecture">ai-systems-architecture on GitHub</a></p>
         </section>
       </div>
