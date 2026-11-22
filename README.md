@@ -4,15 +4,13 @@ Source for my personal site: [dsugurtuna.github.io](https://dsugurtuna.github.io
 
 Plain HTML and one stylesheet. No build step, no framework, no JavaScript, no trackers, no web fonts and no CDNs. GitHub Pages serves the files exactly as they are in this repository.
 
-> **Note on the essays.** The essays were drafted with AI assistance. Before publishing, read each one aloud and rewrite anything you would not say yourself.
-
 ## Structure
 
 ```text
 .
 ├── index.html                  Home: headline, now/before/thread, flagship projects,
 │                               how I work, track record, writing, contact
-├── projects.html               Every repository, grouped as in the GitHub profile README
+├── projects.html               Curated public repositories, grouped by purpose
 ├── writing/
 │   ├── index.html              List of essays
 │   ├── usage-is-not-quality.html
