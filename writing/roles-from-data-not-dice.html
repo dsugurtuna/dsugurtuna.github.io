@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roles from data, not dice: multi-model AI teams – Ugur Tuna</title>
+  <meta name="description" content="Different AI labs build different minds from different worlds of data. Put them together by measured strength, and force every counter-argument to bring verifiable evidence.">
+  <meta name="author" content="Ugur Tuna">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://dsugurtuna.github.io/writing/roles-from-data-not-dice.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Ugur Tuna">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Roles from data, not from dice: evidence-gated multi-model teams">
+  <meta property="og:description" content="Different AI labs build different minds from different worlds of data. Put them together by measured strength, and force every counter-argument to bring verifiable evidence.">
+  <meta property="og:url" content="https://dsugurtuna.github.io/writing/roles-from-data-not-dice.html">
+  <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ugur Tuna. I build AI systems, and the controls that make them safe to use.">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="12"/><path d="M13 18v17a8.5 8.5 0 0 0 17 0V18M36 18h18M45 18v29" fill="none" stroke-width="6"/></svg>
+        Ugur Tuna
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li><a href="../projects.html">Systems</a></li>
+          <li><a href="./">Writing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="wrap essay">
+      <header class="essay-head">
+        <p class="eyebrow"><a href="./">Writing</a></p>
+        <h1>Roles from data, not from dice: evidence-gated multi-model teams</h1>
+        <p class="dek">Different AI labs build different minds from different worlds of data. Put them together by measured strength, and force every counter-argument to bring verifiable evidence.</p>
+        <p class="byline">Ugur Tuna · 9 minute read</p>
+      </header>
+
+      <div class="prose">
+        <p>Imagine assembling a senior team to make a high-stakes call — a major acquisition, a clinical safety judgement or a thorny legal strategy. You would never hire five clones of the exact same person and hope that putting them in one room produces wisdom. Nor would you pull job titles out of a hat, handing the courtroom brief to the accountant and the financial audit to the press officer. And if someone spoke up to overturn the lead recommendation, you would not wave them through on rhetoric alone; you would ask to see the evidence.</p>
+        <p>Yet walk through most “multi-agent AI” demos today and watch what engineers actually build. They spin up three copies of the same language model, stick theatrical name tags on them — “Advocate”, “Skeptic”, “Expert” — and let them swap paragraphs back and forth over the exact same text. Or they mix several models together and assign roles at random, letting every agent whisper unverified opinions into the final answer.</p>
+        <p>Earlier, I wrote that <a href="a-second-model-is-a-critic.html">a second model is a critic, not a verifier</a>. This essay takes the next step: how to design a genuine multi-model team so different AI labs sharpen a decision towards truth rather than building a louder, pricier echo chamber.</p>
+
+        <h2>Different labs grow out of different worlds of data</h2>
+        <p>The major AI labs — Google, Meta, Anthropic, OpenAI and xAI — are not building interchangeable commodities. Even when their headline benchmark scores sit within a few points of one another, each lab is shaped by a distinct ecosystem of data, human feedback and engineering priorities.</p>
+        <p>Look at the soil each one grows in. Google sits close to decades of web indexing, search grounding and YouTube’s vast archive of lectures, tutorials and public commentary. Meta operates at planetary scale in everyday social expression and community dialogue across Facebook and Instagram. xAI sits right beside the live pulse of public argument, breaking news and unfiltered commentary on X. OpenAI runs the largest general-purpose human feedback engine in the world — hundreds of millions of ordinary users showing it every day how people frame questions, follow up and decide. Anthropic has poured extraordinary engineering focus into disciplined reasoning, careful writing and intensive, high-signal feedback from heavy technical and coding users.</p>
+        <p>None of us outside those labs has a line-by-line manifest of every training set, and capabilities shift every quarter. The strategic point does not depend on secret recipes; it rests on something far more practical. Models built by different organisations, on different corpora, with different post-training philosophies, develop genuinely different strengths — and different blind spots. Treating them as identical interchangeable widgets throws away the single greatest advantage of a multi-lab world.</p>
+
+        <h2>Why cloning one model — or assigning roles at random — fails</h2>
+        <p>Before designing a multi-model team properly, it helps to see why naive “AI debate” so often backfires. Putting several agents in a chat loop without genuine model diversity and fresh evidence does not create collective intelligence. It creates theatrical noise.</p>
+        <p>In a sharp July 2026 audit titled <em>More Debate, Same Evidence</em>, Yuelyu Ji tested a three-agent panel of identical GPT-5.5 Chat instances prompted as Skeptic, Advocate and Domain Expert across six verification benchmarks (1,950 examples). The cracks were structural. In the second round of debate, agents added almost no genuinely new semantic information (median novelty of just 0.068). The personas shared heavy correlated errors — up to 0.927 between Advocate and Domain Expert — because they shared the same underlying mind. Merely changing who spoke first swung accuracy by up to eight percentage points on SciFact. High-confidence verdicts (90–100%) were actually <em>less</em> accurate (~58%) than moderate-confidence ones (63%). Most damning of all: on one benchmark (WiCE), when the debate panel changed an answer, 70.4% of those flips turned a right answer into a wrong one. As Ji puts it, “a changed answer should not be interpreted as a corrected answer.”</p>
+        <p>That single line captures the core danger of ungrounded multi-agent debate: <strong>hallucination contagion</strong>. If another model argues persuasively from a fabricated premise, a polite primary model will often second-guess its own right answer and bend towards the hallucination.</p>
+
+        <h2>Rule one: assign roles from training strengths and measured evaluation</h2>
+        <p>If you want the best possible answer, do not roll dice for roles and do not rely on lab marketing. Assign roles based on what each model is actually shaped to do well — and verify that assignment against your own evaluation set.</p>
+        <p>In this architecture, one strong model serves as the <strong>primary decision-maker</strong> for the core query, while specialist models from different labs take clearly defined seats matched to their evaluated strengths: one digging deep into broad web and multimodal context, another re-deriving logic and numbers, another stress-testing live signals or counter-narratives, another widening the option space. Crucially, each specialist drafts independently before seeing anyone else’s answer, so the first speaker cannot drag the whole table down a single alley.</p>
+        <p>Real frontier benchmarks now prove how far capability-aware orchestration can reach. In June 2026, Sakana AI published its <em>Fugu</em> technical report, pairing frontier models from OpenAI (GPT-5.5), Anthropic (Claude Opus 4.8) and Google (Gemini 3.1 Pro) under a learned orchestrator that routes subtasks to each lab’s measured strengths and keeps workers isolated until handoff to prevent “orchestration collapse”. Using only publicly available models, the combined system beat every individual lab on its own flagship ground — reaching 73.7% on SWE-Bench Pro (ahead of Opus 4.8’s 69.2%), 82.1% on Terminal Bench 2.1 (ahead of GPT-5.5’s 78.2%) and 95.5% on GPQA-Diamond (ahead of Gemini 3.1 Pro’s 94.3%).</p>
+        <p>One small vignette from that report shows why different minds beat clones. On a server-building task, GPT-5.5 built the service and reported it reachable. The orchestrator then brought in Opus 4.8 for an independent audit — and Opus caught three concrete defects, including discovering that GPT’s reachability test had accidentally pinged an orphaned process left behind earlier. Handed those specific findings, GPT fixed the build cleanly. Neither model was flawless alone; assigned by strength, each saw what the other missed.</p>
+
+        <h2>Rule two: every counter-argument must bring verifiable evidence</h2>
+        <p>Diversity of roles is only half the architecture. The second half is the rule that stops collaboration from turning into hallucination contagion: <strong>evidence gating</strong>.</p>
+        <p>When specialist models challenge the primary decision-maker, raw opinions should carry almost no weight. Every counter-argument must arrive anchored in something the decision-maker — and a human reviewer — can actually check: a verbatim passage from a source document, a live retrieval receipt, a reproducible calculation or a concrete failing test case. If a specialist brings verifiable evidence that contradicts the lead view, the decision-maker inspects the evidence and genuinely revises its judgement. If a specialist offers eloquence without proof, the gate blocks it from steering the decision.</p>
+        <p>Two 2026 research systems illustrate this principle with textbook clarity:</p>
+        <ul>
+          <li><strong>Breaking the epistemic bubble:</strong> In <em>PROCLAIM</em> (August 2026), Masnun Nuha Chowdhury and colleagues built a courtroom-style multi-model pipeline across different model families, combining admissibility gating (filtering out unsupported “hearsay”) with progressive live evidence retrieval. It beat standard multi-agent debate by 10 percentage points on Check-COVID (81.7% versus 71.7%) and 16 points on HealthVer (72.0% versus 56.0%), while slashing calibration error from 0.180 to 0.034. The sharpest twist came when they turned live evidence retrieval <em>off</em>: accuracy plunged by 7.5 points — yet agreement between the judge models actually <em>climbed</em> (from κ = 0.468 to 0.599). Without fresh evidence, debating models simply talk themselves into confident, unanimous error.</li>
+          <li><strong>Stopping unanimous unsupported agreement:</strong> In <em>AEGIS-D</em> (EMNLP 2026 Findings), Jiayang Sun and colleagues tested an evidence-gated debate protocol on hard Olympiad mathematics verification, requiring positive confirming evidence rather than mere lack of objection. False positives dropped 8.2-fold on GPT-5.2 (lifting precision from 55.1% to 92.5%) and 17.5-fold on Claude Opus 4.6 (33.3% to 83.5%). In one memorable case, a flawed proof cited an unsupported formula and all five agents initially voted 5–0 to accept it — yet marked the reasoning insufficient. Because the evidence gate refused to pass an unverified unanimous vote, the system demanded concrete small-case checks. Those checks falsified the formula and flipped the entire panel from 5–0 in favour to 0–5 against.</li>
+        </ul>
+        <p>That 5–0 to 0–5 reversal is the whole philosophy in miniature. Voting counts eloquence and shared bias. Evidence gating forces proof onto the table.</p>
+
+        <h2>When to convene the council — and when not to</h2>
+        <p>There is an obvious trade-off, and any honest architect should put it upfront: running a multi-model evidence-gated council costs more tokens and takes more seconds than firing off a single prompt. You do not convene a courtroom to draft a meeting invite or summarise a lunch menu.</p>
+        <p>Reserve multi-model evidence-gated teams for decisions where a quiet error carries real cost — board strategy memos, clinical or scientific evidence syntheses, regulatory interpretations, security audits, complex architectural trade-offs and high-value commercial bets. On work like that, paying for three extra model calls and a deterministic quote check is trivial compared with acting on a plausible hallucination.</p>
+
+        <h2>A blueprint you can actually run</h2>
+        <p>Putting this architecture into practice comes down to five disciplined steps:</p>
+        <ol>
+          <li><strong>Pick models from different labs, not clones.</strong> Pair genuinely distinct model families so shared training blind spots shrink rather than echo.</li>
+          <li><strong>Assign seats by evaluation, never by whim.</strong> Test which model excels at synthesis, retrieval, numerical checking or adversarial challenge on your real tasks, and update seats as new models land.</li>
+          <li><strong>Draft independently first.</strong> Keep specialist models isolated on their first pass so nobody anchors the whole room prematurely.</li>
+          <li><strong>Check evidence outside the models.</strong> Use deterministic code to verify that cited URLs exist, quoted passages actually appear in the source and numbers compute cleanly — marking anything backed only by prose as an unverified assumption.</li>
+          <li><strong>Let the decision-maker judge the ledger, not the rhetoric.</strong> Require the primary model to name which counter-evidence changed its mind, which unsupported claims it set aside and where genuine dissent remains for a human to decide.</li>
+        </ol>
+        <p>No single AI lab holds a monopoly on truth, data or perspective — just as no single human adviser does. The breakthrough is not asking one oracle to know everything, nor letting five chatbots argue in the dark. It is matching genuinely different AI minds to the roles their data and evaluations earn them, and refusing to let any claim — however eloquent — cross the threshold without evidence you can check.</p>
+      </div>
+
+      <div class="essay-foot">
+        <section class="sources" aria-labelledby="sources-title">
+          <h2 id="sources-title">Sources</h2>
+          <ol>
+            <li>Sakana AI (Fugu Team), <a href="https://arxiv.org/abs/2606.21228">Sakana Fugu Technical Report</a>, arXiv:2606.21228, 23 June 2026.</li>
+            <li>Yuelyu Ji, <a href="https://arxiv.org/abs/2608.00243">More Debate, Same Evidence: Structural Limits of Homogeneous Multi-Agent Groundedness Judges</a>, arXiv:2608.00243, 31 July 2026.</li>
+            <li>Masnun Nuha Chowdhury, Nusrat Jahan Beg, Umme Hunny Khan, Syed Rifat Raiyan, Md Kamrul Hasan and Hasan Mahmud, <a href="https://arxiv.org/abs/2603.28488">Courtroom-Style Multi-Agent Debate with Progressive RAG and Role-Switching for Controversial Claim Verification</a>, arXiv:2603.28488, 1 August 2026.</li>
+            <li>Jiayang Sun, Jiawei Xu, Maxm Pan, Zerui Cheng and Pramod Viswanath, <em>AEGIS-D: Multi-Agent Debate for High-Precision Verification of Hard Competition Mathematics</em>, Findings of EMNLP 2026, pp. 18861–18873 (<a href="https://github.com/aurorajy1108/When-Wrong-Answers-Look-Right">code &amp; materials on GitHub</a>).</li>
+          </ol>
+          <p>These arguments are my own; the studies above are cited where their evidence sharpens or illustrates a specific point.</p>
+        </section>
+
+        <section class="related" aria-labelledby="related-title">
+          <h2 id="related-title">Related reading &amp; project</h2>
+          <p>See the companion essay <a href="a-second-model-is-a-critic.html">A second model is a critic, not a verifier</a> and <strong>evidence-synthesis-eval</strong>, which tests draft-and-critique loops against deterministic citation checks, faithfulness scorers and blinded human-judge calibration — logging model critique as advice and checking claims against primary sources.</p>
+          <p class="repo-link"><a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval on GitHub</a></p>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="disclaimer">Personal portfolio and open-source reference work. Views are my own.</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/dsugurtuna">GitHub</a></li>
+        <li><a href="https://github.com/dsugurtuna/dsugurtuna.github.io">Source for this site</a></li>
+      </ul>
+      <p>© 2026 Ugur Tuna. Code under the MIT licence. Words all rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
