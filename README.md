@@ -8,9 +8,9 @@ Plain HTML and one stylesheet. No build step, no framework, no JavaScript, no tr
 
 ```text
 .
-├── index.html                  Home: headline, now/before/thread, flagship projects,
-│                               how I work, track record, writing, contact
-├── projects.html               Curated public repositories, grouped by purpose
+├── index.html                  Home: positioning, leadership focus, open-source proof,
+│                               operating principles, delivery scale, writing, connect
+├── projects.html               Systems & reference architectures showcase
 ├── writing/
 │   ├── index.html              List of essays
 │   ├── usage-is-not-quality.html
@@ -72,4 +72,4 @@ References to public guidance in the essays are my own reading of it: unofficial
 
 ---
 
-<sub>Personal site. Views are my own. Not affiliated with or endorsed by any employer.</sub>
+<sub>Personal portfolio and open-source reference work. Views are my own.</sub>

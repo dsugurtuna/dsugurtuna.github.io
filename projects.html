@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects – Ugur Tuna</title>
-  <meta name="description" content="Curated public projects, grouped by purpose: AI evaluation, agent guardrails, proportionate assurance, a clinical AI platform, and clinical genomics reference pipelines.">
+  <title>Systems &amp; Reference Architectures – Ugur Tuna</title>
+  <meta name="description" content="Open-source reference architectures across agentic controls, LLM evaluation, proportionate AI assurance, clinical AI, and high-integrity biomedical pipelines.">
   <meta name="author" content="Ugur Tuna">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
@@ -15,8 +15,8 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ugur Tuna">
   <meta property="og:locale" content="en_GB">
-  <meta property="og:title" content="Projects – Ugur Tuna">
-  <meta property="og:description" content="AI evaluation, agent guardrails, proportionate assurance, clinical AI, and clinical genomics reference pipelines. Every project links to its code on GitHub.">
+  <meta property="og:title" content="Systems &amp; Reference Architectures – Ugur Tuna">
+  <meta property="og:description" content="Open-source reference architectures across agentic controls, LLM evaluation, proportionate AI assurance, clinical AI, and high-integrity biomedical pipelines.">
   <meta property="og:url" content="https://dsugurtuna.github.io/projects.html">
   <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -36,7 +36,7 @@
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="./">Home</a></li>
-          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="projects.html" aria-current="page">Systems</a></li>
           <li><a href="writing/">Writing</a></li>
         </ul>
       </nav>
@@ -45,52 +45,52 @@
 
   <main id="main">
     <header class="page-head wrap">
-      <p class="eyebrow">Projects</p>
-      <h1>Curated public work, grouped by what it is for.</h1>
-      <p class="lede">From AI evaluation, agent controls and proportionate assurance to clinical AI and genomics reference pipelines. Every link goes to the code on GitHub.</p>
+      <p class="eyebrow">Systems &amp; Reference Architectures</p>
+      <h1>Practical control, evaluation, and assurance architectures in code.</h1>
+      <p class="lede">Every repository pairs executable Python systems with architectural decision records (<code>docs/WHY.md</code>), automated offline CI, and explicit boundaries.</p>
     </header>
 
     <section class="section" aria-labelledby="open-title">
       <div class="wrap section-grid">
         <div class="section-head">
-          <h2 id="open-title">Building in the open</h2>
-          <p>Three connected projects, one question: how do you get real value from AI without losing control of it?</p>
+          <h2 id="open-title">Core AI systems</h2>
+          <p>Three connected architectures answering one leadership question: how do you scale AI value without losing operational control?</p>
         </div>
         <ul class="repos">
           <li>
-            <p class="repo-stage">Act safely</p>
+            <p class="repo-stage">Control execution</p>
             <h3 class="repo-name"><a href="https://github.com/dsugurtuna/agent-guardrails">agent-guardrails</a></h3>
             <p class="repo-question">How do you let an AI agent act without it sending the wrong thing, twice, to the wrong people?</p>
-            <p class="repo-desc">Controls for AI agents that write or send: allow-listed actions, draft and approve modes, execution-time re-validation, idempotency, a tamper-evident audit log and a kill switch.</p>
+            <p class="repo-desc">Runtime control layer for AI agents that write or send: allow/draft/approve modes, execution-time re-validation, idempotency, tamper-evident hash-chained audit logs, and a kill switch.</p>
             <ul class="tags" aria-label="Tags">
-              <li>Python</li>
-              <li>SQLite</li>
+              <li>Agentic AI</li>
+              <li>Tool-use guardrails</li>
               <li>Audit log</li>
-              <li>Claude tool use</li>
+              <li>OWASP LLM</li>
             </ul>
           </li>
           <li>
-            <p class="repo-stage">Measure quality</p>
+            <p class="repo-stage">Verify quality</p>
             <h3 class="repo-name"><a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval</a></h3>
-            <p class="repo-question">Does an AI summary of the evidence say what the sources say? What did it miss, and what did checking it cost?</p>
-            <p class="repo-desc">Evaluation harness for AI-assisted evidence synthesis: faithfulness, coverage, misstatements and human checking effort. Built on Inspect from the UK AI Security Institute.</p>
+            <p class="repo-question">Does an AI synthesis say what the sources say, what did it miss, and what did verification cost?</p>
+            <p class="repo-desc">Open evaluation harness built on UK AISI Inspect: faithfulness, importance-weighted coverage, misstatement rates, blinded human-judge agreement (Cohen’s kappa), and checking effort.</p>
             <ul class="tags" aria-label="Tags">
-              <li>Python</li>
-              <li>Inspect</li>
-              <li>Model-graded scorers</li>
-              <li>Deterministic scorers</li>
+              <li>LLM Evaluation</li>
+              <li>Inspect AI</li>
+              <li>Benchmarking</li>
+              <li>Faithfulness</li>
             </ul>
           </li>
           <li>
-            <p class="repo-stage">Assure and decide</p>
+            <p class="repo-stage">Govern &amp; assure</p>
             <h3 class="repo-name"><a href="https://github.com/dsugurtuna/ai-assurance-kit">ai-assurance-kit</a></h3>
-            <p class="repo-question">How can a team do proportionate AI assurance in an afternoon rather than a quarter?</p>
-            <p class="repo-desc">Turns an AI use case into a validated, reviewable record and a one-page card, with checks drawn from public UK guidance and a NIST AI RMF crosswalk.</p>
+            <p class="repo-question">How can a leadership team run proportionate AI assurance in an afternoon rather than a quarter?</p>
+            <p class="repo-desc">Policy-as-code assurance engine turning AI use cases into schema-validated YAML records, 26 explainable checks, executive one-page cards, and NIST AI RMF / UK standards crosswalks.</p>
             <ul class="tags" aria-label="Tags">
-              <li>Python</li>
+              <li>Policy-as-code</li>
+              <li>AI Assurance</li>
+              <li>NIST AI RMF</li>
               <li>Pydantic</li>
-              <li>JSON Schema</li>
-              <li>Jinja2</li>
             </ul>
           </li>
         </ul>
@@ -100,16 +100,15 @@
     <section class="section" aria-labelledby="platform-title">
       <div class="wrap section-grid">
         <div class="section-head">
-          <h2 id="platform-title">Clinical AI platform</h2>
+          <h2 id="platform-title">Clinical AI &amp; data platforms</h2>
         </div>
         <ul class="repos">
           <li>
             <h3 class="repo-name"><a href="https://github.com/dsugurtuna/gut-reaction-platform">gut-reaction-platform</a></h3>
-            <p class="repo-desc">Reference architecture (4 services, synthetic data) for an inflammatory bowel disease research platform: rule-based clinical NLP phenotyping, a PII auditor with a mocked model call, hospital prescribing harmonisation and a genomic ID bridge, with Kubernetes and Terraform definitions.</p>
+            <p class="repo-desc">Reference clinical AI and health-data platform (4 services, synthetic data): clinical NLP phenotyping, fail-closed visual PII audit pipeline, hospital prescribing harmonisation, and genomic ID bridge, with Kubernetes and Terraform definitions.</p>
             <ul class="tags" aria-label="Tags">
-              <li>Clinical NLP</li>
+              <li>Clinical AI</li>
               <li>PII audit</li>
-              <li>React</li>
               <li>Kubernetes</li>
               <li>Terraform</li>
             </ul>
@@ -121,27 +120,27 @@
     <section class="section" aria-labelledby="genomics-title">
       <div class="wrap section-grid">
         <div class="section-head">
-          <h2 id="genomics-title">Clinical genomics reference pipelines</h2>
+          <h2 id="genomics-title">High-integrity scientific pipelines</h2>
         </div>
         <div>
-          <p class="group-intro">Independent open-source reference implementations inspired by biobank-scale clinical genomics workflows. Built from scratch on synthetic data; no employer code or real participant data.</p>
+          <p class="group-intro">Independent reference implementations inspired by biobank-scale clinical genomics workflows. Built from scratch on synthetic data with zero proprietary or participant data.</p>
           <ul class="repos">
             <li>
               <h3 class="repo-name"><a href="https://github.com/dsugurtuna/hla-pipeline-manager">hla-pipeline-manager</a></h3>
-              <p class="repo-desc">Plans, verifies and deploys multi-batch SNP2HLA imputation of HLA alleles with SHA-256 release verification.</p>
+              <p class="repo-desc">Deterministic planning, structural output verification, and SHA-256 checksummed release deployment for multi-batch imputation workflows.</p>
               <ul class="tags" aria-label="Tags">
-                <li>HLA imputation</li>
                 <li>Batch orchestration</li>
+                <li>Data integrity</li>
                 <li>SHA-256 verification</li>
               </ul>
             </li>
             <li>
               <h3 class="repo-name"><a href="https://github.com/dsugurtuna/genomic-cohort-delivery-pipeline">genomic-cohort-delivery-pipeline</a></h3>
-              <p class="repo-desc">Assembles, filters and verifies multi-batch PLINK genomic cohorts with exclusion tracking, strand-conflict handling and checksum manifests.</p>
+              <p class="repo-desc">Governed multi-batch genomic cohort assembly and verified staging pipeline with exclusion tracking, conflict handling, and cryptographic manifests.</p>
               <ul class="tags" aria-label="Tags">
                 <li>Cohort delivery</li>
-                <li>Multi-batch</li>
                 <li>Data governance</li>
+                <li>Verification</li>
               </ul>
             </li>
           </ul>
@@ -152,13 +151,12 @@
     <section class="section" aria-labelledby="standards-title">
       <div class="wrap section-grid">
         <div class="section-head">
-          <h2 id="standards-title">Standards across these repositories</h2>
+          <h2 id="standards-title">Engineering discipline</h2>
         </div>
         <ul class="standards">
-          <li>Each project is a tested package with continuous integration, and a <code>docs/WHY.md</code> that explains its design decisions.</li>
-          <li>READMEs explicitly separate working, tested behaviour from mocked scaffolds or unverified assumptions.</li>
-          <li>No real participant data, credentials or employer-derived code. Synthetic data only.</li>
-          <li>I build with AI coding assistants and say so: commits written with Claude carry a co-author line. I review, test and own everything that is merged.</li>
+          <li>Tested Python packages with automated CI, static typing, and <code>docs/WHY.md</code> architectural decision records.</li>
+          <li>Explicit operational boundaries: every README documents exact assumptions, threat models, and test scope.</li>
+          <li>Synthetic data only — zero real participant data, credentials, or proprietary assets.</li>
         </ul>
       </div>
     </section>
@@ -166,7 +164,7 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <p class="disclaimer">Personal site. Views are my own. Not affiliated with or endorsed by any employer.</p>
+      <p class="disclaimer">Personal portfolio and open-source reference work. Views are my own.</p>
       <ul class="footer-links">
         <li><a href="https://github.com/dsugurtuna">GitHub</a></li>
         <li><a href="https://github.com/dsugurtuna/dsugurtuna.github.io">Source for this site</a></li>
