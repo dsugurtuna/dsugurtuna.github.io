@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Assign AI roles by data, not by dice – Ugur Tuna</title>
-  <meta name="description" content="Every major AI lab trains on a different world of data. Give one model the chair, match others by measured skill, and require proof.">
+  <title>How different AI models can work together – Ugur Tuna</title>
+  <meta name="description" content="Each major AI lab trains on different data and feedback. The strongest answers come when roles match measured strengths and every counter-argument must bring checkable evidence.">
   <meta name="author" content="Ugur Tuna">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
@@ -15,8 +15,8 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Ugur Tuna">
   <meta property="og:locale" content="en_GB">
-  <meta property="og:title" content="Assign AI roles by data, not by dice">
-  <meta property="og:description" content="Every major AI lab trains on a different world of data. Give one model the chair, match others by measured skill, and require proof.">
+  <meta property="og:title" content="How different AI models can work together">
+  <meta property="og:description" content="Each major AI lab trains on different data and feedback. The strongest answers come when roles match measured strengths and every counter-argument must bring checkable evidence.">
   <meta property="og:url" content="https://dsugurtuna.github.io/writing/roles-from-data-not-dice.html">
   <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -47,88 +47,40 @@
     <article class="wrap essay">
       <header class="essay-head">
         <p class="eyebrow"><a href="./">Writing</a></p>
-        <h1>Assign AI roles by data, not by dice</h1>
-        <p class="dek">Every major AI lab trains on a different world of data. Give one model the chair, match others by measured skill, and require proof.</p>
-        <p class="byline">Ugur Tuna · 5 minute read</p>
+        <h1>How different AI models can work together</h1>
+        <p class="dek">Each major AI lab trains on different data and feedback. The strongest answers come when roles match measured strengths and every counter-argument must bring checkable evidence.</p>
+        <p class="byline">Ugur Tuna · 7 minute read</p>
       </header>
 
       <div class="prose">
-        <p>If you had to make a high-stakes decision, you would not hire five clones of the same adviser, hand out job titles out of a hat and take a show of hands.</p>
-        <p>Yet most “multi-agent AI” setups do exactly that. They spin up three copies of one model, tell them to role-play as sceptic, optimist and judge over the exact same text, or mix models at random and let fluent guesswork sway the room.</p>
-        <p>Earlier, I wrote that <a href="a-second-model-is-a-critic.html">a second model is a critic, not a verifier</a>. To reach the best answer AI can actually give, you need two stricter rules: assign each lab’s model the role its training world and test scores earn it, and refuse to let any counter-argument change the decision without checkable evidence attached.</p>
+        <p>People often ask which single AI model is “the best”, as if Google, Meta, Anthropic, OpenAI and xAI were all running the exact same race on the exact same track. Once you look closely at how these companies build their models and what data sits around them, a much more interesting idea opens up.</p>
+        <p>None of the big labs trained the same mind. Each one grew out of a different world of information, a different style of human feedback, and a different set of priorities. If your goal is to reach the best possible answer on a hard question, relying on one model alone leaves blind spots on the table. Yet throwing several models into a room at random often makes the answer worse rather than better.</p>
+        <p>Getting multi-model work right comes down to two clear design choices: give each model a role earned by its training strengths and measured test results, and require real, checkable evidence before any model is allowed to overturn the main answer.</p>
 
-        <h2>Different labs grow up on different worlds of data</h2>
-        <p>Google, Meta, Anthropic, OpenAI and xAI are not building interchangeable copies of the same brain. Each lab is shaped by different data, different human feedback and different engineering priorities.</p>
-        <p>Google sits on decades of web indexing, search structure and YouTube transcripts. Meta understands social expression at vast scale from Facebook and Instagram. xAI trains right beside live public debate and breaking news on X. OpenAI runs the broadest stream of everyday human feedback on earth because more ordinary users talk to it than any rival. Anthropic has poured years of focused talent into careful technical reasoning and high-grade coding feedback.</p>
-        <p>You do not need secret training manifests to use that difference well. Different roots produce different strengths and different blind spots. Putting clones in a circle wastes the biggest advantage of having competing labs.</p>
+        <h2>Why each lab ends up good at different things</h2>
+        <p>Think about the raw material and daily feedback each major lab lives with. Google sits on decades of indexing the open web, structured search signals, and the vast spoken and visual world of YouTube comments, lectures and guides. Meta has built products around how billions of people share everyday social posts and conversations on Facebook and Instagram. xAI sits right next to live public reaction, breaking news and fast-moving arguments on X.</p>
+        <p>OpenAI has something different again: the largest base of everyday users in the world, giving it an unmatched volume of general human feedback on how ordinary people ask questions and judge replies. Anthropic, meanwhile, has put intense focus and top research talent into careful technical reasoning, clean writing and high-quality feedback from heavy coding and analytical work.</p>
+        <p>Nobody outside those labs sees every private training file, and model rankings shift every few months. Even so, the practical point stands: different training data and different ways of shaping a model produce genuinely different strengths. One model catches subtle logic slips in long technical drafts. Another spots live public context or wide web sources faster. Another frames human communication more naturally.</p>
 
-        <figure class="diagram">
-          <svg viewBox="0 0 640 278" role="img" aria-labelledby="diag-council-title">
-            <title id="diag-council-title">Architecture of an evidence-gated multi-model council assigning seats by lab strength and blocking unsupported claims</title>
-            <text class="d-kicker-accent" x="20" y="22">1. SPECIALIST SEATS ASSIGNED BY TRAINING WORLD &amp; EVALUATION</text>
+        <h2>Why random roles and group chats go wrong</h2>
+        <p>Once people realise one model can miss things, their first instinct is usually to set up an “AI debate”. Sometimes they run three copies of the exact same model and tell them to act out roles such as optimist, critic and judge. Other times they connect three or four different models and hand out jobs at random.</p>
+        <p>Both shortcuts run into trouble fast. When copies of the same model debate the same piece of text, they share the same blind spots and the same gaps in knowledge. A second round of argument adds almost no new substance, changing who speaks first can swing the final verdict, and when the group changes its mind it often talks itself out of a right answer into a wrong one.</p>
+        <p>Mixing different models without rules creates a second danger that I think people underestimate: one model’s hallucination can poison another model’s good judgement. Language models are trained to sound persuasive and polite. If Model B invents a confident-sounding objection out of thin air and hands it to Model A, Model A will very often back down from a correct answer to accommodate the mistake. Put five models in an unguarded chat room and you do not get wisdom; you get confident agreement around whatever sounded smoothest.</p>
 
-            <rect class="d-card" x="20" y="34" width="112" height="50" rx="4"></rect>
-            <text class="d-title" x="30" y="55">Google</text>
-            <text class="d-sub" x="30" y="72">Web &amp; YouTube</text>
+        <h2>Assigning roles from data and real evaluation</h2>
+        <p>A much stronger setup starts before the question is even asked. Instead of guessing roles or picking them out of a hat, test your candidate models on realistic tasks of your own and see where each one actually excels and where it tends to fail.</p>
+        <p>From that evaluation, give one strong, well-calibrated model the seat of <strong>decision-maker</strong> to answer the main question. Then assign models from other labs to clear supporting or challenging seats matched to their proven strengths. One might focus on wide source gathering, another on checking numbers and logic step by step, another on surfacing counter-arguments or edge cases.</p>
+        <p>Just as important, let each model do its first pass on its own without seeing what the others wrote. Keeping those early drafts separate stops the first speaker from herding the whole group down one narrow track. Recent multi-lab orchestration tests combining frontier models from OpenAI, Anthropic and Google in this capability-matched, isolated way beat every single lab working alone across tough coding, terminal and science benchmarks. On one server-building task, for instance, one lab’s model built the service and reported that its test passed, until a rival lab’s model audited the setup cold and noticed the test had accidentally connected to an old leftover process running in the background. Because the two models had different habits, the second caught what the first walked straight past.</p>
 
-            <rect class="d-card" x="142" y="34" width="112" height="50" rx="4"></rect>
-            <text class="d-title" x="152" y="55">OpenAI</text>
-            <text class="d-sub" x="152" y="72">Broad feedback</text>
+        <h2>The rule that holds it together: bring evidence, or stay quiet</h2>
+        <p>Matching roles by strength gets you better raw material. What protects the final answer from hallucination is a strict gate on evidence.</p>
+        <p>In my view, a supporting model should never sway the decision-maker simply by stating a contrary opinion. Every counter-argument brought to the table has to carry checkable evidence with it: an exact quote from a real source document, a link that actually resolves and says what is claimed, a calculation that can be checked in plain code, or a concrete test case that breaks the first answer.</p>
+        <p>Look at the difference that single rule makes. If a challenger model hallucinates an objection, it cannot produce real backing that passes a basic source or maths check, so the decision-maker sets that objection aside rather than letting false confidence muddy a good answer. On the other hand, if the challenger brings a real passage or a real counter-example that the decision-maker missed, the decision-maker can inspect that evidence directly and change its decision for a solid reason.</p>
+        <p>Recent verification studies show just how vital fresh, gated evidence is. In courtroom-style multi-model setups that check claims against live evidence, cutting off live evidence lookup caused accuracy to drop sharply while agreement among the judge models actually went up. Left without proof to check, models simply agreed more warmly on wrong conclusions. Conversely, in hard maths verification where five agents initially voted five-to-zero to accept a flawed proof built on a made-up formula, a gate that refused to accept votes without positive confirming proof forced the models to test small numbers, exposed the bogus formula, and flipped the verdict to five-to-zero against.</p>
 
-            <rect class="d-card" x="264" y="34" width="112" height="50" rx="4"></rect>
-            <text class="d-title" x="274" y="55">Anthropic</text>
-            <text class="d-sub" x="274" y="72">Deep reasoning</text>
-
-            <rect class="d-card" x="386" y="34" width="112" height="50" rx="4"></rect>
-            <text class="d-title" x="396" y="55">xAI</text>
-            <text class="d-sub" x="396" y="72">Live X signals</text>
-
-            <rect class="d-card" x="508" y="34" width="112" height="50" rx="4"></rect>
-            <text class="d-title" x="518" y="55">Meta</text>
-            <text class="d-sub" x="518" y="72">Social patterns</text>
-
-            <line class="d-stroke" x1="76" y1="84" x2="76" y2="112"></line>
-            <line class="d-stroke" x1="198" y1="84" x2="198" y2="112"></line>
-            <line class="d-stroke" x1="320" y1="84" x2="320" y2="112"></line>
-            <line class="d-stroke" x1="442" y1="84" x2="442" y2="112"></line>
-            <line class="d-stroke" x1="564" y1="84" x2="564" y2="112"></line>
-
-            <rect class="d-band-accent" x="20" y="112" width="600" height="38" rx="5"></rect>
-            <text class="d-kicker-accent" x="36" y="135">2. EVIDENCE GATE: VERIFIABLE QUOTE, SOURCE OR TEST REQUIRED</text>
-
-            <line class="d-stroke-dashed" x1="126" y1="150" x2="126" y2="178"></line>
-            <rect class="d-card-dashed" x="20" y="178" width="212" height="52" rx="5"></rect>
-            <text class="d-title" x="34" y="200">No proof: Blocked</text>
-            <text class="d-sub" x="34" y="217">Stops hallucination spread</text>
-
-            <line class="d-stroke-accent" x1="438" y1="150" x2="438" y2="178"></line>
-            <polygon class="d-dot-accent" points="434,174 442,174 438,181"></polygon>
-            <rect class="d-card-accent" x="256" y="178" width="364" height="52" rx="5"></rect>
-            <text class="d-title" x="272" y="200">3. Primary Decision-Maker</text>
-            <text class="d-sub" x="272" y="217">Checks verified counter-evidence and updates call</text>
-
-            <line class="d-stroke-accent" x1="438" y1="230" x2="438" y2="252"></line>
-            <text class="d-kicker" x="272" y="266">4. HUMAN FINAL CHECK OWNS THE OUTCOME</text>
-          </svg>
-          <figcaption>Specialist models bring distinct perspectives from different training worlds, while a hard evidence gate stops unbacked claims from corrupting the decision-maker.</figcaption>
-        </figure>
-
-        <h2>Rule one: match roles to measured strength</h2>
-        <p>Instead of picking roles at random, test which model genuinely performs best at each job on your own tasks. Put one strong model in the chair as primary decision-maker to answer the main query. Assign models from other labs to focused roles where their data and evaluations give them an edge: broad retrieval, maths and logic checks, live counter-signals or option generation. Keep their first pass independent so the opening speaker does not herd everyone else down one path.</p>
-        <p>Sakana AI’s June 2026 <em>Fugu</em> technical report showed what happens when frontier models from OpenAI (GPT-5.5), Anthropic (Claude Opus 4.8) and Google (Gemini 3.1 Pro) are routed by measured capability and isolated before handoff. The combined team beat every single lab on its own flagship benchmarks, reaching 73.7% on SWE-Bench Pro, 82.1% on Terminal Bench 2.1 and 95.5% on GPQA-Diamond. On one server task, GPT-5.5 built the system and marked it working; Opus 4.8 audited it cold and spotted that GPT’s check had accidentally pinged a leftover server process from earlier. Handed that concrete finding, GPT fixed the bug cleanly.</p>
-
-        <h2>Rule two: no evidence, no vote</h2>
-        <p>Diverse models still fail if you let them argue from bare opinion. When a second model invents a plausible objection without proof, it often talks a right decision-maker into a wrong answer.</p>
-        <p>Three 2026 studies expose how dangerous ungrounded debate is, and how cleanly evidence fixes it:</p>
-        <ul>
-          <li><strong>Clones arguing in circles:</strong> In <em>More Debate, Same Evidence</em> (July 2026), Yuelyu Ji tested three copies of GPT-5.5 Chat debating the same text across 1,950 examples. Round two added almost zero new substance, changing speaker order swung accuracy by up to eight points, and on one benchmark 70.4% of changed answers turned a right answer into a wrong one.</li>
-          <li><strong>Agreement rising as truth falls:</strong> In <em>PROCLAIM</em> (August 2026), Masnun Nuha Chowdhury and colleagues paired different model families with courtroom-style admissibility rules and live evidence lookup, beating standard debate by 10 to 16 percentage points. When they switched live evidence lookup off, accuracy dropped 7.5 points while agreement between the judges actually rose (κ climbing from 0.468 to 0.599). Left without fresh facts, models happily agree on a lie.</li>
-          <li><strong>Flipping a 5-to-0 mistake:</strong> In <em>AEGIS-D</em> (EMNLP 2026 Findings), Jiayang Sun and colleagues required positive confirming proof rather than mere lack of objection on hard Olympiad maths, cutting false positives more than eightfold on GPT-5.2 and seventeenfold on Claude Opus 4.6. On one flawed proof citing an invented formula, all five agents initially voted 5-to-0 to accept it while admitting their check was incomplete. Because the evidence gate blocked unsupported consensus and demanded small number tests, the panel disproved the formula and flipped to 0-to-5 against.</li>
-        </ul>
-
-        <h2>Save the council for calls that matter</h2>
-        <p>Running four or five models with source checks costs more time and tokens than a single prompt. Nobody needs a courtroom to draft a thank-you note.</p>
-        <p>Use this setup where a quiet hallucination hurts: strategy papers, legal or regulatory analysis, clinical synthesis and major technical architecture decisions. Give one tested model the chair, assign rival labs the roles their data earned them, verify every cited quote or calculation in plain code, and let only proven counter-evidence move the verdict.</p>
+        <h2>Using this sensibly in the real world</h2>
+        <p>Earlier on this site, I wrote that <a href="a-second-model-is-a-critic.html">a second model is a critic, not a verifier</a>. An evidence-gated team of different models builds directly on that lesson. Nobody needs five frontier labs and an evidence check to write a routine email or tidy up meeting notes; the extra cost and waiting time would be silly.</p>
+        <p>When a question really carries weight, though, such as a difficult strategic choice, a legal or regulatory reading, a clinical research summary, or a major system design, relying on one model’s blind spots is an unnecessary gamble. Use the fact that the world’s leading AI labs built different minds on different data. Measure what each one actually does best, put a clear decision-maker in the chair, check every piece of supporting evidence before it counts, and keep a human eye on the final call.</p>
       </div>
 
       <div class="essay-foot">
@@ -139,8 +91,9 @@
             <li>Yuelyu Ji, <a href="https://arxiv.org/abs/2608.00243">More Debate, Same Evidence: Structural Limits of Homogeneous Multi-Agent Groundedness Judges</a>, arXiv:2608.00243, 31 July 2026.</li>
             <li>Masnun Nuha Chowdhury, Nusrat Jahan Beg, Umme Hunny Khan, Syed Rifat Raiyan, Md Kamrul Hasan and Hasan Mahmud, <a href="https://arxiv.org/abs/2603.28488">Courtroom-Style Multi-Agent Debate with Progressive RAG and Role-Switching for Controversial Claim Verification</a>, arXiv:2603.28488, 1 August 2026.</li>
             <li>Jiayang Sun, Jiawei Xu, Maxm Pan, Zerui Cheng and Pramod Viswanath, <em>AEGIS-D: Multi-Agent Debate for High-Precision Verification of Hard Competition Mathematics</em>, Findings of EMNLP 2026, pp. 18861 to 18873 (<a href="https://github.com/aurorajy1108/When-Wrong-Answers-Look-Right">code &amp; materials</a>).</li>
+            <li>Yuanpei Zhao, Haowei Zhang, Ziyue Qiao, Jiancheng Lv, Mao Li and Wei Ju, <em>Bias-Aware Orchestration: Role-Specialized Multi-Agent Collaboration of Heterogeneous LLMs</em>, Findings of EMNLP 2026, pp. 43768 to 43782.</li>
           </ol>
-          <p>These arguments are my own; the studies above are cited where their findings illustrate a specific point.</p>
+          <p>The argument in this essay is my own. The papers above are listed as supporting reading behind specific points.</p>
         </section>
 
         <section class="related" aria-labelledby="related-title">

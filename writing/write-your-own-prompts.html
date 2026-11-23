@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Write your own prompts – Ugur Tuna</title>
-  <meta name="description" content="Prompt libraries hand you smooth text and take away the step where you learn whether the answer is actually right.">
+  <title>Why you should write your own prompts – Ugur Tuna</title>
+  <meta name="description" content="Prompt libraries and prompt generators save a minute of typing and cost you your understanding of what the AI actually produced.">
   <meta name="author" content="Ugur Tuna">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
@@ -15,8 +15,8 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Ugur Tuna">
   <meta property="og:locale" content="en_GB">
-  <meta property="og:title" content="Write your own prompts">
-  <meta property="og:description" content="Prompt libraries hand you smooth text and take away the step where you learn whether the answer is actually right.">
+  <meta property="og:title" content="Why you should write your own prompts">
+  <meta property="og:description" content="Prompt libraries and prompt generators save a minute of typing and cost you your understanding of what the AI actually produced.">
   <meta property="og:url" content="https://dsugurtuna.github.io/writing/write-your-own-prompts.html">
   <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -47,74 +47,27 @@
     <article class="wrap essay">
       <header class="essay-head">
         <p class="eyebrow"><a href="./">Writing</a></p>
-        <h1>Write your own prompts</h1>
-        <p class="dek">Prompt libraries hand you smooth text and take away the step where you learn whether the answer is actually right.</p>
-        <p class="byline">Ugur Tuna · 4 minute read</p>
+        <h1>Why you should write your own prompts</h1>
+        <p class="dek">Prompt libraries and prompt generators save a minute of typing and cost you your understanding of what the AI actually produced.</p>
+        <p class="byline">Ugur Tuna · 3 minute read</p>
       </header>
 
       <div class="prose">
-        <p>I do not use prompt libraries, and I never click buttons that offer to write my prompt for me.</p>
-        <p>Watch what happens when someone copies a three-hundred-word prompt off the internet and pastes it into a model. Five seconds later they have two pages of tidy prose. Then a colleague points to paragraph four and asks why it makes a strange assumption. They cannot answer. They did not write the instructions, so they have no idea what those instructions told the model to invent, exaggerate or leave out.</p>
-        <p>Prompting is the main point of contact between your mind and the machine. Giving that step away saves thirty seconds of typing and costs you your grip on the work.</p>
+        <p>Prompting is the main way we talk to AI, yet a whole small industry now tries to stop people doing it for themselves. Everywhere you look, someone is sharing a giant prompt library or offering a tool that writes your prompt before the AI writes your answer. I stay away from both.</p>
+        <p>When you copy someone else’s long prompt and paste it in, a neat page of text arrives in seconds. On the surface that feels efficient. The trouble starts the moment you try to judge whether the page is actually right, or when someone asks why a section took a certain angle. Because you did not write the instructions, you do not know what those instructions quietly pushed the model to assume, stretch or leave out. You have become a bystander in your own work.</p>
 
-        <h2>Why borrowed words block your own thinking</h2>
-        <p>People reach for templates because a blank box is uncomfortable. Writing your own prompt forces you to decide what you actually want before the machine speaks.</p>
-        <p>Most of us do not know our full thought until we try to put it into plain words on a page. The writing professor Patricia Taylor tested this on herself in June 2026 while preparing a short conference talk. She fed ChatGPT her own detailed outline and past scripts, asking it to turn them into a tight draft. She regretted it the moment the text appeared. It did not sound like her, yet having a version that was “close enough” sitting in front of her made it harder, not easier, to hear what she would have said herself.</p>
-        <p>Borrowed prompts create that fog every day. They hand you respectable-looking filler fast enough to silence your own judgement.</p>
+        <h2>Writing the prompt is how you work out what you mean</h2>
+        <p>Most of us do not sit down at a desk with a finished thought ready to type. We find out what we really think by trying to put it into plain words and seeing where it sounds weak or incomplete. A blank prompt box asks a useful question: what am I actually trying to get done here, and what would count as a good result?</p>
+        <p>Skipping that step has a strange effect on the human mind. Even when someone feeds an AI their own notes to turn into a finished script, seeing a draft that is “close enough” on the screen can make it harder to hear what they would have said themselves. Once smooth, borrowed wording sits in front of you, your own voice gets crowded out. Editing becomes harder rather than easier because you are trying to rescue text you never fully owned.</p>
 
-        <figure class="diagram">
-          <svg viewBox="0 0 640 242" role="img" aria-labelledby="diag-prompt-title">
-            <title id="diag-prompt-title">Contrast between copying a borrowed prompt and iterating on your own prompt</title>
-            <text class="d-kicker" x="20" y="24">BORROWED TEMPLATE</text>
-            <rect class="d-card-dashed" x="20" y="38" width="276" height="46" rx="5"></rect>
-            <text class="d-title" x="36" y="66">Copy someone else’s mega-prompt</text>
-            <line class="d-stroke-dashed" x1="158" y1="84" x2="158" y2="108"></line>
-            <polygon class="d-dot-muted" points="154,104 162,104 158,111"></polygon>
-            <rect class="d-card-dashed" x="20" y="112" width="276" height="46" rx="5"></rect>
-            <text class="d-title" x="36" y="140">Smooth text arrives in one shot</text>
-            <line class="d-stroke-dashed" x1="158" y1="158" x2="158" y2="182"></line>
-            <polygon class="d-dot-muted" points="154,178 162,178 158,185"></polygon>
-            <rect class="d-card" x="20" y="186" width="276" height="48" rx="5"></rect>
-            <text class="d-title" x="36" y="207">You skim and guess</text>
-            <text class="d-sub" x="36" y="224">Low involvement in making and checking</text>
+        <h2>Playing with your prompt teaches you how the model behaves</h2>
+        <p>Writing two or three rough sentences of your own works very differently. The first reply comes back and misses part of what you wanted. You read it, spot the gap, change one instruction, and run it again. Maybe you tighten a vague word, add an example, or state a limit you forgot to mention.</p>
+        <p>That back-and-forth play is where real understanding comes from. After a few tries, you start to see why the model gave you that output. You notice where it takes shortcuts, where it sounds confident without facts, and which rules it tends to drop when the task gets long. People who only pick from ready-made prompts often produce tidy results without being able to explain why one version works and another fails. Little by little, they stop acting as creators and turn into passive selectors.</p>
+        <p>The same problem shows up when people ask an AI to “improve” a draft over and over without putting their own thinking back in. In recent tests across seven models, telling an AI to keep improving its own code across twelve rounds without fresh human direction broke almost all of the working answers and made the code nearly ten times longer. Asking it to make ideas “more novel” without clear guidance simply piled on buzzwords while making the ideas less practical. Without a human steering each step, repetition just drifts.</p>
 
-            <text class="d-kicker-accent" x="340" y="24">YOUR OWN PROMPT</text>
-            <rect class="d-card-accent" x="340" y="38" width="268" height="46" rx="5"></rect>
-            <text class="d-title" x="356" y="66">Write two rough lines yourself</text>
-            <line class="d-stroke-accent" x1="474" y1="84" x2="474" y2="108"></line>
-            <polygon class="d-dot-accent" points="470,104 478,104 474,111"></polygon>
-            <rect class="d-card-accent" x="340" y="112" width="268" height="46" rx="5"></rect>
-            <text class="d-title" x="356" y="140">Spot the flaw and tighten one rule</text>
-            <path class="d-stroke-accent" d="M608 135 L626 135 L626 61 L612 61"></path>
-            <polygon class="d-dot-accent" points="616,57 616,65 609,61"></polygon>
-            <line class="d-stroke-accent" x1="474" y1="158" x2="474" y2="182"></line>
-            <polygon class="d-dot-accent" points="470,178 478,178 474,185"></polygon>
-            <rect class="d-band-accent" x="340" y="186" width="268" height="48" rx="5"></rect>
-            <text class="d-title" x="356" y="207">You own the production step</text>
-            <text class="d-sub" x="356" y="224">You know why it works and where to check</text>
-          </svg>
-          <figcaption>Reworking your own prompt builds the mental model you need when it is time to check the answer.</figcaption>
-        </figure>
-
-        <h2>Tinkering is how you learn what the model is doing</h2>
-        <p>Start with two rough sentences of your own instead. Read what comes back. Notice where the model took a lazy shortcut or missed a constraint you forgot to state out loud. Change one line and run it again.</p>
-        <p>By the third pass, two things happen at once. Your own thinking gets sharper, and you start to see the edges of the model. You learn where it invents facts, which words push it too far, and what needs checking line by line.</p>
-        <p>The composer and researcher Kasia Głowicka saw the cost of skipping that struggle in her students. Many could generate competent-looking work with AI yet could not explain why they picked one approach over another. Without noticing, they had slipped from creator to curator. When reworking a prompt feels slow or awkward, that friction is not wasted time. It is the exact moment skill is forming.</p>
-
-        <h2>Blind “make it better” loops break good work</h2>
-        <p>Letting AI polish its own output without fresh human direction fails just as badly. In an EMNLP 2026 study, Shashidhar Reddy Javaji, Bhavul Gauri and Zining Zhu ran a twelve-turn stress test across seven models, stripping away the original task and outside checks after turn one to see what happens when a model repeatedly tries to “improve” its own answer. On Python tasks, unit-test pass rates fell from 40.7% on turn one to 2.5% by turn twelve (Claude Sonnet 4 dropped from 74.4% to 2.0%), while code ballooned nearly tenfold in length. Told to make ideas “more novel”, models multiplied buzzwords twenty-five times over while practical feasibility collapsed.</p>
-        <p>Iteration only improves work when a person stays inside the production step, checks concrete cases and states plainly what went wrong.</p>
-
-        <h2>Where examples fit, and where they stop</h2>
-        <p>Reading a few good prompts on day one is fine, especially if you are new to a tool or working in a second language. Study them the way you would read a well-written brief to pick up structure. Then close the tab and write your own words.</p>
-        <p>Keep the habit simple:</p>
-        <ol>
-          <li>Write your first prompt from scratch, however rough.</li>
-          <li>Change one rule at a time so you see what caused the shift in output.</li>
-          <li>Never type “improve this”; name the exact flaw you spotted with your own eyes.</li>
-          <li>Treat AI as help inside a production step you still own from start to finish.</li>
-        </ol>
-        <p>If you did not write the question and wrestle with the revisions, you are only signing your name to a stranger’s recipe.</p>
+        <h2>Own the production step</h2>
+        <p>Looking at a few example prompts when you first try a new tool is harmless, much like reading a good letter before writing your own. The mistake is living out of someone else’s template book.</p>
+        <p>Using AI well does not mean stepping back from how the work is made. It means staying right inside the production step. Write your own prompt in plain words, play with it until you see how the model responds, and check the result with eyes that know exactly what was asked for in the first place.</p>
       </div>
 
       <div class="essay-foot">
@@ -124,13 +77,14 @@
             <li>Patricia Taylor, <a href="https://www.insidehighered.com/opinion/views/2026/06/05/writing-cognitive-offloading-and-generative-ai-opinion">Writing, Cognitive Offloading and Generative AI</a>, <em>Inside Higher Ed</em>, 5 June 2026.</li>
             <li>Kasia Głowicka, <em>The Space In-Between: Creative Skill and Cognitive Transitions in the Age of Prompt-Based AI</em>, CHIWORK ’26 Workshop (<a href="https://agency-and-skill.github.io/">workshop repository</a>).</li>
             <li>Shashidhar Reddy Javaji, Bhavul Gauri and Zining Zhu, <em>Another Turn, Better Output? A Turn-Wise Analysis of Iterative LLM Prompting</em>, Proceedings of EMNLP 2026, pp. 53085 to 53110.</li>
+            <li>Minjae Lee and Minsuk Kahng, <a href="https://arxiv.org/abs/2510.12728">Data-Prompt Co-Evolution: Growing Test Sets to Refine LLM Behavior</a>, Proceedings of CHI ’26 (arXiv:2510.12728).</li>
           </ol>
-          <p>These arguments are my own; the studies above are cited where their findings illustrate a specific point.</p>
+          <p>The argument in this essay is my own. The papers above are listed as supporting reading behind specific points.</p>
         </section>
 
         <section class="related" aria-labelledby="related-title">
           <h2 id="related-title">Related reading &amp; project</h2>
-          <p>See <a href="usage-is-not-quality.html">Usage is not quality</a> and <strong>evidence-synthesis-eval</strong>, which tests prompt changes against fixed inputs for faithfulness, coverage, misstatements and human checking time.</p>
+          <p>See <a href="usage-is-not-quality.html">Usage is not quality</a> and <strong>evidence-synthesis-eval</strong>, which tests prompt changes against fixed cases for faithfulness, coverage, misstatements and checking effort.</p>
           <p class="repo-link"><a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval on GitHub</a></p>
         </section>
       </div>
