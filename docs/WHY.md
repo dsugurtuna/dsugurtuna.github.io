@@ -26,7 +26,7 @@ A personal engineering site has two jobs: state clearly who I am and what I deli
 
 **How are claims and citations kept accurate?** Essays cite public sources with clickable links, distinguish synthetic examples and illustrative benchmarks from measured production outcomes, and keep employer-specific operational figures separate from open-source reference work. References to public guidance are my own reading: unofficial and not government guidance.
 
-**Does it hold up for keyboard and screen-reader users?** Each page has a skip link, a single `<header>` (`banner`) and `<main id="main">` landmark, labelled navigation with `aria-current="page"`, visible `:focus-visible` outlines, accessible SVG titles/descriptions, and monotonic headings. Automated `axe-core` checks were run across light and dark schemes at desktop and mobile widths; manual screen-reader verification with VoiceOver and NVDA remains an active next step.
+**Does it hold up for keyboard and screen-reader users?** Each page has a skip link, a single `<header>` (`banner`) and `<main id="main">` landmark, labelled navigation with `aria-current="page"`, visible `:focus-visible` outlines, accessible SVG titles/descriptions, and monotonic headings. Static checks (`html-validate`, WCAG 2.2 AA contrast verification, DOM landmark/heading verification, and mobile viewport rules) pass across light and dark schemes; automated browser `axe-core` assertions in CI and manual VoiceOver/NVDA screen-reader passes remain active next steps.
 
 ## What comes next
 

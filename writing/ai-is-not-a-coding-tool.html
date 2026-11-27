@@ -115,19 +115,23 @@
         </ul>
 
         <h2>Proportionate governance in plain records</h2>
-        <p>Governing non-coding AI well means applying software discipline without burying light use cases under thirty-page forms. In <a href="https://github.com/dsugurtuna/ai-assurance-kit">ai-assurance-kit</a>, each use case sits in a schema-validated YAML record stating what data it touches, whether it drafts or supports decisions, and who owns vs assures it:</p>
+        <p>Governing non-coding AI well means applying software discipline without burying light use cases under thirty-page forms. In <a href="https://github.com/dsugurtuna/ai-assurance-kit">ai-assurance-kit</a>, each use case sits in a schema-validated YAML record (abridged excerpt below) stating what data it touches, whether it drafts or supports decisions, and who owns vs assures it:</p>
 
-        <pre><code>use_case: "Contract &amp; policy first-pass review"
+        <pre><code>id: contract-policy-first-pass-review
+title: "Contract &amp; policy first-pass review"
 status: in_test
-action_mode: drafts          # never writes or sends
-decision_role: decision_support
-personal_data: false         # synthetic/redacted docs only
-roles:
-  owner: "Legal Operations Lead"
-  assurer: "Information Governance Lead"
+accountability:
+  business_owner: { role: "Legal Operations Lead" }
+  assurer: { role: "Information Governance Lead" }
+data:
+  personal_data: false       # synthetic/redacted docs only
+actions:
+  mode: drafts               # never writes or sends
+reliance:
+  decision_role: decision_support
 controls:
-  - human_verification_before_reliance
-  - retention_boundary_zero_training</code></pre>
+  - { id: C1, status: in_place, description: "Human verification before reliance" }
+  - { id: C2, status: in_place, description: "Zero-training retention boundary" }</code></pre>
 
         <p>Keep coding assistants moving fast. Give non-coding workflows—where five-sixths of everyday knowledge work already sits—the same clear boundaries, human challenge, and verifiable assurance records.</p>
       </div>

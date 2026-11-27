@@ -13,7 +13,7 @@ Plain HTML and one stylesheet. No build step, no client-side JavaScript framewor
 ├── projects.html               Systems & reference architectures showcase (7 public repos)
 ├── writing/
 │   ├── index.html              Essay index
-│   ├── feed.xml                RSS / Atom feed
+│   ├── feed.xml                RSS feed
 │   ├── usage-is-not-quality.html
 │   ├── read-freely-write-carefully.html
 │   ├── a-second-model-is-a-critic.html

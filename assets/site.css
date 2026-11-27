@@ -265,7 +265,9 @@ svg {
 }
 
 .eyebrow a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   padding-block: 0.45rem;
   color: inherit;
 }

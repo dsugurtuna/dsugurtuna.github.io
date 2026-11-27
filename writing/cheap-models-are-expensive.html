@@ -128,32 +128,32 @@
             <tr>
               <th scope="row">Sovereign briefing (25k/mo)</th>
               <td>Public API vs Sovereign VPC frontier vs Self-hosted 70B</td>
-              <td>£450 vs £4,540 vs £9,337</td>
-              <td>£46,958 vs £46,958 vs £67,958</td>
-              <td>Public blocked; VPC £51,499 wins vs £77,295</td>
+              <td>£450 vs £4,790 vs £10,237</td>
+              <td>£46,958 vs £46,958 vs £72,698</td>
+              <td>Public blocked; VPC £51,749 wins vs £82,934</td>
             </tr>
             <tr>
               <th scope="row">Evidence copilot (15k/mo)</th>
-              <td>Small unverified (2% err) vs 70/30 frontier cascade</td>
-              <td>£527 vs £783</td>
-              <td>£58,938 vs £32,058</td>
-              <td>£59,465 (−£17.5k loss) vs £32,841 (+£9.2k)</td>
+              <td>Small unverified (2% err) vs 30/70 grounded frontier pre-router</td>
+              <td>£27 vs £933</td>
+              <td>£65,719 vs £34,092</td>
+              <td>£65,746 (−£23.7k loss) vs £35,025 (+£7.0k)</td>
             </tr>
             <tr>
-              <th scope="row">Financial risk triage (120k/mo)</th>
+              <th scope="row">Financial risk triage (400k/mo)</th>
               <td>All-frontier vs 85/15 open-weights-to-frontier cascade</td>
-              <td>£2,718 vs £1,250</td>
-              <td>£38,100 vs £39,018</td>
-              <td>£40,818 vs £40,268 (cascade wins)</td>
+              <td>£6,260 vs £3,409</td>
+              <td>£127,000 vs £128,530</td>
+              <td>£133,260 vs £131,939 (cascade wins above 254k/mo)</td>
             </tr>
           </tbody>
         </table>
 
         <p>Three practical lessons stand out across those regimes:</p>
         <ul>
-          <li><strong>Residency beats token price first:</strong> in the sovereign briefing workload, a £450/month public API fails sovereignty gates outright. Meanwhile, an error-prone self-hosted 70B cluster adds £21,000/month in rework, leaving Sovereign VPC frontier ahead at 8.8% inference vs 91.2% human effort.</li>
-          <li><strong>Unverified small models destroy ROI:</strong> in the evidence copilot regime, a £527/month small model with a 2.0% error rate triggers £58,938/month in review and rework—a £17,465/month net loss. Escalating complex 70% queries to grounded frontier restores positive net savings.</li>
-          <li><strong>Evaluation-gated cascades beat extremes:</strong> in financial triage, routing routine 85% cases to open weights and escalating 15% cuts inference spend by more than half (£1,250 vs £2,718) while lowering total cost. On narrow high-volume extraction where evals confirm parity and throughput amortises dedicated GPU and standby capacity, self-hosted open weights can win on both cost and latency (480 ms vs 1,350 ms p95).</li>
+          <li><strong>Residency beats token price first:</strong> in the sovereign briefing workload, a £450/month public API fails sovereignty gates outright. Meanwhile, an error-prone self-hosted 70B cluster adds £25,740/month in rework, leaving Sovereign VPC frontier ahead at 9.3% inference vs 90.7% human effort.</li>
+          <li><strong>Unverified small models destroy ROI:</strong> in the evidence copilot regime, a £27/month small model with a 2.0% error rate triggers £65,719/month in review and rework—a £23,746/month net loss. Pre-routing complex 70% queries to grounded frontier restores positive net savings.</li>
+          <li><strong>Evaluation-gated cascades beat extremes once volume clears break-even:</strong> in financial triage, break-even sits at 254,073 requests/month; at 400k/month, routing routine 85% cases to open weights and cascading 15% cuts inference spend by 45.5% (£3,409 vs £6,260) while lowering total cost (£131,939 vs £133,260). On narrow high-volume extraction where evals confirm parity and throughput amortises dedicated GPU and standby capacity, self-hosted open weights can win on both cost and latency (480 ms vs 1,350 ms p95).</li>
         </ul>
 
         <h2>Four rules for model routing</h2>
