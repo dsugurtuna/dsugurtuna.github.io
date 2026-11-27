@@ -10,6 +10,7 @@
   <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://dsugurtuna.github.io/projects.html">
+  <link rel="alternate" type="application/rss+xml" title="Ugur Tuna Writing" href="/writing/feed.xml">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/site.css">
   <meta property="og:type" content="website">
@@ -23,6 +24,102 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Ugur Tuna. I build AI systems, and the controls that make them safe to use.">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Systems & Reference Architectures – Ugur Tuna",
+    "url": "https://dsugurtuna.github.io/projects.html",
+    "description": "Open-source Python reference architectures and governance systems built on synthetic and public data.",
+    "author": {
+      "@type": "Person",
+      "name": "Ugur Tuna",
+      "url": "https://dsugurtuna.github.io/"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "ai-systems-architecture",
+            "codeRepository": "https://github.com/dsugurtuna/ai-systems-architecture",
+            "programmingLanguage": "Python",
+            "description": "Deterministic deployment and security validator, tiered routing TCO simulator, and architectural decision records."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "agent-guardrails",
+            "codeRepository": "https://github.com/dsugurtuna/agent-guardrails",
+            "programmingLanguage": "Python",
+            "description": "Runtime guardrail layer for tool-calling agents with allow/draft/approve/block modes, execution-time re-validation, idempotency, hash-chained audit logs, and kill switch."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "evidence-synthesis-eval",
+            "codeRepository": "https://github.com/dsugurtuna/evidence-synthesis-eval",
+            "programmingLanguage": "Python",
+            "description": "UK AISI Inspect evaluation harness measuring faithfulness, weighted coverage, misstatement rates, blinded human-judge agreement, and verification cost."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "ai-assurance-kit",
+            "codeRepository": "https://github.com/dsugurtuna/ai-assurance-kit",
+            "programmingLanguage": "Python",
+            "description": "Open-source policy-as-code assurance engine with schema-validated YAML records, 26 explainable reviewer checks, and templates referencing public governance standards."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "clinical-cohort-ai-platform",
+            "codeRepository": "https://github.com/dsugurtuna/clinical-cohort-ai-platform",
+            "programmingLanguage": "Python, R, TypeScript",
+            "description": "Synthetic 4-service clinical AI reference architecture with mocked VLM boundary and design-level Kubernetes and Terraform definitions."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "hla-pipeline-manager",
+            "codeRepository": "https://github.com/dsugurtuna/hla-pipeline-manager",
+            "programmingLanguage": "Python",
+            "description": "Synthetic-data reference package for deterministic multi-batch HLA imputation planning, verification, and SHA-256 release deployment."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "genomic-cohort-delivery-pipeline",
+            "codeRepository": "https://github.com/dsugurtuna/genomic-cohort-delivery-pipeline",
+            "programmingLanguage": "Python",
+            "description": "Synthetic-data reference package for governed multi-batch cohort assembly, exclusion tracking, conflict resolution, and cryptographic manifests."
+          }
+        }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -38,42 +135,45 @@
           <li><a href="./">Home</a></li>
           <li><a href="projects.html" aria-current="page">Systems</a></li>
           <li><a href="writing/">Writing</a></li>
+          <li><a href="index.html#contact">Connect</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <header class="page-head wrap">
+    <div class="page-head wrap">
       <p class="eyebrow">Systems &amp; Reference Architectures</p>
       <h1>Practical architecture, control, evaluation, and assurance systems in code.</h1>
-      <p class="lede">Every repository pairs executable Python systems with architectural decision records (<code>docs/WHY.md</code> / ADRs), automated offline CI, and explicit boundaries.</p>
-    </header>
+      <p class="lede">Every public repository pairs runnable Python or multi-service code with architectural decision records (<code>docs/WHY.md</code> / ADRs), automated offline CI tests, and explicit labels distinguishing deterministic libraries, synthetic benchmarks, mocked boundaries, and design-level infrastructure.</p>
+    </div>
 
-    <section class="section" aria-labelledby="open-title">
+    <section class="section" id="core-systems" aria-labelledby="open-title">
       <div class="wrap section-grid">
         <div class="section-head">
           <h2 id="open-title">Core AI systems</h2>
-          <p>Four connected architectures built to test how AI systems can scale safely and economically.</p>
+          <p>Four connected open-source architectures built to test how AI systems scale safely and economically.</p>
         </div>
         <ul class="repos">
           <li>
-            <p class="repo-stage">Architect &amp; price</p>
+            <p class="repo-stage">01 · Architect &amp; price</p>
             <h3 class="repo-name"><a href="https://github.com/dsugurtuna/ai-systems-architecture">ai-systems-architecture</a></h3>
+            <p class="repo-boundary">Reference architecture · Synthetic benchmarks · Offline CLI</p>
             <p class="repo-question">Which deployment boundary fits your residency rules, and when do frontier endpoints or self-hosted open-weights win on total cost?</p>
-            <p class="repo-desc">Deterministic architecture validator (10 residency, zero-data-retention, latency, and security gates), tiered routing TCO simulator across frontier and open-weights regimes, and 4 ADRs.</p>
+            <p class="repo-desc">Deterministic architecture validator (10 residency, zero-data-retention, failover parity, latency, and security gates), tiered routing TCO simulator across frontier and open-weights regimes, and ADRs.</p>
             <ul class="tags" aria-label="Tags">
               <li>AI architecture</li>
               <li>Model routing</li>
-              <li>AI economics</li>
-              <li>Open weights</li>
+              <li>TCO economics</li>
+              <li>Synthetic data</li>
             </ul>
           </li>
           <li>
-            <p class="repo-stage">Control execution</p>
+            <p class="repo-stage">02 · Control execution</p>
             <h3 class="repo-name"><a href="https://github.com/dsugurtuna/agent-guardrails">agent-guardrails</a></h3>
+            <p class="repo-boundary">Tested Python library · Offline runtime guard</p>
             <p class="repo-question">How do you let an AI agent act without it sending the wrong thing, twice, to the wrong people?</p>
-            <p class="repo-desc">Runtime control layer for AI agents that write or send: allow/draft/approve modes, execution-time re-validation, idempotency, tamper-evident hash-chained audit logs, and a kill switch.</p>
+            <p class="repo-desc">Runtime control layer for AI agents that write or send: allow/draft/approve/block modes, execution-time TOCTOU re-validation, normalised idempotency, SHA-256 hash-chained audit logs, and a kill switch.</p>
             <ul class="tags" aria-label="Tags">
               <li>Agentic AI</li>
               <li>Tool-use guardrails</li>
@@ -82,77 +182,87 @@
             </ul>
           </li>
           <li>
-            <p class="repo-stage">Verify quality</p>
+            <p class="repo-stage">03 · Verify quality</p>
             <h3 class="repo-name"><a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval</a></h3>
+            <p class="repo-boundary">UK AISI Inspect plugin · Synthetic dataset</p>
             <p class="repo-question">Does an AI synthesis say what the sources say, what did it miss, and what did verification cost?</p>
             <p class="repo-desc">Open evaluation harness built on UK AISI Inspect: faithfulness, importance-weighted coverage, misstatement rates, blinded human-judge agreement (Cohen’s kappa), and checking effort.</p>
             <ul class="tags" aria-label="Tags">
-              <li>LLM Evaluation</li>
+              <li>LLM evaluation</li>
               <li>Inspect AI</li>
               <li>Benchmarking</li>
               <li>Faithfulness</li>
             </ul>
           </li>
           <li>
-            <p class="repo-stage">Govern &amp; assure</p>
+            <p class="repo-stage">04 · Govern &amp; assure</p>
             <h3 class="repo-name"><a href="https://github.com/dsugurtuna/ai-assurance-kit">ai-assurance-kit</a></h3>
+            <p class="repo-boundary">Open-source kit · Public templates · Illustrative mappings</p>
             <p class="repo-question">How can a team run proportionate AI assurance in an afternoon rather than a quarter?</p>
-            <p class="repo-desc">Policy-as-code assurance engine turning AI use cases into schema-validated YAML records, 26 explainable checks, executive one-page cards, three published GOV.UK ATRS adaptations, and NIST AI RMF, EU AI Act and ISO/IEC 42001 crosswalks.</p>
+            <p class="repo-desc">Open-source policy-as-code kit turning AI use cases into schema-validated YAML records, 26 explainable reviewer checks, executive one-page cards, three unofficial template adaptations of public GOV.UK ATRS records, and UK Government AI Playbook / NIST AI RMF mappings (with non-normative orientation tables — not legal advice or compliance certification).</p>
             <ul class="tags" aria-label="Tags">
               <li>Policy-as-code</li>
               <li>AI Assurance</li>
+              <li>GOV.UK ATRS</li>
               <li>NIST AI RMF</li>
-              <li>EU AI Act</li>
             </ul>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="platform-title">
+    <section class="section" id="clinical-platform" aria-labelledby="platform-title">
       <div class="wrap section-grid">
         <div class="section-head">
           <h2 id="platform-title">Clinical AI &amp; data platforms</h2>
         </div>
         <ul class="repos">
           <li>
+            <p class="repo-stage">05 · Reference platform</p>
             <h3 class="repo-name"><a href="https://github.com/dsugurtuna/clinical-cohort-ai-platform">clinical-cohort-ai-platform</a></h3>
-            <p class="repo-desc">Reference clinical AI and health-data platform (4 services, synthetic data): clinical NLP phenotyping, fail-closed visual PII audit pipeline (with a mocked model boundary clearly documented), hospital prescribing harmonisation, and genomic ID bridge, with Kubernetes and Terraform definitions.</p>
+            <p class="repo-boundary">Reference multi-service scaffold · Synthetic data · Design-level IaC</p>
+            <p class="repo-desc">Reference clinical AI and health-data platform (4 services on synthetic data): FastAPI clinical NLP phenotyping, fail-closed visual PII audit pipeline (mocked VLM boundary clearly documented), hospital prescribing harmonisation, and genomic ID bridge, paired with Kubernetes (design) and Terraform (design) definitions that have never been deployed.</p>
             <ul class="tags" aria-label="Tags">
               <li>Clinical AI</li>
-              <li>PII audit</li>
-              <li>Kubernetes</li>
-              <li>Terraform</li>
+              <li>Synthetic data</li>
+              <li>Kubernetes (design)</li>
+              <li>Terraform (design)</li>
             </ul>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="genomics-title">
+    <section class="section" id="scientific-pipelines" aria-labelledby="genomics-title">
       <div class="wrap section-grid">
         <div class="section-head">
           <h2 id="genomics-title">High-integrity scientific pipelines</h2>
         </div>
         <div>
-          <p class="group-intro">Independent reference implementations inspired by biobank-scale clinical genomics workflows. Built from scratch on synthetic data with zero proprietary or participant data.</p>
+          <p class="group-intro">Independent reference implementations inspired by biobank-scale clinical genomics workflows. Built from scratch on synthetic data with zero proprietary tooling or real participant data.</p>
           <ul class="repos">
             <li>
+              <p class="repo-stage">06a · Scientific pipeline</p>
               <h3 class="repo-name"><a href="https://github.com/dsugurtuna/hla-pipeline-manager">hla-pipeline-manager</a></h3>
-              <p class="repo-desc">Deterministic planning, structural output verification, and SHA-256 checksummed release deployment for multi-batch imputation workflows.</p>
+              <p class="repo-boundary">Reference Python package · Synthetic fixtures</p>
+              <p class="repo-desc">Deterministic batch planning, structural output verification, and SHA-256 checksummed release deployment for multi-batch HLA imputation workflows (external SNP2HLA binary not bundled).</p>
               <ul class="tags" aria-label="Tags">
                 <li>Batch orchestration</li>
                 <li>Data integrity</li>
-                <li>SHA-256 verification</li>
+                <li>SHA-256</li>
+                <li>Synthetic data</li>
               </ul>
             </li>
             <li>
+              <p class="repo-stage">06b · Scientific pipeline</p>
               <h3 class="repo-name"><a href="https://github.com/dsugurtuna/genomic-cohort-delivery-pipeline">genomic-cohort-delivery-pipeline</a></h3>
-              <p class="repo-desc">Governed multi-batch genomic cohort assembly and verified staging pipeline with exclusion tracking, conflict handling, and cryptographic manifests.</p>
+              <p class="repo-boundary">Reference Python package · Synthetic fixtures</p>
+              <p class="repo-desc">Governed multi-batch genomic cohort assembly and verified staging pipeline with exclusion tracking, allele-conflict handling, and cryptographic manifests (simulated PLINK wrapper for offline demos).</p>
               <ul class="tags" aria-label="Tags">
                 <li>Cohort delivery</li>
                 <li>Data governance</li>
                 <li>Verification</li>
+                <li>Synthetic data</li>
               </ul>
             </li>
           </ul>
@@ -160,16 +270,16 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="standards-title">
+    <section class="section" id="boundaries" aria-labelledby="standards-title">
       <div class="wrap section-grid">
         <div class="section-head">
           <h2 id="standards-title">Engineering discipline</h2>
         </div>
         <ul class="standards">
-          <li>Tested Python packages with automated CI, static typing, and <code>docs/WHY.md</code> / ADR records.</li>
-          <li>Explicit operational boundaries: every README states what is deterministic, what is mocked or offline, and what has not been verified yet.</li>
-          <li>Built openly with AI coding assistants (including Claude Code), preserving co-author commit trailers; problem framing, review fixes, and tests are mine.</li>
-          <li>Synthetic and public data only — zero real participant data, credentials, or confidential employer assets.</li>
+          <li>Tested open-source packages with automated offline CI test suites and architectural decision notes (<code>docs/WHY.md</code> / ADRs).</li>
+          <li>Honest operational boundaries: every README separates deterministic Python checks from synthetic inputs, mocked model boundaries, and design-level infrastructure (<code>Kubernetes (design)</code>, <code>Terraform (design)</code>).</li>
+          <li>Strict human ownership of problem framing, architecture, threat modelling, code review, and verification gates.</li>
+          <li>Synthetic and public data only — zero real participant records, credentials, or confidential employer assets.</li>
         </ul>
       </div>
     </section>
@@ -179,6 +289,7 @@
     <div class="wrap">
       <p class="disclaimer">Personal portfolio and open-source reference work. Views are my own.</p>
       <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/ugurtuna">LinkedIn</a></li>
         <li><a href="https://github.com/dsugurtuna">GitHub</a></li>
         <li><a href="https://github.com/dsugurtuna/dsugurtuna.github.io">Source for this site</a></li>
       </ul>

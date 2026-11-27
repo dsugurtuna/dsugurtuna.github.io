@@ -1,32 +1,39 @@
 # dsugurtuna.github.io
 
-Source for my personal site: [dsugurtuna.github.io](https://dsugurtuna.github.io).
+Source for Ugur Tuna's engineering portfolio and writing site: [dsugurtuna.github.io](https://dsugurtuna.github.io).
 
-Plain HTML and one stylesheet. No build step, no framework, no JavaScript, no trackers, no web fonts and no CDNs. GitHub Pages serves the files exactly as they are in this repository.
+Plain HTML and one stylesheet. No build step, no client-side JavaScript framework, no trackers, no web fonts, and no third-party CDNs. GitHub Pages serves the files directly from `main`.
 
 ## Structure
 
 ```text
 .
-├── index.html                  Home: positioning, leadership focus, open-source proof,
-│                               operating principles, delivery scale, writing, connect
-├── projects.html               Systems & reference architectures showcase
+├── index.html                  Home: dual-track positioning, verified track record,
+│                               focus areas, career arc, selected systems, writing, connect
+├── projects.html               Systems & reference architectures showcase (7 public repos)
 ├── writing/
-│   ├── index.html              List of essays
+│   ├── index.html              Essay index
+│   ├── feed.xml                RSS / Atom feed
 │   ├── usage-is-not-quality.html
+│   ├── read-freely-write-carefully.html
 │   ├── a-second-model-is-a-critic.html
-│   └── read-freely-write-carefully.html
-├── 404.html                    Served by GitHub Pages for any missing path
+│   ├── cheap-models-are-expensive.html
+│   ├── a-partner-not-a-button.html
+│   ├── write-your-own-prompts.html
+│   └── ai-is-not-a-coding-tool.html
+├── 404.html                    Served by GitHub Pages for missing paths (noindex)
+├── robots.txt                  Crawl directives and sitemap location
+├── sitemap.xml                 Indexable page and essay URLs
 ├── assets/
-│   ├── site.css                The only stylesheet (light and dark mode)
+│   ├── site.css                Single stylesheet (light and dark mode, WCAG AA+ contrast)
 │   └── og.png                  Open Graph preview image, 1200 × 630
 ├── favicon.svg                 "UT" monogram
-├── scripts/check_links.py      Offline check that every internal link resolves
+├── scripts/check_links.py      Offline check that every internal link, fragment, OG URL, and sitemap entry resolves
 ├── .htmlvalidate.json          html-validate configuration
-├── .github/workflows/checks.yml  CI: HTML validation and link check
-├── docs/WHY.md                 Why it's built this way
-├── .nojekyll                   Tells GitHub Pages not to run Jekyll
-└── LICENSE                     MIT, for the code
+├── .github/workflows/checks.yml  CI: HTML validation and offline link check
+├── docs/WHY.md                 Design choices and verification notes
+├── .nojekyll                   Disables Jekyll processing on GitHub Pages
+└── LICENSE                     MIT licence for code
 ```
 
 ## Preview locally
@@ -34,41 +41,39 @@ Plain HTML and one stylesheet. No build step, no framework, no JavaScript, no tr
 From the repository root:
 
 ```sh
-python -m http.server 8000
+python3 -m http.server 8000
 ```
 
 Then open <http://localhost:8000>.
 
-Why a local server rather than opening the files directly? Folder links such as `writing/` and the root-relative links in `404.html` only resolve over HTTP. Python's server does not serve `404.html` for missing paths the way GitHub Pages does, so open <http://localhost:8000/404.html> to see it.
+Using a local HTTP server ensures folder URLs such as `writing/` and root-relative links in `404.html` and `<link rel="alternate" ... href="/writing/feed.xml">` resolve identically to GitHub Pages. Open <http://localhost:8000/404.html> directly to inspect the 404 page.
 
 ## Checks
 
 ```sh
 npx --yes html-validate@11.16.1 index.html projects.html 404.html writing/*.html
-python scripts/check_links.py
+python3 scripts/check_links.py
 ```
 
-The first validates every page against html-validate's recommended rules. The second reads every page from disk and confirms that each internal link, fragment and same-site Open Graph URL points at something that exists. It needs only the Python standard library and does not fetch external links. CI runs both on every push to `main` and on pull requests.
-
-Accessibility was checked with [axe-core](https://github.com/dequelabs/axe-core) (WCAG 2.2 A and AA rules plus best practice) on every page, in light and dark colour schemes, at 1280px and 390px wide. That check is not in CI yet.
+The first validates every HTML page against `html-validate`'s recommended rules (including structured JSON-LD metadata and SVG accessibility). The second reads every page and `sitemap.xml` from disk to confirm every internal link, `#fragment`, same-site Open Graph URL, and sitemap entry points at an existing file without making network requests.
 
 ## Adding an essay
 
-1. Copy an existing page in `writing/` and change the title, meta description, canonical URL, Open Graph tags, byline and body.
-2. Keep the "Sources" section and the closing "Related project" link.
-3. Add the essay to `writing/index.html` and to the Writing section of `index.html`.
-4. Run the checks above.
+1. Copy an existing page in `writing/` and update the title, meta description, canonical URL, Open Graph tags, byline, and body.
+2. Keep the "Sources" section and closing "Related project" callout.
+3. Add the essay to `writing/index.html`, `writing/feed.xml`, `sitemap.xml`, and (when featured) `index.html`.
+4. Run `html-validate` and `scripts/check_links.py`.
 
 ## Publishing
 
-This is a GitHub Pages user site. In the repository settings, under Pages, deploy from the `main` branch and the root folder. The site then appears at `https://dsugurtuna.github.io`.
+This is a GitHub Pages user site deployed from the `main` branch root at `https://dsugurtuna.github.io`.
 
 ## Licence
 
-- **Code** (HTML structure, CSS and scripts): MIT. See [LICENSE](LICENSE).
-- **Content** (the essays and other writing on the site): © 2026 Ugur Tuna. All rights reserved.
+- **Code** (HTML structure, CSS, and scripts): MIT. See [LICENSE](LICENSE).
+- **Content** (essays and portfolio text): © 2026 Ugur Tuna. All rights reserved.
 
-References to public guidance in the essays are my own reading of it: unofficial; not government guidance.
+References to public guidance in the essays and reference kits are personal interpretations: unofficial and not government guidance.
 
 ---
 

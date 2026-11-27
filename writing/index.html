@@ -4,25 +4,92 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Essays on AI – Ugur Tuna</title>
-  <meta name="description" content="Essays on AI by Ugur Tuna: prompts, human judgement, frontier models, using AI beyond coding, evaluation, model critique and agent controls.">
+  <meta name="description" content="Practitioner essays on AI by Ugur Tuna: evaluation quality over usage metrics, runtime agent controls, critique vs verification, prompt specifications, human judgement, non-coding governance, and tiered routing TCO.">
   <meta name="author" content="Ugur Tuna">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://dsugurtuna.github.io/writing/">
+  <link rel="alternate" type="application/rss+xml" title="Ugur Tuna Writing" href="/writing/feed.xml">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ugur Tuna">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Essays on AI – Ugur Tuna">
-  <meta property="og:description" content="Essays on AI by Ugur Tuna: prompts, human judgement, frontier models, using AI beyond coding, evaluation, model critique and agent controls.">
+  <meta property="og:description" content="Practitioner essays on measuring AI roll-outs, runtime agent controls, model evaluation, prompt specifications, non-coding governance, and total cost of routing.">
   <meta property="og:url" content="https://dsugurtuna.github.io/writing/">
   <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Ugur Tuna. I build AI systems, and the controls that make them safe to use.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Essays on AI – Ugur Tuna">
+  <meta name="twitter:description" content="Practitioner essays on AI evaluation, agentic runtime controls, model routing TCO, and keeping human judgement in charge.">
+  <meta name="twitter:image" content="https://dsugurtuna.github.io/assets/og.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Essays on AI – Ugur Tuna",
+    "description": "Practitioner essays on AI evaluation, agentic runtime controls, model routing TCO, and keeping human judgement in charge.",
+    "url": "https://dsugurtuna.github.io/writing/",
+    "inLanguage": "en-GB",
+    "author": {
+      "@type": "Person",
+      "name": "Ugur Tuna",
+      "url": "https://dsugurtuna.github.io/",
+      "sameAs": [
+        "https://github.com/dsugurtuna",
+        "https://www.linkedin.com/in/ugurtuna"
+      ]
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Usage is not quality: what to measure when you roll out AI",
+        "url": "https://dsugurtuna.github.io/writing/usage-is-not-quality.html",
+        "datePublished": "2026-09-30"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Read freely, write carefully: controls for AI agents that act",
+        "url": "https://dsugurtuna.github.io/writing/read-freely-write-carefully.html",
+        "datePublished": "2026-09-30"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "A second model is a critic, not a verifier",
+        "url": "https://dsugurtuna.github.io/writing/a-second-model-is-a-critic.html",
+        "datePublished": "2026-09-30"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Why you should write your own prompts",
+        "url": "https://dsugurtuna.github.io/writing/write-your-own-prompts.html",
+        "datePublished": "2026-11-22"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "A partner, not a button: keeping judgement in AI workflows",
+        "url": "https://dsugurtuna.github.io/writing/a-partner-not-a-button.html",
+        "datePublished": "2026-11-22"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Beyond code: what most people actually need from AI",
+        "url": "https://dsugurtuna.github.io/writing/ai-is-not-a-coding-tool.html",
+        "datePublished": "2026-11-22"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Token price is a trap: pricing AI routing by total cost",
+        "url": "https://dsugurtuna.github.io/writing/cheap-models-are-expensive.html",
+        "datePublished": "2026-11-22"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -38,60 +105,65 @@
           <li><a href="../">Home</a></li>
           <li><a href="../projects.html">Systems</a></li>
           <li><a href="./" aria-current="page">Writing</a></li>
+          <li><a href="../#contact">Connect</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <header class="page-head wrap">
+    <div class="page-head wrap">
       <p class="eyebrow">Writing</p>
       <h1>Essays on AI.</h1>
-      <p class="lede">My views on working well with AI, keeping human judgement in charge, choosing the right models, and building checks you can trust.</p>
-    </header>
+      <p class="lede">Practitioner notes on measuring roll-outs beyond vanity telemetry, controlling agents that act, separating critique from verification, and pricing model routing by total operational cost. Subscribe via <a href="/writing/feed.xml">RSS feed</a> or inspect the <a href="../projects.html#core-systems">open-source systems</a> behind these essays.</p>
+    </div>
 
     <section class="section" aria-labelledby="essays-title">
       <div class="wrap section-grid">
         <div class="section-head">
           <h2 id="essays-title">Essays</h2>
+          <p>Ordered with systems, evaluation, and runtime control notes first, followed by workflow and economics pieces.</p>
         </div>
-        <ul class="essay-list">
-          <li>
-            <h3><a href="write-your-own-prompts.html">Why you should write your own prompts</a></h3>
-            <p>Prompt libraries and prompt generators save a minute of typing and cost you your understanding of what the AI actually produced.</p>
-            <p class="essay-meta">November 2026 · 3 minute read · Related: <a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval</a></p>
-          </li>
-          <li>
-            <h3><a href="a-partner-not-a-button.html">Building a working relationship with AI</a></h3>
-            <p>An AI model is closer to a persona you learn to work with over time. Handing everything to full automation turns you into a button-clicker.</p>
-            <p class="essay-meta">November 2026 · 5 minute read · Related: <a href="https://github.com/dsugurtuna/agent-guardrails">agent-guardrails</a></p>
-          </li>
-          <li>
-            <h3><a href="cheap-models-are-expensive.html">The hidden cost of cheap AI models</a></h3>
-            <p>Automation tools love fast, low-cost models because the API bill looks small. Once you count hallucinations and human checking, frontier models save both time and money.</p>
-            <p class="essay-meta">November 2026 · 4 minute read · Related: <a href="https://github.com/dsugurtuna/ai-systems-architecture">ai-systems-architecture</a></p>
-          </li>
-          <li>
-            <h3><a href="ai-is-not-a-coding-tool.html">Beyond code: what most people actually need from AI</a></h3>
-            <p>Mainstream tech coverage treats AI as if it existed mainly to write code. Most of its real value sits in strategy, learning, law and critical thinking.</p>
-            <p class="essay-meta">November 2026 · 6 minute read · Related: <a href="https://github.com/dsugurtuna/ai-assurance-kit">ai-assurance-kit</a></p>
-          </li>
-          <li>
-            <h3><a href="usage-is-not-quality.html">Usage is not quality: what to measure when you roll out AI</a></h3>
-            <p>Usage counts show who clicked. They do not show whether the work got better, or what it cost to check.</p>
-            <p class="essay-meta">September 2026 · 5 minute read · Related: <a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval</a></p>
-          </li>
-          <li>
-            <h3><a href="a-second-model-is-a-critic.html">A second model is a critic, not a verifier</a></h3>
-            <p>Asking one model to review another can improve a draft. It cannot tell you the draft is true.</p>
-            <p class="essay-meta">September 2026 · 5 minute read · Related: <a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval</a></p>
-          </li>
-          <li>
-            <h3><a href="read-freely-write-carefully.html">Read freely, write carefully: controls for AI agents that act</a></h3>
-            <p>An agent that reads can mislead you. An agent that writes or sends can do something you cannot take back.</p>
-            <p class="essay-meta">September 2026 · 6 minute read · Related: <a href="https://github.com/dsugurtuna/agent-guardrails">agent-guardrails</a></p>
-          </li>
-        </ul>
+        <div>
+          <ul class="essay-list">
+            <li>
+              <h3><a href="usage-is-not-quality.html">Usage is not quality: what to measure when you roll out AI</a></h3>
+              <p>Active-user telemetry tracks exposure, not value. Define task criteria upfront, isolate claims against cited text, and put checking effort in the same table as quality.</p>
+              <p class="essay-meta"><time datetime="2026-09-30">30 September 2026</time> · 5 minute read · System: <a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval</a></p>
+            </li>
+            <li>
+              <h3><a href="read-freely-write-carefully.html">Read freely, write carefully: controls for AI agents that act</a></h3>
+              <p>Authorise tool calls in code outside the model using allow/draft/approve/block policies, SQLite atomic limits, execution-time re-validation, hash-chained audit logs, and kill switches.</p>
+              <p class="essay-meta"><time datetime="2026-09-30">30 September 2026</time> · 6 minute read · System: <a href="https://github.com/dsugurtuna/agent-guardrails">agent-guardrails</a></p>
+            </li>
+            <li>
+              <h3><a href="a-second-model-is-a-critic.html">A second model is a critic, not a verifier</a></h3>
+              <p>Model critique improves drafts, but shared blind spots mean agreement is not proof. Separate writers from cross-family graders, isolate cited passages, and check Cohen’s κ against human labels.</p>
+              <p class="essay-meta"><time datetime="2026-09-30">30 September 2026</time> · 5 minute read · System: <a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval</a></p>
+            </li>
+            <li>
+              <h3><a href="write-your-own-prompts.html">Why you should write your own prompts</a></h3>
+              <p>Borrowed mega-prompts hide silent assumptions and blind self-refinement degrades code. Write plain, versioned prompt specifications and co-evolve a fixed test suite beside them.</p>
+              <p class="essay-meta"><time datetime="2026-11-22">22 November 2026</time> · 3 minute read · System: <a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval</a></p>
+            </li>
+            <li>
+              <h3><a href="a-partner-not-a-button.html">A partner, not a button: keeping judgement in AI workflows</a></h3>
+              <p>Frequent approval pop-ups breed rubber-stamping fatigue. Replace generic dialogs with deterministic automation for plumbing, reversible draft mode for judgement, and full payload previews.</p>
+              <p class="essay-meta"><time datetime="2026-11-22">22 November 2026</time> · 3 minute read · System: <a href="https://github.com/dsugurtuna/agent-guardrails">agent-guardrails</a></p>
+            </li>
+            <li>
+              <h3><a href="ai-is-not-a-coding-tool.html">Beyond code: what most people actually need from AI</a></h3>
+              <p>Five-sixths of conversational AI outputs sit outside software engineering, in memos, analysis, and policy—where there is no compiler and governance relies on clear YAML boundaries.</p>
+              <p class="essay-meta"><time datetime="2026-11-22">22 November 2026</time> · 3 minute read · System: <a href="https://github.com/dsugurtuna/ai-assurance-kit">ai-assurance-kit</a></p>
+            </li>
+            <li>
+              <h3><a href="cheap-models-are-expensive.html">Token price is a trap: pricing AI routing by total cost</a></h3>
+              <p>Token rate cards hide checking and rework costs while blind all-frontier routing overpays. Enforce residency gates first, then choose model mixes on evaluation evidence and total cost.</p>
+              <p class="essay-meta"><time datetime="2026-11-22">22 November 2026</time> · 4 minute read · System: <a href="https://github.com/dsugurtuna/ai-systems-architecture">ai-systems-architecture</a></p>
+            </li>
+          </ul>
+          <p class="more"><a href="/writing/feed.xml">RSS feed for all essays</a></p>
+        </div>
       </div>
     </section>
   </main>
@@ -100,8 +172,10 @@
     <div class="wrap">
       <p class="disclaimer">Personal portfolio and open-source reference work. Views are my own.</p>
       <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/ugurtuna">LinkedIn</a></li>
         <li><a href="https://github.com/dsugurtuna">GitHub</a></li>
         <li><a href="https://github.com/dsugurtuna/dsugurtuna.github.io">Source for this site</a></li>
+        <li><a href="/writing/feed.xml">RSS feed</a></li>
       </ul>
       <p>© 2026 Ugur Tuna. Code under the MIT licence. Words all rights reserved.</p>
     </div>

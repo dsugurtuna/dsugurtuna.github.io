@@ -3,26 +3,69 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The hidden cost of cheap AI models – Ugur Tuna</title>
-  <meta name="description" content="Automation tools love fast, low-cost models because the API bill looks small. Once you count hallucinations and human checking, frontier models save both time and money.">
+  <title>Token price is a trap: pricing AI routing by total cost – Ugur Tuna</title>
+  <meta name="description" content="Token invoices hide human checking and rework costs, while blind all-frontier routing overpays. How to evaluate tiered AI routing by total operational cost and residency.">
   <meta name="author" content="Ugur Tuna">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://dsugurtuna.github.io/writing/cheap-models-are-expensive.html">
+  <link rel="alternate" type="application/rss+xml" title="Ugur Tuna Writing" href="https://dsugurtuna.github.io/writing/feed.xml">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Ugur Tuna">
   <meta property="og:locale" content="en_GB">
-  <meta property="og:title" content="The hidden cost of cheap AI models">
-  <meta property="og:description" content="Automation tools love fast, low-cost models because the API bill looks small. Once you count hallucinations and human checking, frontier models save both time and money.">
+  <meta property="og:title" content="Token price is a trap: pricing AI routing by total cost">
+  <meta property="og:description" content="Token invoices hide human checking and rework, while blind all-frontier routing overpays. Price tiered AI routing by total operational cost.">
   <meta property="og:url" content="https://dsugurtuna.github.io/writing/cheap-models-are-expensive.html">
   <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Ugur Tuna. I build AI systems, and the controls that make them safe to use.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Token price is a trap: pricing AI routing by total cost">
+  <meta name="twitter:description" content="Price AI routing by inference, human checking, and downstream rework—not token rate cards alone.">
+  <meta name="twitter:image" content="https://dsugurtuna.github.io/assets/og.png">
+  <meta property="article:published_time" content="2026-11-22T00:00:00Z">
+  <meta property="article:modified_time" content="2026-11-27T00:00:00Z">
+  <meta property="article:author" content="Ugur Tuna">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Token price is a trap: pricing AI routing by total cost",
+    "description": "Token invoices hide human checking and rework costs, while blind all-frontier routing overpays. How to evaluate tiered AI routing by total operational cost and residency.",
+    "url": "https://dsugurtuna.github.io/writing/cheap-models-are-expensive.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://dsugurtuna.github.io/writing/cheap-models-are-expensive.html"
+    },
+    "image": "https://dsugurtuna.github.io/assets/og.png",
+    "datePublished": "2026-11-22",
+    "dateModified": "2026-11-27",
+    "inLanguage": "en-GB",
+    "author": {
+      "@type": "Person",
+      "name": "Ugur Tuna",
+      "url": "https://dsugurtuna.github.io/",
+      "sameAs": [
+        "https://github.com/dsugurtuna",
+        "https://www.linkedin.com/in/ugurtuna"
+      ]
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Ugur Tuna",
+      "url": "https://dsugurtuna.github.io/"
+    },
+    "isPartOf": {
+      "@type": "Blog",
+      "name": "Essays on AI – Ugur Tuna",
+      "url": "https://dsugurtuna.github.io/writing/"
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -38,6 +81,7 @@
           <li><a href="../">Home</a></li>
           <li><a href="../projects.html">Systems</a></li>
           <li><a href="./">Writing</a></li>
+          <li><a href="../#contact">Connect</a></li>
         </ul>
       </nav>
     </div>
@@ -45,53 +89,106 @@
 
   <main id="main">
     <article class="wrap essay">
-      <header class="essay-head">
+      <div class="essay-head">
         <p class="eyebrow"><a href="./">Writing</a></p>
-        <h1>The hidden cost of cheap AI models</h1>
-        <p class="dek">Automation tools love fast, low-cost models because the API bill looks small. Once you count hallucinations and human checking, frontier models save both time and money.</p>
-        <p class="byline">Ugur Tuna · November 2026 · 4 minute read</p>
-      </header>
+        <h1>Token price is a trap: pricing AI routing by total cost</h1>
+        <p class="dek">Comparing models by price per million tokens distorts architecture decisions in both directions: cheap models hide rework costs, while all-frontier routing overpays on narrow traffic.</p>
+        <p class="byline">Ugur Tuna · <time datetime="2026-11-22">22 November 2026</time> · 4 minute read</p>
+      </div>
 
       <div class="prose">
-        <p>Almost every automated AI system or agent platform tries to steer you towards smaller, faster, cheaper models. It is easy to see why. Token prices sit right there on the monthly cloud bill, and cutting that number by eighty per cent looks like an instant win in any budget meeting.</p>
-        <p>In most real work, that saving is an illusion. Lowering the quality of the model inside an automated workflow raises hallucination rates, introduces quiet reasoning slips, and creates far more cleanup work for the people who have to rely on the result. If you care about trust and want to save real time, a frontier model paired with careful human checking beats a cheap agent loop almost every day of the week.</p>
+        <p>In almost every AI rollout, someone opens the cloud bill and asks one of two extremes: “Why not swap to a tiny cheap model?” or “Why not send everything to our strongest frontier API?”</p>
+        <p>Both shortcuts fail because token rate cards ignore 85% to 99% of real operating expense. On judgement-heavy tasks, a weak model triggers line-by-line human re-audits that swamp API savings. On narrow, structured classification, running 100% frontier burns budget with zero quality gain. Sound architecture prices <strong>inference + human verification + downstream rework</strong> together, behind strict data-residency gates.</p>
 
-        <h2>Why small slips ruin multi-step workflows</h2>
-        <p>A model that gets nineteen things right out of twenty sounds good enough when you are asking a quick question in chat. Automated agents do not stop at one step, though. They break a job into ten, twenty or fifty steps in a row: reading documents, picking tools, pulling numbers, and writing a summary.</p>
-        <p>Across a chain of steps, small failure rates pile up fast:</p>
+        <h2>Small failure rates compound—and weak models rarely hedge</h2>
+        <p>A 5% error rate sounds tolerable in one-shot chat. Across automated workflows that plan, retrieve, invoke tools, and draft across ten to fifty steps, step errors multiply fast <a href="#src-3">[3]</a>:</p>
         <ul>
-          <li>At 99% accuracy per step, nine out of ten ten-step runs finish cleanly, and roughly six in ten survive fifty steps.</li>
-          <li>Drop to a cheaper model at 95% per step, and four out of ten runs fail inside just ten steps.</li>
-          <li>Stretch that 95% model across fifty steps, and fewer than one in twelve runs make it to the end without an error.</li>
+          <li>At 99% reliability per step, 90.4% of ten-step runs and roughly 60.5% of fifty-step runs finish cleanly.</li>
+          <li>At 95% per step, 59.9% survive ten steps—and only 7.7% complete fifty steps without a failure.</li>
         </ul>
-        <p>What makes weak models harder to handle is that they rarely say “I am not sure.” Across recent reliability tests of fifteen models from the major labs, smaller, low-cost models were heavily overconfident when wrong and scored worse than a coin toss at telling their own right answers from their mistakes. Worse still, in customer-service tests, the single most common safety mistake was getting money wrong: wrong charges and wrong refunds.</p>
+        <p>Lower accuracy would be easy to route around if smaller models flagged uncertainty reliably. Instead, they fail with total confidence. In an ICML 2026 study of fifteen models across two years, Stephan Rabanser, Sayash Kapoor, Arvind Narayanan, and colleagues tested smaller “efficient” models such as GPT-4o mini and Claude Haiku <a href="#src-1">[1]</a>. Calibration error reached 0.54 to 0.67, versus 0.07 to 0.11 for frontier models such as Claude Opus 4.7 and GPT-5.5. On separating right answers from wrong ones, cheap models scored below chance (0.36 to 0.42 AUROC against 0.70 to 0.72). Across all models, financial errors—wrong charges or refunds—were the commonest safety failure.</p>
 
         <h2>The checking bill nobody puts on the slide</h2>
-        <p>Now compare the real cost of doing a serious piece of work. Say a frontier model costs thirty pence to read a stack of reports and draft an analysis, while a small, fast model costs three pence. On the API invoice, the small model wins ten to one.</p>
-        <p>Then a human specialist sits down to check the page. If the cheap model invented one figure, misread one condition, or quietly forgot an instruction halfway through the run, the reviewer cannot simply fix one sentence and move on. Trust in the draft is gone. They now have to open every source document and check the whole thing line by line. Forty minutes of a senior person’s afternoon costs tens of pounds in real staff time, wiping out the tiny saving on tokens many times over.</p>
-        <p>In one telling audit of an autonomous research agent, the system wrote a smooth, confident paper claiming it had made model training more efficient, when its own code had actually used nearly a quarter more computing power and taken longer to run. Finding that lie took human experts hours of digging through logs, roughly as long as doing the work themselves. Smooth text that takes hours to untangle saves no time at all.</p>
+        <p>Once a reviewer finds one invented figure or dropped clause, trust in the rest of the draft vanishes. They cannot patch one line; they must re-check every source. Razeen Rasheed and colleagues documented a sharp example in February 2026 <a href="#src-2">[2]</a>. Auditing an autonomous research agent, evaluators found a fluent paper claiming training efficiency gains when its code actually burned 23% more compute and 18% more wall-clock time—leaving human experts hours of log debugging.</p>
 
-        <h2>Frontier models first, human eyes always</h2>
-        <p>Small, fast models do have a sensible home in simple background jobs where plain code can check every answer straight away, such as sorting incoming messages into a few fixed labels or pulling dates out of a standard form.</p>
-        <p>Anywhere the task involves judgement, long instructions, real money or someone’s trust, start with the strongest frontier model you can run. Even frontier models are not error-free; their raw scores have climbed much faster than their day-to-day reliability on open-ended tasks, and they can still write very convincing mistakes when tying complex sources together. That is why the winning setup has two parts working together: a frontier model to keep quality high and hallucinations low, and attentive human eyes checking the output before anything important leaves your desk.</p>
+        <h2>Pricing three routing regimes properly</h2>
+        <p>Because neither “buy cheap everywhere” nor “run frontier everywhere” works across workloads, <a href="https://github.com/dsugurtuna/ai-systems-architecture">ai-systems-architecture</a> evaluates residency gates alongside full monthly TCO. The table below compares synthetic assumptions across three bundled blueprints (illustrative planning parameters, not live vendor quotes):</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Synthetic regime</th>
+              <th scope="col">Routing option</th>
+              <th scope="col">Inference / mo</th>
+              <th scope="col">Review + rework / mo</th>
+              <th scope="col">Total / mo (status)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Sovereign briefing (25k/mo)</th>
+              <td>Public API vs Sovereign VPC frontier vs Self-hosted 70B</td>
+              <td>£450 vs £4,540 vs £9,337</td>
+              <td>£46,958 vs £46,958 vs £67,958</td>
+              <td>Public blocked; VPC £51,499 wins vs £77,295</td>
+            </tr>
+            <tr>
+              <th scope="row">Evidence copilot (15k/mo)</th>
+              <td>Small unverified (2% err) vs 70/30 frontier cascade</td>
+              <td>£527 vs £783</td>
+              <td>£58,938 vs £32,058</td>
+              <td>£59,465 (−£17.5k loss) vs £32,841 (+£9.2k)</td>
+            </tr>
+            <tr>
+              <th scope="row">Financial risk triage (120k/mo)</th>
+              <td>All-frontier vs 85/15 open-weights-to-frontier cascade</td>
+              <td>£2,718 vs £1,250</td>
+              <td>£38,100 vs £39,018</td>
+              <td>£40,818 vs £40,268 (cascade wins)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Three practical lessons stand out across those regimes:</p>
+        <ul>
+          <li><strong>Residency beats token price first:</strong> in the sovereign briefing workload, a £450/month public API fails sovereignty gates outright. Meanwhile, an error-prone self-hosted 70B cluster adds £21,000/month in rework, leaving Sovereign VPC frontier ahead at 8.8% inference vs 91.2% human effort.</li>
+          <li><strong>Unverified small models destroy ROI:</strong> in the evidence copilot regime, a £527/month small model with a 2.0% error rate triggers £58,938/month in review and rework—a £17,465/month net loss. Escalating complex 70% queries to grounded frontier restores positive net savings.</li>
+          <li><strong>Evaluation-gated cascades beat extremes:</strong> in financial triage, routing routine 85% cases to open weights and escalating 15% cuts inference spend by more than half (£1,250 vs £2,718) while lowering total cost. On narrow high-volume extraction where evals confirm parity and throughput amortises dedicated GPU and standby capacity, self-hosted open weights can win on both cost and latency (480 ms vs 1,350 ms p95).</li>
+        </ul>
+
+        <h2>Four rules for model routing</h2>
+        <ol>
+          <li><strong>Enforce residency and retention gates before pricing tokens:</strong> disqualify non-compliant endpoints upfront.</li>
+          <li><strong>Model total cost, never just API bills:</strong> include reviewer minutes and downstream error cost alongside inference.</li>
+          <li><strong>Choose model mixes on evaluation evidence:</strong> promote open-weights tiers or cascades only after fixed-set testing proves parity.</li>
+          <li><strong>Keep human backstops targeted:</strong> attach source links and confidence bounds so reviewers verify risky items rather than re-reading everything <a href="#src-1">[1]</a>.</li>
+        </ol>
       </div>
 
       <div class="essay-foot">
         <section class="sources" aria-labelledby="sources-title">
           <h2 id="sources-title">Sources</h2>
           <ol>
-            <li>Stephan Rabanser, Sayash Kapoor, Peter Kirgis, Kangheng Liu, Saiteja Utpala and Arvind Narayanan, <a href="https://arxiv.org/abs/2602.16666">Towards a Science of AI Agent Reliability</a>, Proceedings of ICML 2026 (arXiv:2602.16666).</li>
-            <li>Razeen A Rasheed, Somnath Banerjee, Animesh Mukherjee and Rima Hazra, <a href="https://arxiv.org/abs/2602.13855">From Fluent to Verifiable: Claim-Level Auditability for Deep Research Agents</a>, arXiv:2602.13855, 14 February 2026.</li>
-            <li>Khush Patel, Siva Surendira, Jithin George and Shreyas Kapale, <a href="https://arxiv.org/abs/2601.22290">The Six Sigma Agent</a>, arXiv:2601.22290, 29 January 2026.</li>
+            <li id="src-1">Stephan Rabanser, Sayash Kapoor, Peter Kirgis, Kangheng Liu, Saiteja Utpala, and Arvind Narayanan, <a href="https://arxiv.org/abs/2602.16666">Towards a Science of AI Agent Reliability</a>, Proceedings of ICML 2026 (arXiv:2602.16666).</li>
+            <li id="src-2">Razeen A Rasheed, Somnath Banerjee, Animesh Mukherjee, and Rima Hazra, <a href="https://arxiv.org/abs/2602.13855">From Fluent to Verifiable: Claim-Level Auditability for Deep Research Agents</a>, arXiv:2602.13855, 14 February 2026.</li>
+            <li id="src-3">Khush Patel, Siva Surendira, Jithin George, and Shreyas Kapale, <a href="https://arxiv.org/abs/2601.22290">The Six Sigma Agent</a>, arXiv:2601.22290, 29 January 2026.</li>
           </ol>
-          <p>The argument in this essay is my own. The studies above are listed as supporting reading behind specific points.</p>
+          <p>Views are my own. The studies above are cited behind specific findings; TCO figures reflect synthetic planning parameters in <code>ai-systems-architecture</code>, not live provider quotes.</p>
         </section>
 
         <section class="related" aria-labelledby="related-title">
-          <h2 id="related-title">Related reading &amp; project</h2>
-          <p><strong>ai-systems-architecture</strong> prices monthly inference alongside human checking and rework so teams can see when a cheaper model raises total cost. See also <a href="usage-is-not-quality.html">Usage is not quality</a>.</p>
+          <h2 id="related-title">Related reading &amp; systems</h2>
+          <p><strong>ai-systems-architecture</strong> validates residency, failover parity, and security gates alongside monthly inference, human review, and rework TCO across all four benchmark regimes. See also <a href="usage-is-not-quality.html">Usage is not quality</a> and explore all <a href="../projects.html#core-systems">open-source reference systems</a>.</p>
           <p class="repo-link"><a href="https://github.com/dsugurtuna/ai-systems-architecture">ai-systems-architecture on GitHub</a></p>
         </section>
+
+        <nav class="essay-nav" aria-label="Essay navigation">
+          <ul class="footer-links">
+            <li><a href="ai-is-not-a-coding-tool.html">Previous: Beyond code</a></li>
+            <li><a href="./">All essays</a></li>
+            <li><a href="../projects.html">Systems &amp; architectures</a></li>
+          </ul>
+        </nav>
       </div>
     </article>
   </main>
@@ -100,8 +197,10 @@
     <div class="wrap">
       <p class="disclaimer">Personal portfolio and open-source reference work. Views are my own.</p>
       <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/ugurtuna">LinkedIn</a></li>
         <li><a href="https://github.com/dsugurtuna">GitHub</a></li>
         <li><a href="https://github.com/dsugurtuna/dsugurtuna.github.io">Source for this site</a></li>
+        <li><a href="/writing/feed.xml">RSS feed</a></li>
       </ul>
       <p>© 2026 Ugur Tuna. Code under the MIT licence. Words all rights reserved.</p>
     </div>

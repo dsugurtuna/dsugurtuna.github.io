@@ -4,25 +4,68 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Why you should write your own prompts – Ugur Tuna</title>
-  <meta name="description" content="Prompt libraries and prompt generators save a minute of typing and cost you your understanding of what the AI actually produced.">
+  <meta name="description" content="Borrowed prompt libraries obscure assumptions and break regression discipline. Why writing your own specifications—and co-evolving fixed test cases—keeps humans in control.">
   <meta name="author" content="Ugur Tuna">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://dsugurtuna.github.io/writing/write-your-own-prompts.html">
+  <link rel="alternate" type="application/rss+xml" title="Ugur Tuna Writing" href="https://dsugurtuna.github.io/writing/feed.xml">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Ugur Tuna">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Why you should write your own prompts">
-  <meta property="og:description" content="Prompt libraries and prompt generators save a minute of typing and cost you your understanding of what the AI actually produced.">
+  <meta property="og:description" content="Borrowed prompt libraries obscure assumptions and break regression discipline. Why writing your own specifications—and co-evolving fixed test cases—keeps humans in control.">
   <meta property="og:url" content="https://dsugurtuna.github.io/writing/write-your-own-prompts.html">
   <meta property="og:image" content="https://dsugurtuna.github.io/assets/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Ugur Tuna. I build AI systems, and the controls that make them safe to use.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why you should write your own prompts">
+  <meta name="twitter:description" content="Borrowed prompt libraries obscure assumptions and break regression discipline.">
+  <meta name="twitter:image" content="https://dsugurtuna.github.io/assets/og.png">
+  <meta property="article:published_time" content="2026-11-22T00:00:00Z">
+  <meta property="article:modified_time" content="2026-11-27T00:00:00Z">
+  <meta property="article:author" content="Ugur Tuna">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why you should write your own prompts",
+    "description": "Borrowed prompt libraries obscure assumptions and break regression discipline. Why writing your own specifications—and co-evolving fixed test cases—keeps humans in control.",
+    "url": "https://dsugurtuna.github.io/writing/write-your-own-prompts.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://dsugurtuna.github.io/writing/write-your-own-prompts.html"
+    },
+    "image": "https://dsugurtuna.github.io/assets/og.png",
+    "datePublished": "2026-11-22",
+    "dateModified": "2026-11-27",
+    "inLanguage": "en-GB",
+    "author": {
+      "@type": "Person",
+      "name": "Ugur Tuna",
+      "url": "https://dsugurtuna.github.io/",
+      "sameAs": [
+        "https://github.com/dsugurtuna",
+        "https://www.linkedin.com/in/ugurtuna"
+      ]
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Ugur Tuna",
+      "url": "https://dsugurtuna.github.io/"
+    },
+    "isPartOf": {
+      "@type": "Blog",
+      "name": "Essays on AI – Ugur Tuna",
+      "url": "https://dsugurtuna.github.io/writing/"
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -38,6 +81,7 @@
           <li><a href="../">Home</a></li>
           <li><a href="../projects.html">Systems</a></li>
           <li><a href="./">Writing</a></li>
+          <li><a href="../#contact">Connect</a></li>
         </ul>
       </nav>
     </div>
@@ -45,48 +89,70 @@
 
   <main id="main">
     <article class="wrap essay">
-      <header class="essay-head">
+      <div class="essay-head">
         <p class="eyebrow"><a href="./">Writing</a></p>
         <h1>Why you should write your own prompts</h1>
-        <p class="dek">Prompt libraries and prompt generators save a minute of typing and cost you your understanding of what the AI actually produced.</p>
-        <p class="byline">Ugur Tuna · November 2026 · 3 minute read</p>
-      </header>
+        <p class="dek">Borrowed prompt libraries hide the assumptions inside an output. Writing your own specification—and co-evolving test cases beside it—keeps you in control of the work.</p>
+        <p class="byline">Ugur Tuna · <time datetime="2026-11-22">22 November 2026</time> · 3 minute read</p>
+      </div>
 
       <div class="prose">
-        <p>Prompting is the main way we talk to AI, yet a whole small industry now tries to stop people doing it for themselves. Everywhere you look, someone is sharing a giant prompt library or offering a tool that writes your prompt before the AI writes your answer. I stay away from both.</p>
-        <p>When you copy someone else’s long prompt and paste it in, a neat page of text arrives in seconds. On the surface that feels efficient. The trouble starts the moment you try to judge whether the page is actually right, or when someone asks why a section took a certain angle. Because you did not write the instructions, you do not know what those instructions quietly pushed the model to assume, stretch or leave out. You have become a bystander in your own work.</p>
+        <p>A whole cottage industry sells giant prompt libraries and automated prompt generators. Both save a minute of typing. In practice, both create the same operational blind spot.</p>
+        <p>Paste someone else’s three-hundred-word prompt and tidy text arrives in seconds. The trouble starts when a colleague asks why one paragraph made an odd leap or skipped a caveat. Because you did not write the instructions, you do not know what they told the model to stretch or omit. You have become a bystander in your own work.</p>
 
-        <h2>Writing the prompt is how you work out what you mean</h2>
-        <p>Most of us do not sit down at a desk with a finished thought ready to type. We find out what we really think by trying to put it into plain words and seeing where it sounds weak or incomplete. A blank prompt box asks a useful question: what am I actually trying to get done here, and what would count as a good result?</p>
-        <p>Skipping that step has a strange effect on the human mind. Even when someone feeds an AI their own notes to turn into a finished script, seeing a draft that is “close enough” on the screen can make it harder to hear what they would have said themselves. Once smooth, borrowed wording sits in front of you, your own voice gets crowded out. Editing becomes harder rather than easier because you are trying to rescue text you never fully owned.</p>
+        <h2>Writing the specification forces intent</h2>
+        <p>Drafting your own instructions forces three clear choices upfront: what sources the model may use, what constraints it must obey, and what counts as a failure. Skipping that step dulls judgement even on familiar material. In June 2026, writing researcher Patricia Taylor fed ChatGPT her own detailed outline and prior scripts <a href="#src-1">[1]</a>. Seeing smooth prose that felt “close enough” made it harder, not easier, to hear what she actually wanted to say.</p>
+        <p>At CHIWORK ’26, Kasia Głowicka documented a similar shift <a href="#src-2">[2]</a>. Practitioners relying on canned templates produced neat artefacts yet struggled to explain why one choice beat another. Rescuing borrowed prose takes longer than writing two plain, testable lines yourself.</p>
 
-        <h2>Playing with your prompt teaches you how the model behaves</h2>
-        <p>Writing two or three rough sentences of your own works very differently. The first reply comes back and misses part of what you wanted. You read it, spot the gap, change one instruction, and run it again. Maybe you tighten a vague word, add an example, or state a limit you forgot to mention.</p>
-        <p>That back-and-forth play is where real understanding comes from. After a few tries, you start to see why the model gave you that output. You notice where it takes shortcuts, where it sounds confident without facts, and which rules it tends to drop when the task gets long. People who only pick from ready-made prompts often produce tidy results without being able to explain why one version works and another fails. Little by little, they stop acting as creators and turn into passive selectors.</p>
-        <p>The same problem shows up when people ask an AI to “improve” a draft over and over without putting their own thinking back in. In recent tests across seven models, telling an AI to keep improving its own code across twelve rounds without fresh human direction broke almost all of the working answers and made the code nearly ten times longer. Asking it to make ideas “more novel” without clear guidance simply piled on buzzwords while making the ideas less practical. Without a human steering each step, repetition just drifts.</p>
+        <h2>Blind “improve this” loops break code and reasoning</h2>
+        <p>Handing iteration back to the model without fresh human criteria fails just as badly. In an EMNLP 2026 study, Shashidhar Reddy Javaji, Bhavul Gauri, and Zining Zhu tested seven models over twelve self-refinement turns with no new external checks <a href="#src-3">[3]</a>.</p>
+        <p>On Python coding tasks, unit-test pass rates fell from 40.7% on turn one to 2.5% by turn twelve. Claude Sonnet 4 dropped from 74.4% to 2.0%, while code length grew nearly tenfold. When asked to make ideas “more novel”, models multiplied buzzwords twenty-five times over while practical feasibility collapsed <a href="#src-3">[3]</a>. Without human failure criteria, repetition simply drifts.</p>
 
-        <h2>Own the production step</h2>
-        <p>Looking at a few example prompts when you first try a new tool is harmless, much like reading a good letter before writing your own. The mistake is living out of someone else’s template book.</p>
-        <p>Using AI well does not mean stepping back from how the work is made. It means staying right inside the production step. Write your own prompt in plain words, play with it until you see how the model responds, and check the result with eyes that know exactly what was asked for in the first place.</p>
+        <h2>Co-evolve the prompt and the test set</h2>
+        <p>Good prompting does not stop in a chat window. In CHI ’26 work on <em>Data-Prompt Co-Evolution</em>, Minjae Lee and Minsuk Kahng showed why prompts and test sets have to grow together <a href="#src-4">[4]</a>. Each time you spot an edge-case failure—a dropped null result, a mangled unit, an invented citation—you fix the instruction <em>and</em> promote that input into a fixed test suite.</p>
+        <p>For engineering teams, prompts belong in version control beside schemas and refusal rules. In <a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval</a>, each rubric file stamps its version and SHA-256 hash into every score record so edits stay traceable:</p>
+
+        <pre><code>prompts/claim_support.v1.md  # SHA-256 hashed in every report
+  1. Read ONLY the claim sentence and cited S1..Sn text.
+  2. Ignore outside world knowledge when grading traceability.
+  3. Output strict JSON: verdict, quoted_evidence, rationale.
+  4. Never guess on unparseable output: log as judge failure.</code></pre>
+
+        <h2>Four habits that keep you in charge</h2>
+        <ol>
+          <li><strong>Draft from scratch:</strong> state scope, permitted sources, output schema, and what the model must refuse to guess.</li>
+          <li><strong>Isolate every edit:</strong> change one rule at a time so you see what shifted the output.</li>
+          <li><strong>Never ask to “make it better”:</strong> name the exact defect and supply the counter-example.</li>
+          <li><strong>Version prompts beside tests:</strong> promote every surprise failure into a permanent regression check <a href="#src-4">[4]</a>.</li>
+        </ol>
+        <p>Reading examples on day one is fine. Keeping your own hands on the specification—and on the tests that verify it—is what makes AI output defensible.</p>
       </div>
 
       <div class="essay-foot">
         <section class="sources" aria-labelledby="sources-title">
           <h2 id="sources-title">Sources</h2>
           <ol>
-            <li>Patricia Taylor, <a href="https://www.insidehighered.com/opinion/views/2026/06/05/writing-cognitive-offloading-and-generative-ai-opinion">Writing, Cognitive Offloading and Generative AI</a>, <em>Inside Higher Ed</em>, 5 June 2026.</li>
-            <li>Kasia Głowicka, <em>The Space In-Between: Creative Skill and Cognitive Transitions in the Age of Prompt-Based AI</em>, CHIWORK ’26 Workshop (<a href="https://agency-and-skill.github.io/">workshop repository</a>).</li>
-            <li>Shashidhar Reddy Javaji, Bhavul Gauri and Zining Zhu, <em>Another Turn, Better Output? A Turn-Wise Analysis of Iterative LLM Prompting</em>, Proceedings of EMNLP 2026, pp. 53085 to 53110.</li>
-            <li>Minjae Lee and Minsuk Kahng, <a href="https://arxiv.org/abs/2510.12728">Data-Prompt Co-Evolution: Growing Test Sets to Refine LLM Behavior</a>, Proceedings of CHI ’26 (arXiv:2510.12728).</li>
+            <li id="src-1">Patricia Taylor, <a href="https://www.insidehighered.com/opinion/views/2026/06/05/writing-cognitive-offloading-and-generative-ai-opinion">Writing, Cognitive Offloading and Generative AI</a>, <em>Inside Higher Ed</em>, 5 June 2026.</li>
+            <li id="src-2">Kasia Głowicka, <em>The Space In-Between: Creative Skill and Cognitive Transitions in the Age of Prompt-Based AI</em>, CHIWORK ’26 Workshop (<a href="https://agency-and-skill.github.io/">workshop repository</a>).</li>
+            <li id="src-3">Shashidhar Reddy Javaji, Bhavul Gauri, and Zining Zhu, <em>Another Turn, Better Output? A Turn-Wise Analysis of Iterative LLM Prompting</em>, Proceedings of EMNLP 2026, pp. 53085–53110.</li>
+            <li id="src-4">Minjae Lee and Minsuk Kahng, <a href="https://arxiv.org/abs/2510.12728">Data-Prompt Co-Evolution: Growing Test Sets to Refine LLM Behavior</a>, Proceedings of CHI ’26 (arXiv:2510.12728).</li>
           </ol>
-          <p>The argument in this essay is my own. The papers above are listed as supporting reading behind specific points.</p>
+          <p>Views are my own. The papers above are cited behind specific findings.</p>
         </section>
 
         <section class="related" aria-labelledby="related-title">
-          <h2 id="related-title">Related reading &amp; project</h2>
-          <p>See <a href="usage-is-not-quality.html">Usage is not quality</a> and <strong>evidence-synthesis-eval</strong>, which tests prompt changes against fixed cases for faithfulness, coverage, misstatements and checking effort.</p>
+          <h2 id="related-title">Related reading &amp; systems</h2>
+          <p>See <a href="usage-is-not-quality.html">Usage is not quality</a> and <strong>evidence-synthesis-eval</strong>, which versions evaluation prompts by hash and tests prompt edits against fixed cases for faithfulness, coverage, misstatements, and human checking time. Explore all <a href="../projects.html#core-systems">open-source reference systems</a>.</p>
           <p class="repo-link"><a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval on GitHub</a></p>
         </section>
+
+        <nav class="essay-nav" aria-label="Essay navigation">
+          <ul class="footer-links">
+            <li><a href="a-second-model-is-a-critic.html">Previous: A second model is a critic</a></li>
+            <li><a href="./">All essays</a></li>
+            <li><a href="a-partner-not-a-button.html">Next: A partner, not a button</a></li>
+          </ul>
+        </nav>
       </div>
     </article>
   </main>
@@ -95,8 +161,10 @@
     <div class="wrap">
       <p class="disclaimer">Personal portfolio and open-source reference work. Views are my own.</p>
       <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/ugurtuna">LinkedIn</a></li>
         <li><a href="https://github.com/dsugurtuna">GitHub</a></li>
         <li><a href="https://github.com/dsugurtuna/dsugurtuna.github.io">Source for this site</a></li>
+        <li><a href="/writing/feed.xml">RSS feed</a></li>
       </ul>
       <p>© 2026 Ugur Tuna. Code under the MIT licence. Words all rights reserved.</p>
     </div>

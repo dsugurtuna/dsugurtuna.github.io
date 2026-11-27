@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ugur Tuna – Essays on AI</title>
+    <link>https://dsugurtuna.github.io/writing/</link>
+    <description>Practitioner essays on AI evaluation, agentic runtime controls, model routing TCO, and keeping human judgement in charge.</description>
+    <language>en-GB</language>
+    <lastBuildDate>Fri, 27 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dsugurtuna.github.io/writing/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Usage is not quality: what to measure when you roll out AI</title>
+      <link>https://dsugurtuna.github.io/writing/usage-is-not-quality.html</link>
+      <guid isPermaLink="true">https://dsugurtuna.github.io/writing/usage-is-not-quality.html</guid>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+      <description>Active-user telemetry tracks exposure, not value. Define task criteria upfront, isolate claims against cited text, and put checking effort in the same table as quality.</description>
+    </item>
+    <item>
+      <title>Read freely, write carefully: controls for AI agents that act</title>
+      <link>https://dsugurtuna.github.io/writing/read-freely-write-carefully.html</link>
+      <guid isPermaLink="true">https://dsugurtuna.github.io/writing/read-freely-write-carefully.html</guid>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+      <description>Authorise tool calls in code outside the model using allow/draft/approve/block policies, SQLite atomic limits, execution-time re-validation, hash-chained audit logs, and kill switches.</description>
+    </item>
+    <item>
+      <title>A second model is a critic, not a verifier</title>
+      <link>https://dsugurtuna.github.io/writing/a-second-model-is-a-critic.html</link>
+      <guid isPermaLink="true">https://dsugurtuna.github.io/writing/a-second-model-is-a-critic.html</guid>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+      <description>Model critique improves drafts, but shared blind spots mean agreement is not proof. Separate writers from cross-family graders, isolate cited passages, and check Cohen&#x27;s kappa against human labels.</description>
+    </item>
+    <item>
+      <title>Why you should write your own prompts</title>
+      <link>https://dsugurtuna.github.io/writing/write-your-own-prompts.html</link>
+      <guid isPermaLink="true">https://dsugurtuna.github.io/writing/write-your-own-prompts.html</guid>
+      <pubDate>Sun, 22 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Borrowed mega-prompts hide silent assumptions and blind self-refinement degrades code. Write plain, versioned prompt specifications and co-evolve a fixed test suite beside them.</description>
+    </item>
+    <item>
+      <title>A partner, not a button: keeping judgement in AI workflows</title>
+      <link>https://dsugurtuna.github.io/writing/a-partner-not-a-button.html</link>
+      <guid isPermaLink="true">https://dsugurtuna.github.io/writing/a-partner-not-a-button.html</guid>
+      <pubDate>Sun, 22 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Frequent approval pop-ups breed rubber-stamping fatigue. Replace generic dialogs with deterministic automation for plumbing, reversible draft mode for judgement, and full payload previews.</description>
+    </item>
+    <item>
+      <title>Beyond code: what most people actually need from AI</title>
+      <link>https://dsugurtuna.github.io/writing/ai-is-not-a-coding-tool.html</link>
+      <guid isPermaLink="true">https://dsugurtuna.github.io/writing/ai-is-not-a-coding-tool.html</guid>
+      <pubDate>Sun, 22 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Five-sixths of conversational AI outputs sit outside software engineering, in memos, analysis, and policy—where there is no compiler and governance relies on clear YAML boundaries.</description>
+    </item>
+    <item>
+      <title>Token price is a trap: pricing AI routing by total cost</title>
+      <link>https://dsugurtuna.github.io/writing/cheap-models-are-expensive.html</link>
+      <guid isPermaLink="true">https://dsugurtuna.github.io/writing/cheap-models-are-expensive.html</guid>
+      <pubDate>Sun, 22 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Token rate cards hide checking and rework costs while blind all-frontier routing overpays. Enforce residency gates first, then choose model mixes on evaluation evidence and total cost.</description>
+    </item>
+  </channel>
+</rss>

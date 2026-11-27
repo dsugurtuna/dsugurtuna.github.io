@@ -10,6 +10,7 @@
   <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://dsugurtuna.github.io/writing/a-second-model-is-a-critic.html">
+  <link rel="alternate" type="application/rss+xml" title="Ugur Tuna Writing" href="https://dsugurtuna.github.io/writing/feed.xml">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <meta property="og:type" content="article">
@@ -22,7 +23,49 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Ugur Tuna. I build AI systems, and the controls that make them safe to use.">
+  <meta property="article:published_time" content="2026-09-30T00:00:00Z">
+  <meta property="article:modified_time" content="2026-11-27T00:00:00Z">
+  <meta property="article:author" content="Ugur Tuna">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="A second model is a critic, not a verifier">
+  <meta name="twitter:description" content="Asking one model to review another can improve a draft. It cannot tell you the draft is true.">
+  <meta name="twitter:image" content="https://dsugurtuna.github.io/assets/og.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "A second model is a critic, not a verifier",
+    "description": "Asking one model to review another can improve a draft. It cannot tell you the draft is true. How to use a second model well, and how to verify against sources instead.",
+    "url": "https://dsugurtuna.github.io/writing/a-second-model-is-a-critic.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://dsugurtuna.github.io/writing/a-second-model-is-a-critic.html"
+    },
+    "image": "https://dsugurtuna.github.io/assets/og.png",
+    "datePublished": "2026-09-30",
+    "dateModified": "2026-11-27",
+    "inLanguage": "en-GB",
+    "author": {
+      "@type": "Person",
+      "name": "Ugur Tuna",
+      "url": "https://dsugurtuna.github.io/",
+      "sameAs": [
+        "https://github.com/dsugurtuna",
+        "https://www.linkedin.com/in/ugurtuna"
+      ]
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Ugur Tuna",
+      "url": "https://dsugurtuna.github.io/"
+    },
+    "isPartOf": {
+      "@type": "Blog",
+      "name": "Essays on AI – Ugur Tuna",
+      "url": "https://dsugurtuna.github.io/writing/"
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -38,6 +81,7 @@
           <li><a href="../">Home</a></li>
           <li><a href="../projects.html">Systems</a></li>
           <li><a href="./">Writing</a></li>
+          <li><a href="../#contact">Connect</a></li>
         </ul>
       </nav>
     </div>
@@ -45,12 +89,12 @@
 
   <main id="main">
     <article class="wrap essay">
-      <header class="essay-head">
+      <div class="essay-head">
         <p class="eyebrow"><a href="./">Writing</a></p>
         <h1>A second model is a critic, not a verifier</h1>
         <p class="dek">Asking one model to review another can improve a draft. It cannot tell you the draft is true.</p>
-        <p class="byline">Ugur Tuna · September 2026 · 5 minute read</p>
-      </header>
+        <p class="byline">Ugur Tuna · <time datetime="2026-09-30">30 September 2026</time> · 5 minute read</p>
+      </div>
 
       <div class="prose">
         <p>A common pattern in AI workflows goes like this. One model writes a draft. A second model reviews it. If the reviewer raises no concerns, the output is marked as checked.</p>
@@ -65,31 +109,56 @@
         <p>When a second model agrees with the first, it is tempting to read that as independent confirmation. It rarely is.</p>
         <p>Models share blind spots. They are trained on overlapping data with similar methods, and they can make the same mistakes on the same inputs. If both have learned the same wrong fact, they will agree about it. If a claim is fluent and plausible, a reviewing model will tend to find it plausible too. The errors that matter most are the ones that look right. Those are the errors a similar model is least likely to catch.</p>
         <p>The review set-up adds its own bias. A reviewer that reads the draft first starts from the draft’s framing. It is judging someone else’s answer, not working the problem from the sources. Agreement under those conditions tells you the draft is persuasive. It does not tell you it is correct.</p>
-        <p>The OWASP Top 10 for LLM Applications treats misinformation as a risk in its own right. The 2025 edition (LLM09:2025) recommends cross-checking output against trusted external sources, with human oversight for critical or sensitive information. The current 2026 edition (LLM07:2026) asks for claims to be grounded in authoritative, current sources before anyone acts on them. Both point to sources. Another model’s opinion is not a source.</p>
+        <p>The OWASP Top 10 for LLM Applications treats misinformation as a risk in its own right. The 2025 edition (LLM09:2025) recommends cross-checking output against trusted external sources, with human oversight for critical information <a href="#src-1">[1]</a>. The 2026 edition (LLM07:2026) asks for claims to be grounded in authoritative, current sources before anyone acts on them <a href="#src-2">[2]</a>. Both point to sources. Another model’s opinion is not a source.</p>
 
         <h2>If you want a second opinion, make it independent</h2>
         <p>There is a better way to use a second model. Ask it the original question, with the same sources, without showing it the first draft. Then compare the two answers.</p>
-        <p>Now disagreement is informative. Where two independent answers differ, there is something to look at: an ambiguous source, a hard judgement, or an error in one of them. That tells a reviewer where to spend their time.</p>
-        <p>Agreement between independent answers is still not proof. Shared blind spots do not disappear because the prompts are separate. A different model family and a different prompt may reduce them. They do not remove the need to check.</p>
+        <p>Now disagreement is informative. Where two independent answers differ, there is something to look at: an ambiguous source, a hard judgement, or an error in one of them. That tells a reviewer where to spend their time. Agreement between independent answers is still not proof, even across different model families and prompts, so it never removes the need to check.</p>
         <p>The same logic applies to people. A reviewer handed a polished draft and asked “is this OK?” is being asked to agree. A reviewer asked “what do the sources say about this question?” is being asked to think. The second request takes longer, and it is more likely to catch errors.</p>
 
-        <h2>Verify against the sources</h2>
-        <p>Verification means tracing each claim to evidence. In a summary of evidence, every material claim should point to a specific passage. Checking then has a clear shape: does the passage exist, and does it say what the claim says?</p>
-        <p>Some of this is mechanical, and plain code does it more reliably than a model. Quotations can be matched exactly against the source text. Citations can be resolved. Numbers can be compared. These checks are cheap, repeatable and not fooled by fluent writing.</p>
-        <p>Other parts need judgement, such as whether a paraphrase is fair or whether an omission matters. A model can help here as a triage tool, pointing a person towards the claims most likely to be wrong. If you use a model as a grader, first measure how often it agrees with people on your own material. The comparison that counts is still against the source, not against a second model’s view.</p>
+        <h2>Isolate the judge and measure agreement properly</h2>
+        <p>In <a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval</a>, three architectural boundaries keep model roles honest:</p>
 
-        <h2>A person decides</h2>
-        <p>Someone has to own the output. The AI Playbook for the UK Government sets out ten principles. One of them is that you have “meaningful human control at the right stages”. For AI-assisted analysis, one of those stages is before anyone relies on the result.</p>
-        <p>For that control to mean something, the person needs to see what was checked and what was not. A green tick that means “a second model said it was fine” hides exactly what they need to know. Show instead which claims were matched to sources, which were flagged, where independent answers disagreed, and what remains unverified.</p>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Model role</th>
+              <th scope="col">Input visibility</th>
+              <th scope="col">What its output proves</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Critique pass</th>
+              <td>Draft + brief + explicit criteria</td>
+              <td>Revision advice only; never quality evidence</td>
+            </tr>
+            <tr>
+              <th scope="row">Independent pass</th>
+              <td>Question + sources (no first draft)</td>
+              <td>Where answers diverge and need attention</td>
+            </tr>
+            <tr>
+              <th scope="row">Isolated grader</th>
+              <td>One claim + only its cited passage</td>
+              <td>Traceability to that source, calibrated by κ</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Three safeguards matter when grading traceability. First, bind the grader to a different model family from the writer (<code>--model-role grader=...</code>) and emit a warning whenever they share a provider. Second, restrict the claim grader to <em>only</em> the cited passage (<code>S1</code>): a statement that is true in pretraining memory but absent from <code>S1</code> fails traceability. Third, measure judge-human agreement on blinded items using Cohen’s kappa (κ) and inspect the full confusion matrix—so you distinguish harmless boundary noise (<code>partial</code> vs <code>unsupported</code>) from severe failures where a judge marks a <code>contradicted</code> claim as <code>supported</code>.</p>
+
+        <h2>Verify against the sources and keep a person in charge</h2>
+        <p>Verification means tracing each claim to evidence, using plain code for citations, exact quotations, and numbers—checks that are cheap, repeatable, and immune to fluent prose. Principle 4 of the AI Playbook for the UK Government asks for “meaningful human control at the right stages” <a href="#src-3">[3]</a>. Show reviewers which claims matched sources, which were flagged, where independent runs diverged, and what remains unverified—never a green tick meaning “a second model said it was fine”.</p>
 
         <h2>A practical pattern</h2>
         <ol>
           <li>Draft with citations to specific source passages.</li>
           <li>Critique against explicit criteria, then revise.</li>
           <li>Run deterministic checks on quotations, citations and numbers.</li>
-          <li>For higher-stakes questions, get an independent answer and compare.</li>
-          <li>A person reviews the flagged claims and a sample of the unflagged ones.</li>
-          <li>Record what was verified, what was not, and who decided.</li>
+          <li>For higher-stakes questions, get an independent answer from the sources alone and compare.</li>
+          <li>Use a cross-provider, source-isolated judge only after checking Cohen’s κ and the confusion matrix against people.</li>
+          <li>Have a person review flagged claims and a sample of unflagged ones, recording what was verified and who decided.</li>
         </ol>
         <p>Use the second model for what it is good at. Let it make the draft better. Do not let it tell you the draft is true.</p>
       </div>
@@ -98,18 +167,26 @@
         <section class="sources" aria-labelledby="sources-title">
           <h2 id="sources-title">Sources</h2>
           <ol>
-            <li>OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2025/LLM09_Misinformation.md">LLM09:2025 Misinformation</a>, OWASP Top 10 for LLM Applications 2025 (source text on GitHub). See “Cross-Verification and Human Oversight” under prevention and mitigation.</li>
-            <li>OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM07_Misinformation.md">LLM07:2026 Misinformation</a>, OWASP Top 10 for LLM Applications 2026 (source text on GitHub). See “Ground Claims Before Action” under prevention and mitigation.</li>
-            <li><a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government">AI Playbook for the UK Government</a>, GOV.UK. See principle 4, “You have meaningful human control at the right stages”.</li>
+            <li id="src-1">OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2025/LLM09_Misinformation.md">LLM09:2025 Misinformation</a>, OWASP Top 10 for LLM Applications 2025. See “Cross-Verification and Human Oversight”.</li>
+            <li id="src-2">OWASP GenAI Security Project, <a href="https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM07_Misinformation.md">LLM07:2026 Misinformation</a>, OWASP Top 10 for LLM Applications 2026. See “Ground Claims Before Action”.</li>
+            <li id="src-3"><a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government">AI Playbook for the UK Government</a>, GOV.UK. See principle 4, “You have meaningful human control at the right stages”.</li>
           </ol>
           <p>Views are my own. Where I refer to public guidance, this is my reading of it: unofficial; not government guidance.</p>
         </section>
 
         <section class="related" aria-labelledby="related-title">
-          <h2 id="related-title">Related project</h2>
-          <p><strong>evidence-synthesis-eval</strong> tests this on AI-written summaries of evidence. It compares a single drafting pass with a draft, critique and revise loop, and checks both against their sources. Citations are checked in plain code. Claim support, coverage and known pitfalls are graded by a judge model, and a separate command measures how often that judge agrees with human reviewers. The critic’s comments are logged as advice and never counted as evidence of quality.</p>
+          <h2 id="related-title">Related project &amp; systems</h2>
+          <p><strong>evidence-synthesis-eval</strong> tests this on AI-written evidence summaries: deterministic citation checks, source-isolated claim grading, cross-family model roles, blinded review packs, Cohen’s κ agreement matrices, and item-clustered bootstrap intervals. See all <a href="../projects.html#core-systems">open-source reference systems</a>.</p>
           <p class="repo-link"><a href="https://github.com/dsugurtuna/evidence-synthesis-eval">evidence-synthesis-eval on GitHub</a></p>
         </section>
+
+        <nav class="essay-nav" aria-label="Essay navigation">
+          <ul class="footer-links">
+            <li><a href="read-freely-write-carefully.html">Previous: Read freely, write carefully</a></li>
+            <li><a href="./">All essays</a></li>
+            <li><a href="write-your-own-prompts.html">Next: Why you should write your own prompts</a></li>
+          </ul>
+        </nav>
       </div>
     </article>
   </main>
@@ -118,8 +195,10 @@
     <div class="wrap">
       <p class="disclaimer">Personal portfolio and open-source reference work. Views are my own.</p>
       <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/ugurtuna">LinkedIn</a></li>
         <li><a href="https://github.com/dsugurtuna">GitHub</a></li>
         <li><a href="https://github.com/dsugurtuna/dsugurtuna.github.io">Source for this site</a></li>
+        <li><a href="/writing/feed.xml">RSS feed</a></li>
       </ul>
       <p>© 2026 Ugur Tuna. Code under the MIT licence. Words all rights reserved.</p>
     </div>
